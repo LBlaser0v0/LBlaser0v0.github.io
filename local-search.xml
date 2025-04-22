@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>draft</title>
+    <link href="/2025/04/22/pythonlearn/"/>
+    <url>/2025/04/22/pythonlearn/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Python学习记录"><a href="#Python学习记录" class="headerlink" title="Python学习记录"></a>Python学习记录</h1><h2 id="一、python中出现错误原因"><a href="#一、python中出现错误原因" class="headerlink" title="一、python中出现错误原因"></a>一、python中出现错误原因</h2><h3 id="1-输入错误"><a href="#1-输入错误" class="headerlink" title="1.输入错误"></a>1.输入错误</h3><p>print（”123“）#报错，中文引号<br>#注意：python中的符号都是要用英文模式下的</p><h3 id="2-缩进错误"><a href="#2-缩进错误" class="headerlink" title="2.缩进错误"></a>2.缩进错误</h3><p>print(123)<br>#注意:print要顶格写，否则就报错</p><h3 id="3-语法错误"><a href="#3-语法错误" class="headerlink" title="3.语法错误"></a>3.语法错误</h3><p>print(123)print (456)<br>#两个print不能写在同一行，一个print必须单独写一行，错误信息中遇到Syntax说明语法有问题</p><h3 id="4-命名错误"><a href="#4-命名错误" class="headerlink" title="4.命名错误"></a>4.命名错误</h3><p>print(SixStar)#错误原因：SixStar是字母，那么就是字符串，必须要加上引号，单引号或者双引号都可</p><h2 id="二、python调试方法"><a href="#二、python调试方法" class="headerlink" title="二、python调试方法"></a>二、python调试方法</h2><h3 id="1-debug的调试"><a href="#1-debug的调试" class="headerlink" title="1.debug的调试"></a>1.debug的调试</h3><p>&#x2F;# debug中代码为蓝色时表示是即将要运行的代表<br>&#x2F;# Show Execution Point显示执行的断点<br>&#x2F;# Step Into下一步<br>&#x2F;# Run to Cursor跳到下一个断点的位置<br>&#x2F;# 总结：可以通过debug调试看到程序执行的顺序</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>代码/python/学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>c语言复习计划</title>
     <link href="/2025/03/25/draft/"/>
     <url>/2025/03/25/draft/</url>
