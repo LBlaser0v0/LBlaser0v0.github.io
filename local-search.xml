@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>小八的Verilog学习笔记</title>
+    <link href="/2025/04/28/verilog%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <url>/2025/04/28/verilog%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Veriog学习笔记"><a href="#Veriog学习笔记" class="headerlink" title="Veriog学习笔记"></a>Veriog学习笔记</h1><p>module adder(<br>    input [1:0] a,&#x2F;&#x2F;模块内部的输入必须是线网类型。<br>    input [1:0] b,<br>    output [2:0] sum<br>    );<br>endmodule          </p><h2 id="1-Verilog模块"><a href="#1-Verilog模块" class="headerlink" title="1.Verilog模块"></a>1.Verilog模块</h2><p>&#x2F;&#x2F;对于模块的输出。不定义类型时，默认是线网类型，用assign输出。定义output reg [2:0]sum时，是寄存器类型，用过程块（always @（*））输出。<br>&#x2F;&#x2F;数据流的连续赋值（assign）的左值一定是线网类型；（过程块）<br> &#x2F;&#x2F;两者声明默认都是一位标量，表示多为用向量[x;y]进行说明，习惯上用x表示高位，y表示低位，如：[15:0]。<br>&#x2F;&#x2F;当然，也可以用[5,2]这个向量单独引出一个线网或寄存器中的几根线代表的数据，如定义 input [31:0] addr，可以用addr[5:2]引出他的四位数据线。</p><p>&#x2F;&#x2F;在模块外部，输入可以是寄存器，也可以是线网。<br>&#x2F;&#x2F;在模块外部，输出则必须是线网类型。</p><h2 id="2-Verilog符号语句"><a href="#2-Verilog符号语句" class="headerlink" title="2.Verilog符号语句"></a>2.Verilog符号语句</h2><p>&#x2F;&#x2F;$符号后指代的是系统函数，系统函数很多，要用到的不多，如$monitor&#x2F;$display用于显示&#x2F;监视信号值。<br>&#x2F;&#x2F;$monitor是自动循环执行的，不需要写在循环语句中。<br>&#x2F;&#x2F;$time用于显示执行这条语句时的仿真时刻。<br>&#x2F;&#x2F;用法：$display（$time,,”the result is %h”,c） &#x2F;&#x2F;display按照一定规定的时间显示变量的监视值 &#x2F;&#x2F;与c语言的语法很类似，%的格式化输出。<br>&#x2F;&#x2F;或%monitor（$time,,”the result is %h”,c）用monitor输出时，只有监视变量的值发生改变时，才打印监视结果。<br>&#x2F;&#x2F;输出为 0（这里是time函数输出的时间） the result is x(x是c计算的结果)</p><p>&#x2F;&#x2F;$finish 表示仿真结束，类似c语言中的exit（）函数。<br>&#x2F;&#x2F;#是延时符号，延时种类有很多。可以用于仿真现实中的各种操作延时。<br>&#x2F;&#x2F;(&#96;)符号说明一个编译指导，类似于c语言的#符号<br>&#x2F;&#x2F;用法<del>define not_date #1 将not_date定义为一个1ns的延时。<br>&#x2F;&#x2F;而</del>timescale用于说明仿真单位时间以及精度，延时单位基于此，每个仿真程序都必须提前定义。<br>&#x2F;&#x2F;用法~timescale 1ns&#x2F;1ps   要求前面单位比后面的大，如1ns &gt; 1ps</p><h2 id="3-Verilog数据类型"><a href="#3-Verilog数据类型" class="headerlink" title="3.Verilog数据类型"></a>3.Verilog数据类型</h2><p>&#x2F;&#x2F;verilog的三种数据类型：<br>&#x2F;&#x2F;net线网型：相当于导线，表示硬件单元之间的链接，且线网必须由其他部件单元的输出端来连续续驱动，本身不能储存信息，只能传输信息。<br>&#x2F;&#x2F;其数值多少由驱动元决定，没有驱动元则值为高阻态Z。多用于数据流建模的连续赋值。<br>&#x2F;&#x2F;reg寄存器类型：用来表示存储的部件，类似c语言的变量，既可以是标量，也可以是矢量。<br>&#x2F;&#x2F;行为模型中，寄存器的赋值必须在</p><p>&#x2F;&#x2F;寄存器与线网互相链接</p><p>&#x2F;&#x2F;Verilog有预定义的决断函数，有多驱动的流程，但现实中不会存在多驱动的。</p><p>&#x2F;&#x2F;数组与向量<br>&#x2F;&#x2F;数组只能单个访问，且单元内容可以是向量；但向量可以连续访问，但单元内容只能是一位。<br>&#x2F;&#x2F;如定义reg[15:0] data[0:31]表示寄存器长16位向量，共有0-31个这样的寄存器构成一个数组，数组用下表访问。<br>&#x2F;&#x2F;其中0-15表示寄存器的宽度，0-31表示寄存器的深度。                   </p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>代码/verilog语法/学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>小八的python学习笔记</title>
     <link href="/2025/04/22/pythonlearn/"/>
     <url>/2025/04/22/pythonlearn/</url>
