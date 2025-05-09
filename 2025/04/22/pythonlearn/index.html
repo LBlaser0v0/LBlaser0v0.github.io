@@ -27,7 +27,7 @@
 <meta property="og:description" content="Python学习记录一、python中出现错误原因1.输入错误print（”123“）#报错，中文引号#注意：python中的符号都是要用英文模式下的 2.缩进错误print(123)#注意:print要顶格写，否则就报错 3.语法错误print(123)print (456)#两个print不能写在同一行，一个print必须单独写一行，错误信息中遇到Syntax说明语法有问题 4.命名错误pri">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-04-22T00:51:24.000Z">
-<meta property="article:modified_time" content="2025-04-30T02:04:06.154Z">
+<meta property="article:modified_time" content="2025-05-09T11:51:17.599Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          3.3k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          23 分钟
+          28 分钟
         
       </span>
     
@@ -322,9 +322,12 @@
 <h4 id="（8）-注意："><a href="#（8）-注意：" class="headerlink" title="（8）. 注意："></a>（8）. 注意：</h4><p> 1）除法运算结果是浮点数，整数除法结果是整数。<br> 2）整除运算符（&#x2F;&#x2F;）的结果是商的整数部分，即向下取整。<br> 3）取余运算符（%）的结果是整数，即余数。<br> 4）幂运算符（<strong>）的优先级比加减乘除高，所以2+3</strong>2等于11，而(2+3)**2等于25。<br> 5）使用算术运算符，若有浮点数参与运算，则结果也是浮点数。<br> 6）优先级排序: 幂(最高优先级)&gt;乘、除、取余、取整除&gt;加减。</p>
 <h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><p> 将一个变量或常量的值赋给另一个变量。<br> （1）&#x3D; 赋值运算符，将右边的值赋给左边的变量。<br> （2）+&#x3D; 增量赋值运算符，将右边的值加到左边的变量上。<br> （3）-&#x3D; 减量赋值运算符，将右边的值减到左边的变量上。<br> （4）*&#x3D; 乘量赋值运算符，将右边的值乘到左边的变量上。<br> （5）&#x2F;&#x3D; 除量赋值运算符，将右边的值除到左边的变量上。<br> （6）%&#x3D; 取余量赋值运算符，将右边的值取余到左边的变量上。<br> （7）**&#x3D; 幂量赋值运算符，将右边的值幂到左边的变量上。</p>
 <h4 id="（8）-注意：-1"><a href="#（8）-注意：-1" class="headerlink" title="（8）. 注意："></a>（8）. 注意：</h4><p> 1）赋值运算符的优先级最低，其次是条件运算符（if、while、for等）。<br> 2）+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;、**&#x3D;的优先级比&#x3D;高，所以a&#x3D;b+&#x3D;c等于a&#x3D;b+c。</p>
-<h3 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3.转义字符"></a>3.转义字符</h3><p> （1）\t 制表符 通常表示空四个字符，也称缩进（Tab）。<br> （2）\n 换行符 通常表示换行，将当前位置移到下一行开头。<br> （3）\r 回车符 通常表示回车，将当前位置移到本行开头。<br> （4）\b 退格符 通常表示退格，删除当前位置的字符。<br> （5）\f 换页符 通常表示换页，将当前位置移到下一页开头。<br> （6）\ 反斜杠 通常表示一个普通的斜杠，根据有几个斜杠决定是否转义。<br>  print(r’sixs\\tar’)#r原生字符串，默认取消转义</p>
+<h3 id="3-三目运算符（三元表达式）"><a href="#3-三目运算符（三元表达式）" class="headerlink" title="3.三目运算符（三元表达式）"></a>3.三目运算符（三元表达式）</h3><p> （1）基本格式：为真结果if判断条件else为假结果<br>  if a&lt;&#x3D;b:<br>      print(“a小于等于b”)#为真结果<br>  else:<br>      print (“a比b大”)#为假结果<br>  等于下面三目运算语句：print(“a小于等于b”）if a&lt;&#x3D;b else print(“a比b大”)</p>
+<h3 id="4-转义字符"><a href="#4-转义字符" class="headerlink" title="4.转义字符"></a>4.转义字符</h3><p> （1）\t 制表符 通常表示空四个字符，也称缩进（Tab）。<br> （2）\n 换行符 通常表示换行，将当前位置移到下一行开头。<br> （3）\r 回车符 通常表示回车，将当前位置移到本行开头。<br> （4）\b 退格符 通常表示退格，删除当前位置的字符。<br> （5）\f 换页符 通常表示换页，将当前位置移到下一页开头。<br> （6）\ 反斜杠 通常表示一个普通的斜杠，根据有几个斜杠决定是否转义。<br>  print(r’sixs\\tar’)#r原生字符串，默认取消转义</p>
 <h2 id="六、python流程控制语句（函数）"><a href="#六、python流程控制语句（函数）" class="headerlink" title="六、python流程控制语句（函数）"></a>六、python流程控制语句（函数）</h2><h3 id="1-input-函数"><a href="#1-input-函数" class="headerlink" title="1.input()函数"></a>1.input()函数</h3><p> 用于接收用户输入，并将其转换为字符串类型。<br> 语法：input([prompt])，prompt是提示的意思，会在控制台中显示。<br> 举例：name &#x3D; input(“请输入你的名字：”) #输入”bingbing”，name变量的值为”bingbing”。<br> print (name) #输出”bingbing”。</p>
-<h3 id="2-if语句"><a href="#2-if语句" class="headerlink" title="2.if语句"></a>2.if语句</h3><p> 用于条件判断，根据条件是否成立，执行相应的语句。<br> 语法：if 条件表达式:<br>    语句块1<br> elif 条件表达式:<br>    语句块2<br> else:<br>    语句块3<br> 注意：if语句至少要有一个条件表达式，可以有多个elif条件表达式，也可以有else语句块。<br> 举例：age &#x3D; int(input(“请输入你的年龄：”))<br> if age &lt; 18: #年龄小于18岁<br>    print(“你还未成年，不能参加活动”)<br> elif age &gt;&#x3D; 18 and age &lt; 60: #年龄大于等于18岁小于60岁<br>    print(“你已满18岁，可以参加活动”)<br> else: #年龄大于等于60岁<br>    print(“你已满60岁，可以参加活动”)</p>
+<h3 id="2-if语句"><a href="#2-if语句" class="headerlink" title="2.if语句"></a>2.if语句</h3><p> （1）语句解释：用于条件判断，根据条件是否成立，执行相应的语句。<br> （2）语法：与c语言不同，条件语句无括号，但要加冒号（：）<br> if 条件表达式:<br>    语句块1<br> elif 条件表达式:<br>    语句块2<br> else:<br>    语句块3<br> 注意：if语句至少要有一个条件表达式，可以有多个elif条件表达式，也可以有else语句块。<br> 举例：age &#x3D; int(input(“请输入你的年龄：”))<br> if age &lt; 18: #年龄小于18岁<br>    print(“你还未成年，不能参加活动”)<br> elif age &gt;&#x3D; 18 and age &lt; 60: #年龄大于等于18岁小于60岁<br>    print(“你已满18岁，可以参加活动”)<br> else: #年龄大于等于60岁<br>    print(“你已满60岁，可以参加活动”)</p>
+<p>（3）缩进方式：不建议手动空格缩进，使用Tab键或者上一行回车缩进。<br>（4）&#x3D;&#x3D;，！&#x3D;，&lt;，&lt;&#x3D;，&gt;，&gt;&#x3D; 用于比较两个值是否相等、不等、小于、小于等于、大于、大于等于。<br>    and，or，not 用于逻辑运算，and表示两个条件都成立为真，or表示两个条件有一个成立就为真，not表示取反。<br>    pass 空语句，用于占位，表示什么都不做。pass语句可以用在if、while、for等语句块中，表示什么都不做。<br>（5）if循环嵌套：可以将if语句嵌套在另一个if语句中，实现多重条件判断。<br>   他是根据语句的缩进来决定内层和外层的。</p>
+<h3 id="3-while语句"><a href="#3-while语句" class="headerlink" title="3.while语句"></a>3.while语句</h3><p>（1）语句解释：用于循环，当条件表达式成立时，循环执行语句块。<br>（2）基本语法：<br> 定义初始变量<br> while 条件表达式:<br>     循环语句块<br>     条件表达式的变量改变（这是避免死循环的关键）<br>（3）死循环的基本格式<br> while True（任何为真，且不会改变的条件表达式都可以）:<br>     循环语句块<br> 注意：while语句至少要有一个条件表达式，否则会导致死循环。<br>（4）while循环嵌套：可以将while语句嵌套在另一个while语句中，实现多重循环。<br>   它也是根据语句的缩进来决定内层和外层的。但是要注意时间复杂度，避免无限循环。<br>   基本格式：<br>   while 条件1:<br>      开循环体1<br>      while 条件2:<br>         循环体2<br>         改变变量2<br>      改变变量1<br>   注意：缩进决定层级，严格控制缩进，最好自动缩进<br>例子： i &#x3D;1# 定义一个变量记录外循环的次数<br>      while i&lt;&#x3D; 3:#外循环<br>         print(f”这是第{i}次外循环”)<br>         j&#x3D;1# 定义一个初始值记录内循环的次数<br>         while j&lt;&#x3D; 5: #内循环<br>            print(f”内循环{j}次”)<br>            j +&#x3D; 1<br>         i +&#x3D; 1</p>
 
                 
               </div>
