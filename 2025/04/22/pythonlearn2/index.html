@@ -19,24 +19,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Veriog学习笔记module adder(    input [1:0] a,&#x2F;&#x2F;模块内部的输入必须是线网类型。    input [1:0] b,    output [2:0] sum    );endmodule           1.Verilog模块&#x2F;&#x2F;对于模块的输出。不定义类型时，默认是线网类型，用assign输出。定义output reg">
+    <meta name="description" content="Python学习记录————基础版一、字符串1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换速度更快一些 #坏处：占用空间大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小八的Verilog学习笔记">
-<meta property="og:url" content="http://example.com/2025/04/28/verilog%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="小八的python学习笔记————进阶版">
+<meta property="og:url" content="http://example.com/2025/04/22/pythonlearn2/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Veriog学习笔记module adder(    input [1:0] a,&#x2F;&#x2F;模块内部的输入必须是线网类型。    input [1:0] b,    output [2:0] sum    );endmodule           1.Verilog模块&#x2F;&#x2F;对于模块的输出。不定义类型时，默认是线网类型，用assign输出。定义output reg">
+<meta property="og:description" content="Python学习记录————基础版一、字符串1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换速度更快一些 #坏处：占用空间大">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-28T04:00:36.409Z">
-<meta property="article:modified_time" content="2025-05-10T13:35:01.971Z">
+<meta property="article:published_time" content="2025-04-22T00:51:24.000Z">
+<meta property="article:modified_time" content="2025-05-21T10:03:45.165Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="代码&#x2F;verilog语法&#x2F;学习记录">
+<meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录&#x2F;进阶">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>小八的Verilog学习笔记 - </title>
+  <title>小八的python学习笔记————进阶版 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="小八的Verilog学习笔记"></span>
+            <span id="subtitle" data-typed-text="小八的python学习笔记————进阶版"></span>
           
         </div>
 
@@ -226,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-28 12:00" pubdate>
-          2025年4月28日 中午
+        <time datetime="2025-04-22 08:51" pubdate>
+          2025年4月22日 早上
         </time>
       </span>
     
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.2k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          17 分钟
+          11 分钟
         
       </span>
     
@@ -286,33 +286,101 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">小八的Verilog学习笔记</h1>
+            <h1 id="seo-header">小八的python学习笔记————进阶版</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Veriog学习笔记"><a href="#Veriog学习笔记" class="headerlink" title="Veriog学习笔记"></a>Veriog学习笔记</h1><p>module adder(<br>    input [1:0] a,&#x2F;&#x2F;模块内部的输入必须是线网类型。<br>    input [1:0] b,<br>    output [2:0] sum<br>    );<br>endmodule          </p>
-<h2 id="1-Verilog模块"><a href="#1-Verilog模块" class="headerlink" title="1.Verilog模块"></a>1.Verilog模块</h2><p>&#x2F;&#x2F;对于模块的输出。不定义类型时，默认是线网类型，用assign输出。定义output reg [2:0]sum时，是寄存器类型，用过程块（always @（*））输出。<br>&#x2F;&#x2F;数据流的连续赋值（assign）的左值一定是线网类型；（过程块）<br>&#x2F;&#x2F;两者声明默认都是一位标量，表示多为用向量[x;y]进行说明，习惯上用x表示高位，y表示低位，如：[15:0]。<br>&#x2F;&#x2F;当然，也可以用[5,2]这个向量单独引出一个线网或寄存器中的几根线代表的数据，如定义 input [31:0] addr，可以用addr[5:2]引出他的四位数据线。</p>
-<p>&#x2F;&#x2F;在模块外部，输入可以是寄存器，也可以是线网。<br>&#x2F;&#x2F;在模块外部，输出则必须是线网类型。</p>
-<h2 id="2-Verilog符号语句"><a href="#2-Verilog符号语句" class="headerlink" title="2.Verilog符号语句"></a>2.Verilog符号语句</h2><p>&#x2F;&#x2F;$符号后指代的是系统函数，系统函数很多，要用到的不多，如$monitor&#x2F;$display用于显示&#x2F;监视信号值。<br>&#x2F;&#x2F;$monitor是自动循环执行的，不需要写在循环语句中。<br>&#x2F;&#x2F;$time用于显示执行这条语句时的仿真时刻。<br>&#x2F;&#x2F;用法：$display（$time,,”the result is %h”,c） &#x2F;&#x2F;display按照一定规定的时间显示变量的监视值 &#x2F;&#x2F;与c语言的语法很类似，%的格式化输出。<br>&#x2F;&#x2F;或%monitor（$time,,”the result is %h”,c）用monitor输出时，只有监视变量的值发生改变时，才打印监视结果。<br>&#x2F;&#x2F;输出为 0（这里是time函数输出的时间） the result is x(x是c计算的结果)</p>
-<p>&#x2F;&#x2F;$finish 表示仿真结束，类似c语言中的exit（）函数。<br>&#x2F;&#x2F;#是延时符号，延时种类有很多。可以用于仿真现实中的各种操作延时。<br>&#x2F;&#x2F;(&#96;)符号说明一个编译指导，类似于c语言的#符号<br>&#x2F;&#x2F;用法<del>define not_date #1 将not_date定义为一个1ns的延时。<br>&#x2F;&#x2F;而</del>timescale用于说明仿真单位时间以及精度，延时单位基于此，每个仿真程序都必须提前定义。<br>&#x2F;&#x2F;用法~timescale 1ns&#x2F;1ps   要求前面单位比后面的大，如1ns &gt; 1ps</p>
-<h2 id="3-Verilog数据类型"><a href="#3-Verilog数据类型" class="headerlink" title="3.Verilog数据类型"></a>3.Verilog数据类型</h2><p>&#x2F;&#x2F;verilog的三种数据类型：<br>&#x2F;&#x2F;net线网型：相当于导线，表示硬件单元之间的链接，且线网必须由其他部件单元的输出端来连续续驱动，本身不能储存信息，只能传输信息。<br>&#x2F;&#x2F;其数值多少由驱动元决定，没有驱动元则值为高阻态Z。多用于数据流建模的连续赋值。<br>&#x2F;&#x2F;reg寄存器类型：用来表示存储的部件，类似c语言的变量，既可以是标量，也可以是矢量。<br>&#x2F;&#x2F;行为模型中，寄存器的赋值必须在</p>
-<p>&#x2F;&#x2F;寄存器与线网互相链接</p>
-<p>&#x2F;&#x2F;Verilog有预定义的决断函数，有多驱动的流程，但现实中不会存在多驱动的。</p>
-<p>&#x2F;&#x2F;数组与向量<br>&#x2F;&#x2F;数组只能单个访问，且单元内容可以是向量；但向量可以连续访问，但单元内容只能是一位。<br>&#x2F;&#x2F;如定义reg[15:0] data[0:31]表示寄存器长16位向量，共有0-31个这样的寄存器构成一个数组，数组用下表访问。<br>&#x2F;&#x2F;其中0-15表示寄存器的宽度，0-31表示寄存器的深度。      </p>
-<p>&#x2F;&#x2F;数据流建模语法：<br>&#x2F;&#x2F;连续赋值语句，是vierlog的基本语句<br>&#x2F;&#x2F;其左值必须是一个标量或向量线网类型，或者是两者的拼接，不能是向量寄存器<br>&#x2F;&#x2F;例子： assign f&#x3D;a&b; 标量<br>&#x2F;&#x2F;       assign addr[15:0]</p>
-<p>&#x2F;&#x2F;可以在声明变量的同时对他赋值，也可以先声明后附值（和c很像）</p>
-<p>&#x2F;&#x2F;位宽的概念：<br>&#x2F;&#x2F;左值与右值的位宽不同，则自动对右值向量进行扩展缩减来对齐左值位宽。<br>&#x2F;&#x2F;如右值位宽大，则放弃多余高位；若右值位宽比左值小，则对右值进行零扩展（本节课只涉及零扩展，但实际上还有不同扩展方式）到与左值位数相同。<br>&#x2F;&#x2F;注意数据大小不同是的计算的截断或者扩展方式。</p>
-<p>&#x2F;&#x2F;-8’d12&#x2F;4为无符号数       -8’sd12&#x2F;4为有符号数（意思是八位二进制有符号数12，再将该二进制整体右移两位）  区别在与d与sd，加了s就是有符号数。<br>&#x2F;&#x2F;扩展时，添0还是添1，就看第一个二进制1是否是符号位，是符号位就添1，不是则添0。（本节课不存在讨论添1的情况）</p>
-<p>&#x2F;&#x2F;reg 寄存器（默认是无符号数）<br>&#x2F;&#x2F;integer 整数类型（默认是有符号数）<br>&#x2F;&#x2F;若计算中同时有有符号数和无符号数，则先将他们都作为无符号数运算，再进行调整。</p>
-<p>&#x2F;&#x2F;逻辑操作符：<br>&#x2F;&#x2F;~ not非 ；&amp; and与；| or 或；^ xor异或；<br>&#x2F;&#x2F;当单独对a进行逻辑操作时，则对其每一位之间都进行该操作。<br>&#x2F;&#x2F;如&amp;a，当a &#x3D; 4‘d0101，则有&amp;a &#x3D; 0&amp;1&amp;0&amp;1 &#x3D; 0。</p>
-<p>&#x2F;&#x2F;条件操作符语法：实现数据选择器的关键方式，用起来非常频繁，类似if语句。<br>&#x2F;&#x2F;（data&#x3D;1）？data1：data0。与c语言中的三目操作符相同。</p>
-<p>&#x2F;&#x2F;拼接操作{}<br>&#x2F;&#x2F;可以从向量中选择不同位，拼接起来组成一个新向量。<br>&#x2F;&#x2F;且他不限定拼接的位数。</p>
-<p>&#x2F;&#x2F;{{}}复制操作
-//内部的{}框住要复制的变量。外部的{}框住要复制几次。
-//如{% raw %}{4{a}}{% endraw %}就是将a这个变量复制四次。 可以这样复制arr[15:0]&#x3D;{% raw %}{{{4a}}{% endraw %},{% raw %}{4{b}}}{% endraw %},当 a &#x3D; 2’d01, b &#x3D; 2’d10 </p>
-<p>&#x2F;&#x2F;initial和always语句<br>&#x2F;&#x2F;两个语句中的过程块都是并发执行的，而不像c语言等其他编程语言一样顺序执行<br>&#x2F;&#x2F;initial过程块只在仿真时使用<br>&#x2F;&#x2F;initial语句中的过程块只执行一次；always内的过程块会循环执行。<br>&#x2F;&#x2F;always语句块从仿真0时刻开始执行，不断电则一直执行。</p>
-<p>&#x2F;&#x2F;三类过程时序控制：<br>&#x2F;&#x2F;1.简单延时（#delay）<br>&#x2F;&#x2F;2.电平触发：@（<signal>），如always @（a or b），如果a和b中有一个发生改变，则触发always语句（只支持or，不支持and）<br>&#x2F;&#x2F;  若只写一个*，即always @（*），那么则会监控module里面的所有数据。<br>&#x2F;&#x2F;3.边沿敏感：       例子always @（posedge a）表示当且仅当a有上升沿的时候才触发always。适合适合实现时序逻辑电路。<br>&#x2F;&#x2F;always中触发的满足条件只能用or来触发，不能实现and的触发。<br>&#x2F;&#x2F;注意：电平触发和边沿敏感不能在同一个过程块中使用，如always @（posedge a or b）是错误的。<br>&#x2F;&#x2F;      过程块中的赋值是过程赋值，过程赋值的左值必须是寄存器类型（先前的连续赋值的左值必须是线网类型）<br>&#x2F;&#x2F;      阻塞赋值（&#x3D;）：按顺序执行，执行完当前再执行语句块内的下一条语句<br>&#x2F;&#x2F;      非阻塞赋值（&lt;&#x3D;）：并发执行，不会阻塞位于同一过程块中的后续语句的执行。</p>
+                <h1 id="Python学习记录————基础版"><a href="#Python学习记录————基础版" class="headerlink" title="Python学习记录————基础版"></a>Python学习记录————基础版</h1><h2 id="一、字符串"><a href="#一、字符串" class="headerlink" title="一、字符串"></a>一、字符串</h2><h3 id="1-字符串编码方式"><a href="#1-字符串编码方式" class="headerlink" title="1.字符串编码方式"></a>1.字符串编码方式</h3><p>本质上就是二进制数据与语言文字的一一对应关系</p>
+<h4 id="1-1Unicode：所有字符都是2个字节，集大成者-Unicode-字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode-依然兼容-ASCII，即-0～127-意义依然不变。"><a href="#1-1Unicode：所有字符都是2个字节，集大成者-Unicode-字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode-依然兼容-ASCII，即-0～127-意义依然不变。" class="headerlink" title="1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。"></a>1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。</h4><pre><code class="hljs">#好处：字符与数字之间转换速度更快一些
+#坏处：占用空间大
+</code></pre>
+<h4 id="1-2UTF-8：精准，对不同的字符用不同的长度表示"><a href="#1-2UTF-8：精准，对不同的字符用不同的长度表示" class="headerlink" title="1.2UTF-8：精准，对不同的字符用不同的长度表示"></a>1.2UTF-8：精准，对不同的字符用不同的长度表示</h4><pre><code class="hljs">#优点：节省空间
+#缺点：字符与数字的转换速度较慢，每次都需要计算字符要用多少个字节来表示。
+</code></pre>
+<h4 id="1-3GBK2312：简体中文编码表，中文专有字符集编码表。"><a href="#1-3GBK2312：简体中文编码表，中文专有字符集编码表。" class="headerlink" title="1.3GBK2312：简体中文编码表，中文专有字符集编码表。"></a>1.3GBK2312：简体中文编码表，中文专有字符集编码表。</h4><pre><code class="hljs">#优点：兼容 ASCII，兼容 Unicode
+#缺点：占用空间大，中文字符集不够丰富。
+</code></pre>
+<h4 id="1-4字符串编码转换"><a href="#1-4字符串编码转换" class="headerlink" title="1.4字符串编码转换"></a>1.4字符串编码转换</h4><pre><code class="hljs">#a=&#39;hello”
+#print(a,(typea))#str，字符串是以字符为单位进行处理
+#al = a.encode()#编码
+#print(&quot;编码后:&quot;,al)
+# print(type(a1))#bytes，以字节为单位进行处理的
+#a2=a1. decode()#解码
+#print(a2, type(a2))
+#注意：对于bytes，只需要直到它跟字符串类型之间的互相转换
+例子：
+st =&quot;这里是六星教育”I
+st1 = st.encode(&quot;utf-8&quot;)
+print(st1,type(st1))
+st2 = st1.decode(&quot;utf-8&quot;)
+print(st2,type(st2))
+输出为：b&#39;\xe8\xbf\x99\xe9\x87\x8c\xe6\x98\xaf\xe5\x85\xad\xe6\x98\x9f\xe6\x95\x99\xe8\    x82\xb2&#39;&lt;c1assbytes&#39;&gt;
+这里是六星教育&lt;class&#39;str&#39;&gt;
+</code></pre>
+<h3 id="2-字符串常见操作"><a href="#2-字符串常见操作" class="headerlink" title="2.字符串常见操作"></a>2.字符串常见操作</h3><h4 id="2-1字符串运算符"><a href="#2-1字符串运算符" class="headerlink" title="2.1字符串运算符"></a>2.1字符串运算符</h4><pre><code class="hljs">#1. +字符串拼接
+#print（10+10）#20,整型相加，+是算数运算符
+print（&quot;10&quot;+”10&#39;）#1010,字符串相加，+是字符串拼接
+name1=&quot;六星”
+name2=&quot;教育&quot;
+print(namel + name2)
+print(namel , name2, sep=&quot;&quot;)#sep替换逗号为空，输出为六星教育，否则默认空一格。
+
+#2. *用于重复输出
+print（&quot;好好学习，天天向上\n&quot;*5）#在这里面用sep，是在重复打印后才替换。
+#注意：需要输出多少次*后面就写多少
+print(&amp;\t&#39;*10)#\t是制表符，相当于Tab键，输出10个。
+</code></pre>
+<h4 id="2-2成员运算符"><a href="#2-2成员运算符" class="headerlink" title="2.2成员运算符"></a>2.2成员运算符</h4><pre><code class="hljs">作用：用于检查字符串是否包含某一子串。（可以为多个字符，但是作为一个整体去找，不能分隔）
+#1. in 用于判断字符串是否包含某一子串
+#2. not in 用于判断字符串是否不包含某一子串
+#3. 字符串的成员运算符可以与if语句结合使用，实现条件判断。
+#例子1：
+str1 = &quot;hello world&quot;
+if &quot;world&quot; in str1:
+    print(&quot;包含&quot;)
+else:
+    print(&quot;不包含&quot;)
+#例子2：
+name =&#39;bingbing
+print(b’ in name)   # True
+print(a’in name)    # False
+print(b’not in name)# False
+print(a’not in name)# True
+</code></pre>
+<h4 id="2-3字符串的下标"><a href="#2-3字符串的下标" class="headerlink" title="2.3字符串的下标"></a>2.3字符串的下标</h4><pre><code class="hljs">#Python中下标从0开始，从左往右数。
+#如果从右往左数，则下标从-1开始。
+#与c语言中的数组很像，可以直接通过下标访问元素。
+#作用：通过下标能够快速找到对应的数据
+格式：字符串名[下标值]
+name =&#39;sixstar&#39;
+#从左往右数，下标从0开始
+print(name[0])  #s
+print(name[1])  #i
+print(name[2])  #x
+print(name[-1]) #r
+print(name[-2]) #a
+print(name[-3]) #t
+</code></pre>
+<h4 id="2-4字符串的切片"><a href="#2-4字符串的切片" class="headerlink" title="2.4字符串的切片"></a>2.4字符串的切片</h4><pre><code class="hljs">#含义：指对操作的对象截取其中一部分的操作
+#语法：[开始位置：结束位置：步长],步长默认为1
+#包前不包后：即从起始位置开始，到结束位置的前一位结束（不包含结束位置本身），与if判断中的range()函数很像。
+例子：
+st=&#39;abcdefg&#39;
+print(st[1:4])  #bcd，不包含第四位。
+print(st[1:4:2])#bd，步长为2，从1开始，到4结束，步长为2。
+print(st[::2])  #aceg，步长为2，从0开始，到最后一个结束，步长为2。
+print(st[::-1]) #gfedcba，步长为-1，从最后一个开始，到第一个结束，步长为-1。
+上面这个实现了字符串的逆序。
+print(st[3:])   #defg，结束位置省略，则从第四位开始，到最后一个结束。
+print(st[:5])   #abcde，开始位置省略，则从第一个开始，到第五位结束(不包含下标5)。
+
+
+#步长：表示选取间隔，不写步长，则默认是1
+#步长的绝对值大小决定切取的间隔，正负号决定切取方向。
+#正数表示从左往右取值，负数表示从右往左取值
+</code></pre>
+<h3 id="4-列表"><a href="#4-列表" class="headerlink" title="4.列表"></a>4.列表</h3><p>#基本格式：<br>#列表名&#x3D;[元素1，元素2，元素3..]<br>#注意：<br>#所有元素放在口内，元素与元素之间用，隔开<br>#元素之间的数据类型可以各不相同<br>li &#x3D;[1,2,’a’,4]<br>print(li,type(li))<br>print(li[2])</p>
 
                 
               </div>
@@ -325,7 +393,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BB%A3%E7%A0%81-verilog%E8%AF%AD%E6%B3%95-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="print-no-link">#代码/verilog语法/学习记录</a>
+        <a href="/tags/%E4%BB%A3%E7%A0%81-python-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%BF%9B%E9%98%B6/" class="print-no-link">#代码/python/学习记录/进阶</a>
       
     </div>
   
@@ -337,8 +405,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>小八的Verilog学习笔记</div>
-      <div>http://example.com/2025/04/28/verilog学习笔记/</div>
+      <div>小八的python学习笔记————进阶版</div>
+      <div>http://example.com/2025/04/22/pythonlearn2/</div>
     </div>
     <div class="license-meta">
       
@@ -350,7 +418,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月28日</div>
+          <div>2025年4月22日</div>
         </div>
       
       
@@ -382,12 +450,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/04/28/verilog%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="小八的Verilog学习笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">小八的Verilog学习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/22/pythonlearn2/" title="小八的python学习笔记————进阶版">
-                        <span class="hidden-mobile">小八的python学习笔记————进阶版</span>
+                      <a href="/2025/04/22/pythonlearn/" title="小八的python学习笔记————基础部分">
+                        <span class="hidden-mobile">小八的python学习笔记————基础部分</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
