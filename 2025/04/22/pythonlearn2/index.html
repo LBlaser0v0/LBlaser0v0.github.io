@@ -21,13 +21,13 @@
   
     <meta name="description" content="Python学习记录————基础版一、字符串1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换速度更快一些 #坏处：占用空间大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小八的python学习笔记————进阶版">
+<meta property="og:title" content="小八的python学习笔记————第二篇">
 <meta property="og:url" content="http://example.com/2025/04/22/pythonlearn2/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="Python学习记录————基础版一、字符串1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换速度更快一些 #坏处：占用空间大">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-04-22T00:51:24.000Z">
-<meta property="article:modified_time" content="2025-05-21T10:03:45.165Z">
+<meta property="article:modified_time" content="2025-05-24T04:00:30.826Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录&#x2F;进阶">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>小八的python学习笔记————进阶版 - </title>
+  <title>小八的python学习笔记————第二篇 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="小八的python学习笔记————进阶版"></span>
+            <span id="subtitle" data-typed-text="小八的python学习笔记————第二篇"></span>
           
         </div>
 
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          3.6k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          11 分钟
+          30 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">小八的python学习笔记————进阶版</h1>
+            <h1 id="seo-header">小八的python学习笔记————第二篇</h1>
             
             
               <div class="markdown-body">
@@ -375,12 +375,196 @@ print(st[::-1]) #gfedcba，步长为-1，从最后一个开始，到第一个结
 print(st[3:])   #defg，结束位置省略，则从第四位开始，到最后一个结束。
 print(st[:5])   #abcde，开始位置省略，则从第一个开始，到第五位结束(不包含下标5)。
 
-
 #步长：表示选取间隔，不写步长，则默认是1
 #步长的绝对值大小决定切取的间隔，正负号决定切取方向。
 #正数表示从左往右取值，负数表示从右往左取值
 </code></pre>
-<h3 id="4-列表"><a href="#4-列表" class="headerlink" title="4.列表"></a>4.列表</h3><p>#基本格式：<br>#列表名&#x3D;[元素1，元素2，元素3..]<br>#注意：<br>#所有元素放在口内，元素与元素之间用，隔开<br>#元素之间的数据类型可以各不相同<br>li &#x3D;[1,2,’a’,4]<br>print(li,type(li))<br>print(li[2])</p>
+<h4 id="2-5字符串的查找"><a href="#2-5字符串的查找" class="headerlink" title="2.5字符串的查找"></a>2.5字符串的查找</h4><h5 id="（1）find-方法："><a href="#（1）find-方法：" class="headerlink" title="（1）find()方法："></a>（1）find()方法：</h5><pre><code class="hljs">#作用：检测某个子字符串是否包含在字符串中，如果在就返回这个子字符串开始位置的下标，否则就返回-1
+#函数格式：find(子字符串，开始位置下标，结束位置下标)，包前不包后
+#注意：开始和结束位置下标可以省略，表示在整个字符串中查找
+name = &#39;bingbing&#39;
+单个字符：直接查找下标
+print (name. find(&#39;i&#39;))#1--第一个i的下标为1。
+多个字符：以第一个字符在字符串中的位置为开始位置，输出第一个字符的下标。
+print(name.find(&#39;bing&#39;))#0--检测到第一个bing,b的下标为0。
+print(name.find(&#39;ing&#39;,3,7))#表示在下标为3到下标为6（不包含7）之间查找ing，找到了，返回ing的下标。
+</code></pre>
+<h5 id="（3）index-方法："><a href="#（3）index-方法：" class="headerlink" title="（3）index()方法："></a>（3）index()方法：</h5><pre><code class="hljs">#作用：查找子串的位置，如果没有找到，则报错（与find函数的区别就在这）。
+#函数格式：index(子字符串，开始位置下标，结束位置下标)#与find函数一样。
+#同样包前不包后。
+
+#rfind()方法：查找子串的位置，从右边开始查找，如果没有找到，则返回-1
+#rindex()方法：查找子串的位置，从右边开始查找，如果没有找到，则报错
+#例子：
+str1 = &quot;hello world&quot;
+print(str1.find(&quot;l&quot;))   #2
+print(str1.index(&quot;l&quot;))  #2
+print(str1.rfind(&quot;l&quot;))  #9
+print(str1.rindex(&quot;l&quot;)) #9
+print(str1.find(&quot;z&quot;))   #-1
+print(str1.index(&quot;z&quot;))  #ValueError: substring not found
+print(str1.rfind(&quot;z&quot;))  #-1
+print(str1.rindex(&quot;z&quot;)) #ValueError: substring not found
+</code></pre>
+<h5 id="（3）count-方法："><a href="#（3）count-方法：" class="headerlink" title="（3）count()方法："></a>（3）count()方法：</h5><pre><code class="hljs">#作用：统计某个子串在字符串中出现的次数，没有出现则返回0。
+#函数格式：count(子字符串，开始位置下标，结束位置下标)#与find函数一样。
+#注意：开始和结束位置下标可以省略，表示在整个字符串中查找
+name=&#39;bingbing&#39;
+print (name. count (&#39; b&#39;))   #2
+print (name. count ( a&#39;))    #0
+print (name. count ( b&#39;,1))  #1
+print (name. count ( b’1,3)) #0
+print（name.count（b”，1,4））#0--同样遵循包前不包后规则
+</code></pre>
+<h4 id="2-6字符串的替换"><a href="#2-6字符串的替换" class="headerlink" title="2.6字符串的替换"></a>2.6字符串的替换</h4><h5 id="（1）replace-方法："><a href="#（1）replace-方法：" class="headerlink" title="（1）replace()方法："></a>（1）replace()方法：</h5><pre><code class="hljs">#作用：将字符串中的子串替换成另一个子串
+#函数格式：replace(旧子串，新子串，替换次数)
+#注意：替换次数可以省略，默认全部替换。
+#例子：
+持name =’好好学习，天天向上”
+#print(name.replace(&quot;天&quot;,’时&#39;))   #好好学习，时时向上
+#print(name.replace(&quot;天&quot;,’时&#39;,1)) #好好学习，时天向上
+</code></pre>
+<h5 id="（2）split-方法："><a href="#（2）split-方法：" class="headerlink" title="（2）split()方法："></a>（2）split()方法：</h5><pre><code class="hljs">#作用：将字符串按照某个字符分割成多个子串，返回一个列表。
+#函数格式：split(分隔符，最大分割次数)
+#注意：分隔符可以省略，默认为空格。
+#最大分割次数可以省略，默认全部分割。
+# st = &#39;hello, python
+# print(st. split(&#39;,&#39;))     #[&#39;hello’，‘python&#39;]，   --以列表的形式返回
+# 如果字符串中不包含分割内容，就不进行分割，会作为一个整体
+# print(st. split(a&#39;))      #[&#39; hello, python&#39; ]
+# print(st. split(&#39;o&#39;))     # [&#39;hell&#39;,′,pyth&#39;,&#39;n&#39;]
+# print(st. split(o’,1))    #[&#39;hell’，’,python&#39;]  --指定只分割一次
+</code></pre>
+<h5 id="（3）三种大小写字符转换"><a href="#（3）三种大小写字符转换" class="headerlink" title="（3）三种大小写字符转换"></a>（3）三种大小写字符转换</h5><pre><code class="hljs">#1.capitalize()：第一个字符大写，其他都小写
+# st = &#39;bingBing&#39;
+# print(st. capitalize())  #Bingbing
+#2.1ower()：大写字母转为小写
+# st =&#39;bIngBinG&#39;
+# print (st. lower())      #bingbing
+#3.upper()：小写字母转为大写
+# st =&#39;bIngBinG&#39;
+# print(st.upper())        #BINGBING
+</code></pre>
+<h4 id="2-7字符串的判断"><a href="#2-7字符串的判断" class="headerlink" title="2.7字符串的判断"></a>2.7字符串的判断</h4><h5 id="（1）startswith-方法："><a href="#（1）startswith-方法：" class="headerlink" title="（1）startswith()方法："></a>（1）startswith()方法：</h5><pre><code class="hljs">#作用：检测字符串是否以某个子串开头，如果是，返回True，否则返回False。
+#函数格式：startswith(子串，开始位置下标，结束位置下标) 可以在指定范围内查找。
+#注意：开始和结束位置下标可以省略，表示在整个字符串中查找
+st =&#39;sixstar&#39;
+print(st. startswith(&#39;six&#39;))   #True
+print(st. startswith(&#39;sex&#39;))   #False
+print(st. startswith(&#39;s&#39;,2,6)) #False
+</code></pre>
+<h5 id="（2）endswith-方法："><a href="#（2）endswith-方法：" class="headerlink" title="（2）endswith()方法："></a>（2）endswith()方法：</h5><pre><code class="hljs"># 与starswith()用法很类似。
+# 作用：检测字符串是否以某个子串结尾，如果是，返回True，否则返回False。
+# 函数格式：endswith(子串，开始位置下标，结束位置下标) 可以在指定范围内查找。
+# st =&#39;sixstar&#39;
+# print(st.endswith(&#39;er&#39;)) # False
+......
+</code></pre>
+<h5 id="（3）isupper-方法："><a href="#（3）isupper-方法：" class="headerlink" title="（3）isupper()方法："></a>（3）isupper()方法：</h5><pre><code class="hljs">#检测字符串中所有的字母是否都为大写，是的话就返回True
+st =&#39;sixstar&#39;
+print(st. isupper())    # False
+print(&#39;SIX&#39;.isupper())  # True
+</code></pre>
+<h5 id="（4）其他"><a href="#（4）其他" class="headerlink" title="（4）其他"></a>（4）其他</h5><pre><code class="hljs"># isalpha()：检测字符串中是否包含字母，是的话就返回True
+# isdigit()：检测字符串中是否包含数字，是的话就返回True
+# isspace()：检测字符串中是否包含空格，是的话就返回True
+# islower()：检测字符串中是否包含小写字母，是的话就返回True
+# isupper()：检测字符串中是否包含大写字母，是的话就返回True
+# 等等，可以自行了解
+</code></pre>
+<h3 id="3-列表"><a href="#3-列表" class="headerlink" title="3.列表"></a>3.列表</h3><h4 id="1-列表的定义"><a href="#1-列表的定义" class="headerlink" title="1.列表的定义"></a>1.列表的定义</h4><pre><code class="hljs">#与数组很类似，是处理一组有序项目的数据结构 
+#基本格式：
+#列表名=[元素1，元素2，元素3..]
+#注意：
+#所有元素放在[]内，元素与元素之间用，隔开
+#元素之间的数据类型可以各不相同
+li =[1,2,&#39;a&#39;,4]
+print(li,type(li)) #输出：[1, 2, &#39;a&#39;, 4] &lt;class &#39;list&#39;&gt;
+print(li[2])       #输出：a
+</code></pre>
+<h4 id="2-列表的常见操作"><a href="#2-列表的常见操作" class="headerlink" title="2.列表的常见操作"></a>2.列表的常见操作</h4><h5 id="（1）切片和遍历"><a href="#（1）切片和遍历" class="headerlink" title="（1）切片和遍历"></a>（1）切片和遍历</h5><pre><code class="hljs"># 列表也可以进行切片操作
+# print(1i[0:3])
+# 列表是可迭代对象，可以for循环遍历取值
+例如：
+for i in li:
+    print(i) #这里不需要i+1。
+</code></pre>
+<h5 id="（2）添加元素"><a href="#（2）添加元素" class="headerlink" title="（2）添加元素"></a>（2）添加元素</h5><pre><code class="hljs"># 有三种方式
+#append ()）extend(） insert O)
+li = [&#39;one&#39;′two&#39;′ three&#39;]
+# li. append (&quot;four&quot;) #append整体添加，将‘four’添加到列表末尾。
+# li. extend(&#39;four&#39;)  #extend分散添加，将另外一个类型中的元素逐一添加,将‘f’，‘o’，‘u’，‘r’分散添加到列表末尾。
+1i.insert(3,&#39;four&#39;)   #在指定位置插入元素
+1i.insert(O,&#39;four&#39;)   #指定位置如果有元素，原有元素就会后移，输出为[&#39;four&#39;,&#39;one&#39;，&#39;two&#39;，&#39;three&#39;]。
+li.insert(&quot;four&quot;)     #报错，没有指定下标
+注意：
+extend方法添加的元素必须是可迭代对象，不可为整型，浮点型等。
+</code></pre>
+<h5 id="（3）修改元素"><a href="#（3）修改元素" class="headerlink" title="（3）修改元素"></a>（3）修改元素</h5><pre><code class="hljs"># 列表中的元素可以直接修改
+# 直接通过下标就可以修改元素的值，与c语言修改方式基本一致
+# python列表中的元素可以是不同类型。
+</code></pre>
+<h5 id="（4）查找元素"><a href="#（4）查找元素" class="headerlink" title="（4）查找元素"></a>（4）查找元素</h5><pre><code class="hljs">#in：判断指定元素是否存在列表中，如果存在就返回True，不存在就返回False
+#not in：判断指定元素是否存在列表中，如果不存在就返回True，存在就返回False
+li =[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]  #和在字符串中的查找基本一致
+print(&#39;b&#39; not in li)
+例子：与if判断搭配使用
+#定义一个列表，保存已经存在的昵称
+while True:
+    name_list = [&#39; bingbing susu&#39;zivi&#39; ]
+    name=input(&quot;请输入您的昵称：&quot;)
+    #判断昵称是否已经存在
+    if name in name_list:
+        print(f&quot;您输入的昵称&#123;name&#125;已经存在了哦&quot;)
+    #如果昵称不存在
+    else:
+        print(f&quot;昵称&#123;name&#125;已经被您使用&quot;)
+        #把昵称新增到列表
+        name_list.append (name)
+        print(name_list)
+        break
+
+#index：返回指定数据所在位置的下标，如果查找的数据不存在就会报错
+#count：统计指定数据在当前列表出现的次数
+#跟字符串中的用法相同
+</code></pre>
+<h5 id="（5）删除元素"><a href="#（5）删除元素" class="headerlink" title="（5）删除元素"></a>（5）删除元素</h5><pre><code class="hljs">#有三种方式
+若li=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]
+1.del：删除指定位置的元素。
+del li          #表示删除整个列表，此时打印这个表会报错。
+del li[2]       #根据下标删除，表示删除下标为2的元素，打印输出为[&#39;a&#39;, &#39;b&#39;, &#39;d&#39;]。
+2.pop()：删除指定下标的数据，python3版本默认删除最后一个元素。
+li.pop()        #默认删除最后一个元素，打印输出为[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]。
+1i.pop(2)       #不能指定元素删除，只能根据下标进行删除，下标不能超出范围。
+3.remove()：根据指定元素的值删除元素，如果元素不存在，则会报错。
+li.remove(&#39;c&#39;)  #根据元素值删除元素，打印输出为[&#39;a&#39;, &#39;b&#39;, &#39;d&#39;]。
+1i.remove(&#39;t&#39;)  #报错，列表中不存在这个元素。
+1i. remove( b&#39;) #如果列表中有多个同一元素，默认删除最开始出现的指定元素。
+</code></pre>
+<h5 id="（6）列表的排序"><a href="#（6）列表的排序" class="headerlink" title="（6）列表的排序"></a>（6）列表的排序</h5><pre><code class="hljs">若li = [1, 4, 2, 5, 3]
+1.sort()：对列表进行排序，默认是从小到大排序，也可以指定参数reverse=True进行降序排序。
+li.sort()        #默认排序，打印输出为[1, 2, 3, 4, 5]。
+li.sort(reverse=True)  #降序排序，打印输出为[5, 4, 3, 2, 1]。
+2.sorted()：对列表进行排序，并返回一个新的列表，不影响原有列表。
+li_sorted = sorted(li)  #对li进行排序，并返回一个新的列表，打印输出为[1, 2, 3, 4, 5]。
+li_sorted = sorted(li,reverse=True)  #对li进行降序排序，并返回一个新的列表，打印输出为[5, 4, 3, 2, 1]。
+3.reverse()：对列表进行反转，即将列表中的元素顺序颠倒。
+li.reverse()     #打印输出为[3,5,2,4,1]。
+</code></pre>
+<h5 id="（7）列表推导式"><a href="#（7）列表推导式" class="headerlink" title="（7）列表推导式"></a>（7）列表推导式</h5><pre><code class="hljs">#格式一：[表达式 for 变量 in 列表]
+#注意：in后面不仅可以放列表，还可以放range（）、可迭代对象
+#1i=[1,2,3,4,5,6]
+#[print（i*5）for i in li]#循环打印，前面的i是表达式
+
+1i=[]
+#for i in range(1,6):
+#   print(i)
+#   1i. append (i)
+#print(li)
+
+[1i.append(i) for i in range(1,6)] #循环添加的简写，与上式是等效的。
+print(li)#输出：[1, 2, 3, 4, 5]
+</code></pre>
 
                 
               </div>
@@ -405,7 +589,7 @@ print(st[:5])   #abcde，开始位置省略，则从第一个开始，到第五�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>小八的python学习笔记————进阶版</div>
+      <div>小八的python学习笔记————第二篇</div>
       <div>http://example.com/2025/04/22/pythonlearn2/</div>
     </div>
     <div class="license-meta">
