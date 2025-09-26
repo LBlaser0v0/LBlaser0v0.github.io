@@ -19,24 +19,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从大一上完c语言后就很久没回顾代码，手敲代码的能力也有所下降，因此打算从头复习一下基础知识。 一、复习计划首先就是接着往下看看鹏哥的网课，然后再回头看看之前别人在csdn上写的博客，看看有哪些知识点还没复习，然后再根据复习计划进行复习。再是要着重新学一些指针细节和宏的用法以及内存管理。 二、复习内容基础知识 变量类型 运算符 控制语句 函数 数组 指针 结构体 枚举 宏 预处理器 内存管理 异常处">
+    <meta name="description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马 先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。用蚁剑输">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c语言复习计划">
-<meta property="og:url" content="http://example.com/2025/03/25/draft/index.html">
+<meta property="og:title" content="web学习笔记">
+<meta property="og:url" content="http://example.com/2025/09/25/web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="从大一上完c语言后就很久没回顾代码，手敲代码的能力也有所下降，因此打算从头复习一下基础知识。 一、复习计划首先就是接着往下看看鹏哥的网课，然后再回头看看之前别人在csdn上写的博客，看看有哪些知识点还没复习，然后再根据复习计划进行复习。再是要着重新学一些指针细节和宏的用法以及内存管理。 二、复习内容基础知识 变量类型 运算符 控制语句 函数 数组 指针 结构体 枚举 宏 预处理器 内存管理 异常处">
+<meta property="og:description" content="web学习笔记记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。多是利用Hackbar、Burpsuite、蚁剑等工具。 一、简单类型1.常规弱口令密码登录利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。 2.一句话木马 先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。用蚁剑输">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-25T01:43:03.000Z">
-<meta property="article:modified_time" content="2025-03-25T02:02:44.556Z">
+<meta property="article:published_time" content="2025-09-25T14:20:24.000Z">
+<meta property="article:modified_time" content="2025-09-26T03:14:02.564Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="代码&#x2F;C语言&#x2F;规划">
+<meta property="article:tag" content="ctf&#x2F;web&#x2F;学习记录&#x2F;基础">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>c语言复习计划 - </title>
+  <title>web学习笔记 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="c语言复习计划"></span>
+            <span id="subtitle" data-typed-text="web学习笔记"></span>
           
         </div>
 
@@ -226,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-25 09:43" pubdate>
-          2025年3月25日 上午
+        <time datetime="2025-09-25 22:20" pubdate>
+          2025年9月25日 晚上
         </time>
       </span>
     
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          184 字
+          801 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          2 分钟
+          7 分钟
         
       </span>
     
@@ -286,30 +286,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">c语言复习计划</h1>
+            <h1 id="seo-header">web学习笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <p>从大一上完c语言后就很久没回顾代码，手敲代码的能力也有所下降，因此打算从头复习一下基础知识。</p>
-<h1 id="一、复习计划"><a href="#一、复习计划" class="headerlink" title="一、复习计划"></a>一、复习计划</h1><p>首先就是接着往下看看鹏哥的网课，然后再回头看看之前别人在csdn上写的博客，看看有哪些知识点还没复习，然后再根据复习计划进行复习。<br>再是要着重新学一些指针细节和宏的用法以及内存管理。</p>
-<h1 id="二、复习内容"><a href="#二、复习内容" class="headerlink" title="二、复习内容"></a>二、复习内容</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ul>
-<li>变量类型</li>
-<li>运算符</li>
-<li>控制语句</li>
-<li>函数</li>
-<li>数组</li>
-<li>指针</li>
-<li>结构体</li>
-<li>枚举</li>
-<li>宏</li>
-<li>预处理器</li>
-<li>内存管理</li>
-<li>异常处理</li>
-<li>多线程</li>
-<li>网络编程</li>
-<li>数据库</li>
-</ul>
+                <h1 id="web学习笔记"><a href="#web学习笔记" class="headerlink" title="web学习笔记"></a>web学习笔记</h1><p>记录一下学习过程中遇见的常见ctf中web赛道的题目、题型。<br>多是利用Hackbar、Burpsuite、蚁剑等工具。</p>
+<h2 id="一、简单类型"><a href="#一、简单类型" class="headerlink" title="一、简单类型"></a>一、简单类型</h2><h3 id="1-常规弱口令密码登录"><a href="#1-常规弱口令密码登录" class="headerlink" title="1.常规弱口令密码登录"></a>1.常规弱口令密码登录</h3><p>利用Burpsuite抓包，将所得数据包发送到Intruder进行爆破，导入弱口令字典，将登录请求的包中的用户名和密码替换成常规弱口令。</p>
+<h3 id="2-一句话木马"><a href="#2-一句话木马" class="headerlink" title="2.一句话木马"></a>2.一句话木马</h3><?php @eval($_POsT['a']); ?>
+<p>先尝试一句话木马代码放入网页中，当访问该网页时，浏览器会自动执行该代码。<br>用蚁剑输入攻击目标网页的URL，先右键点击空白处，选择添加数据，再输入URL，链接密码则选择post传递过去的a，即可getshell，查看网页后端的文件夹。</p>
+<h3 id="3-后端代码多重验证与绕过"><a href="#3-后端代码多重验证与绕过" class="headerlink" title="3.后端代码多重验证与绕过"></a>3.后端代码多重验证与绕过</h3><p>如果能直接观察到后端代码，先观察验证条件，尝试全部满足，无法全部满足则尝试逐一绕过。<br>并且观察是Get传参还是Post传参，利用Hackbar进行数据上传。<br>get直接在URL后面加参数，post则在body中上传参数。</p>
+<p>看见replace函数可以尝试双写绕过；<br>看见flie_get_contents函数(可以上传数据流)可以尝试上传文件,上传数据流或将数据流编码之后绕过。<br>strpos函数查找目标字符在另一字符串中的位置并返回。</p>
+<h3 id="4-robots协议"><a href="#4-robots协议" class="headerlink" title="4.robots协议"></a>4.robots协议</h3><p>robots协议是一种网络爬虫协议，用于告诉搜索引擎哪些页面可以抓取。<br>若网页有提示为robots协议或有robots文件夹，则可以进入robots.txt文件，查看是否有禁止爬虫的文档，尝试访问寻找flag。</p>
+<h3 id="5-vim隐藏flag"><a href="#5-vim隐藏flag" class="headerlink" title="5.vim隐藏flag"></a>5.vim隐藏flag</h3><p>vim是linux中的文件编辑器，其打开后会创建.swp的临时文件，隐藏flag一般在临时文件中。<br>一般先尝试访问index.php,不行则去尝试访问.index.php.swp,若能成功获取文件，则flag可能就在里面。</p>
+<h3 id="6-弱类型问题"><a href="#6-弱类型问题" class="headerlink" title="6.弱类型问题"></a>6.弱类型问题</h3><p>如php语言中的弱比较“&#x3D;&#x3D;”，将不同类型值转化成相同类型来比较。<br>规则是：当一个字符串被当作一个数值来取值，其结果和类型如下：如果该字符串没有包含‘.’，‘e’，‘E’并且其数值值在整形的范围之内，则该字符串被当作int来取值，其他所有情况下都被作为float来取值，该字符串的开始部分决定了它的值，如果该字符串以合法的数值开始，则使用该数值，否则其值为0。<br>0e形式的字符串会被识别为科学计数法，将被转化为数字做比较。<br>例如：<br>&lt;?php<br>var_dump(“admin”&#x3D;&#x3D;0);&#x2F;&#x2F;true<br>var_dump(“1admin”&#x3D;&#x3D;1); &#x2F;&#x2F;true<br>var_dump(“admin1”&#x3D;&#x3D;1)&#x2F;&#x2F;false<br>var_dump(“admin1”&#x3D;&#x3D;0)&#x2F;&#x2F;true<br>var_dump(“0e123456”&#x3D;&#x3D;”0e4456789”); &#x2F;&#x2F;true<br>？&gt;&#x2F;&#x2F;上述代码可自行测试</p>
+<h2 id="二、SQL注入类型"><a href="#二、SQL注入类型" class="headerlink" title="二、SQL注入类型"></a>二、SQL注入类型</h2><p>结构化查询语言（Structured Query Language）简称 SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
 
                 
               </div>
@@ -322,7 +313,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BB%A3%E7%A0%81-C%E8%AF%AD%E8%A8%80-%E8%A7%84%E5%88%92/" class="print-no-link">#代码/C语言/规划</a>
+        <a href="/tags/ctf-web-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%9F%BA%E7%A1%80/" class="print-no-link">#ctf/web/学习记录/基础</a>
       
     </div>
   
@@ -334,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>c语言复习计划</div>
-      <div>http://example.com/2025/03/25/draft/</div>
+      <div>web学习笔记</div>
+      <div>http://example.com/2025/09/25/web学习笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -347,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月25日</div>
+          <div>2025年9月25日</div>
         </div>
       
       
@@ -379,18 +370,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/22/pythonlearn3/" title="小八的python学习笔记————第三篇">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">小八的python学习笔记————第三篇</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/23/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2025/09/19/reverse%E6%9D%82%E8%AE%B0/" title="reverse杂记">
+                        <span class="hidden-mobile">reverse杂记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

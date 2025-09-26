@@ -19,15 +19,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Python学习记录————基础版②一、字符串、列表、元组、字典的定义与操作1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换">
+    <meta name="description" content="Python学习记录————基础版②一、字符串、列表、元组、字典的定义与操作1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：#所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。 #好处：字符与数字之间">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小八的python学习笔记————第二篇">
 <meta property="og:url" content="http://example.com/2025/04/22/pythonlearn2/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Python学习记录————基础版②一、字符串、列表、元组、字典的定义与操作1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。#好处：字符与数字之间转换">
+<meta property="og:description" content="Python学习记录————基础版②一、字符串、列表、元组、字典的定义与操作1.字符串编码方式本质上就是二进制数据与语言文字的一一对应关系 1.1Unicode：#所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。 #好处：字符与数字之间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-04-22T00:51:24.000Z">
-<meta property="article:modified_time" content="2025-05-27T15:08:04.859Z">
+<meta property="article:modified_time" content="2025-06-12T06:42:25.801Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录&#x2F;基础">
 <meta name="twitter:card" content="summary_large_image">
@@ -292,7 +292,8 @@
               <div class="markdown-body">
                 
                 <h1 id="Python学习记录————基础版②"><a href="#Python学习记录————基础版②" class="headerlink" title="Python学习记录————基础版②"></a>Python学习记录————基础版②</h1><h2 id="一、字符串、列表、元组、字典的定义与操作"><a href="#一、字符串、列表、元组、字典的定义与操作" class="headerlink" title="一、字符串、列表、元组、字典的定义与操作"></a>一、字符串、列表、元组、字典的定义与操作</h2><h3 id="1-字符串编码方式"><a href="#1-字符串编码方式" class="headerlink" title="1.字符串编码方式"></a>1.字符串编码方式</h3><p>本质上就是二进制数据与语言文字的一一对应关系</p>
-<h4 id="1-1Unicode：所有字符都是2个字节，集大成者-Unicode-字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode-依然兼容-ASCII，即-0～127-意义依然不变。"><a href="#1-1Unicode：所有字符都是2个字节，集大成者-Unicode-字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode-依然兼容-ASCII，即-0～127-意义依然不变。" class="headerlink" title="1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。"></a>1.1Unicode：所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。</h4><pre><code class="hljs">#好处：字符与数字之间转换速度更快一些
+<h4 id="1-1Unicode："><a href="#1-1Unicode：" class="headerlink" title="1.1Unicode："></a>1.1Unicode：</h4><pre><code class="hljs">#所有字符都是2个字节，集大成者 Unicode 字符集，它将世界上所有的符号都纳入其中，成功实现了每个数字代表唯一的至少在某种语言中使用的符号。Unicode 依然兼容 ASCII，即 0～127 意义依然不变。
+#好处：字符与数字之间转换速度更快一些
 #坏处：占用空间大
 </code></pre>
 <h4 id="1-2UTF-8：精准，对不同的字符用不同的长度表示"><a href="#1-2UTF-8：精准，对不同的字符用不同的长度表示" class="headerlink" title="1.2UTF-8：精准，对不同的字符用不同的长度表示"></a>1.2UTF-8：精准，对不同的字符用不同的长度表示</h4><pre><code class="hljs">#优点：节省空间
@@ -1005,9 +1006,9 @@ print(&quot;修改后：&quot;st,id(st))  #内存地址改变
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/22/pythonlearn/" title="小八的python学习笔记————基础部分">
+                      <a href="/2025/04/28/verilog%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="小八的Verilog学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">小八的python学习笔记————基础部分</span>
+                        <span class="hidden-mobile">小八的Verilog学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1015,8 +1016,8 @@ print(&quot;修改后：&quot;st,id(st))  #内存地址改变
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/25/draft/" title="c语言复习计划">
-                        <span class="hidden-mobile">c语言复习计划</span>
+                      <a href="/2025/04/22/pythonlearn/" title="小八的python学习笔记————第一篇">
+                        <span class="hidden-mobile">小八的python学习笔记————第一篇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
