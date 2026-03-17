@@ -27,7 +27,7 @@
 <meta property="og:description" content="Python学习记录————基础版一、python中出现错误原因1.输入错误print（”123“）#报错，中文引号#注意：python中的符号都是要用英文模式下的 2.缩进错误print(123)#注意:print要顶格写，否则就报错 3.语法错误print(123)print (456)#两个print不能写在同一行，一个print必须单独写一行，错误信息中遇到Syntax说明语法有问题 4.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-04-22T00:51:24.000Z">
-<meta property="article:modified_time" content="2025-06-12T06:42:25.801Z">
+<meta property="article:modified_time" content="2026-03-14T05:10:24.396Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录&#x2F;基础">
 <meta name="twitter:card" content="summary_large_image">
@@ -319,7 +319,7 @@
 <p>2.format ()<br>3.格式化f<br>#5.3f格式化<br>#格式：f”{表达式}<br>name &#x3D; bingbing<br>age &#x3D; 18<br>print(f”我的名字是{name}，我今年{age}岁了”)</p>
 <p>#5.列表类型：list<br>#7.元组类型：tuple<br>#8.字典类型：dict<br>#9.集合类型：set<br>#10.None类型：None<br>#11.对象类型：object<br>#12.函数类型：function<br>#检测数据类型的方法：运用type()函数，print(type(num))。</p>
 <h2 id="五、python运算符"><a href="#五、python运算符" class="headerlink" title="五、python运算符"></a>五、python运算符</h2><h3 id="1-算术运算符"><a href="#1-算术运算符" class="headerlink" title="1.算术运算符"></a>1.算术运算符</h3><p> （1）+ 加法<br> （2）- 减法<br> （3）* 乘法<br> （4）&#x2F; 除法<br> 结果一定是浮点数，且除数不能为0。<br> （5）&#x2F;&#x2F; 整除<br> （6）% 取余（取模）<br> （7）** 幂运算</p>
-<h4 id="（8）-注意："><a href="#（8）-注意：" class="headerlink" title="（8）. 注意："></a>（8）. 注意：</h4><p> 1）除法运算结果是浮点数，整数除法结果是整数。<br> 2）整除运算符（&#x2F;&#x2F;）的结果是商的整数部分，即向下取整。<br> 3）取余运算符（%）的结果是整数，即余数。<br> 4）幂运算符（<strong>）的优先级比加减乘除高，所以2+3</strong>2等于11，而(2+3)**2等于25。<br> 5）使用算术运算符，若有浮点数参与运算，则结果也是浮点数。<br> 6）优先级排序: 幂(最高优先级)&gt;乘、除、取余、取整除&gt;加减。</p>
+<h4 id="（8）-注意："><a href="#（8）-注意：" class="headerlink" title="（8）. 注意："></a>（8）. 注意：</h4><p> 1）除法运算结果是浮点数，整数除法结果是整数。<br> 2）整除运算符（&#x2F;&#x2F;）的结果是商的整数部分，即向下取整。<br> 3）取余运算符（%）的结果是整数，即余数。<br> 4）幂运算符（<code>**</code>）的优先级比加减乘除高，所以<code>2+3**2</code>等于11，而(2+3)**2等于25。<br> 5）使用算术运算符，若有浮点数参与运算，则结果也是浮点数。<br> 6）优先级排序: 幂(最高优先级)&gt;乘、除、取余、取整除&gt;加减。</p>
 <h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><p> 将一个变量或常量的值赋给另一个变量。<br> （1）&#x3D; 赋值运算符，将右边的值赋给左边的变量。<br> （2）+&#x3D; 增量赋值运算符，将右边的值加到左边的变量上。<br> （3）-&#x3D; 减量赋值运算符，将右边的值减到左边的变量上。<br> （4）*&#x3D; 乘量赋值运算符，将右边的值乘到左边的变量上。<br> （5）&#x2F;&#x3D; 除量赋值运算符，将右边的值除到左边的变量上。<br> （6）%&#x3D; 取余量赋值运算符，将右边的值取余到左边的变量上。<br> （7）**&#x3D; 幂量赋值运算符，将右边的值幂到左边的变量上。</p>
 <h4 id="（8）-注意：-1"><a href="#（8）-注意：-1" class="headerlink" title="（8）. 注意："></a>（8）. 注意：</h4><p> 1）赋值运算符的优先级最低，其次是条件运算符（if、while、for等）。<br> 2）+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;、**&#x3D;的优先级比&#x3D;高，所以a&#x3D;b+&#x3D;c等于a&#x3D;b+c。</p>
 <h3 id="3-三目运算符（三元表达式）"><a href="#3-三目运算符（三元表达式）" class="headerlink" title="3.三目运算符（三元表达式）"></a>3.三目运算符（三元表达式）</h3><p> （1）基本格式：为真结果if判断条件else为假结果<br>  if a&lt;&#x3D;b:<br>      print(“a小于等于b”)#为真结果<br>  else:<br>      print (“a比b大”)#为假结果<br>  等于下面三目运算语句：print(“a小于等于b”）if a&lt;&#x3D;b else print(“a比b大”)</p>

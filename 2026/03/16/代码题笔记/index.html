@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="每日五题 3.17912. 排序数组给你一个整数数组 nums，请你将该数组升序排列。你必须在 不使用任何内置函数 的情况下解决问题，时间复杂度为 O(nlog(n))，并且空间复杂度尽可能小。 示例 1： 123输入：nums &#x3D; [5,2,3,1]输出：[1,2,3,5]解释：数组排序后，某些数字的位置没有改变（例如，2 和 3），而其他数字的位置发生了改变（例如，1 和 5）。  示例 2：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日五题记录">
+<meta property="og:url" content="http://example.com/2026/03/16/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="每日五题 3.17912. 排序数组给你一个整数数组 nums，请你将该数组升序排列。你必须在 不使用任何内置函数 的情况下解决问题，时间复杂度为 O(nlog(n))，并且空间复杂度尽可能小。 示例 1： 123输入：nums &#x3D; [5,2,3,1]输出：[1,2,3,5]解释：数组排序后，某些数字的位置没有改变（例如，2 和 3），而其他数字的位置发生了改变（例如，1 和 5）。  示例 2：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-16T10:17:21.000Z">
+<meta property="article:modified_time" content="2026-03-17T10:08:52.949Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码&#x2F;学习记录&#x2F;基础">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>每日五题记录 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="每日五题记录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-16 18:17" pubdate>
+          2026年3月16日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">每日五题记录</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="每日五题"><a href="#每日五题" class="headerlink" title="每日五题"></a>每日五题</h1><hr>
+<h2 id="3-17"><a href="#3-17" class="headerlink" title="3.17"></a>3.17</h2><h3 id="912-排序数组"><a href="#912-排序数组" class="headerlink" title="912. 排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-an-array/">912. 排序数组</a></h3><p>给你一个整数数组 <code>nums</code>，请你将该数组升序排列。你必须在 <strong>不使用任何内置函数</strong> 的情况下解决问题，时间复杂度为 <code>O(nlog(n))</code>，并且空间复杂度尽可能小。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">输入：nums = [<span class="hljs-number">5,2,3,1</span>]<br>输出：[<span class="hljs-number">1,2,3,5</span>]<br>解释：数组排序后，某些数字的位置没有改变（例如，<span class="hljs-number">2</span> 和 <span class="hljs-number">3</span>），而其他数字的位置发生了改变（例如，<span class="hljs-number">1</span> 和 <span class="hljs-number">5</span>）。<br></code></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：nums = <span class="hljs-string">[5,1,1,2,0,0]</span><br>输出：<span class="hljs-string">[0,0,1,1,2,5]</span><br>解释：请注意，nums 的值不一定唯一。<br></code></pre></td></tr></table></figure>
+
+<p>我的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sortArray</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        tmp = <span class="hljs-number">0</span><br>        finish = <span class="hljs-number">1</span><br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> n &lt;=<span class="hljs-number">1</span> :<br>            <span class="hljs-keyword">return</span> nums<br>        <span class="hljs-keyword">while</span> finish &lt; n :<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n-<span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> nums[i] &gt; nums[i+<span class="hljs-number">1</span>] :<br>                    tmp = nums[i]<br>                    nums[i] = nums[i+<span class="hljs-number">1</span>]<br>                    nums[i+<span class="hljs-number">1</span>] = tmp<br>            n -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> nums<br><span class="hljs-comment">#使用了冒泡排序，复杂度n^2，不满足题目要求</span><br></code></pre></td></tr></table></figure>
+
+<p>可选答案：</p>
+<p>堆排序要点：</p>
+<p>堆是一种<strong>完全二叉树</strong>（除最后一层外，每一层都被填满；最后一层的节点靠左排列），主要分为两种：</p>
+<ul>
+<li><strong>大顶堆</strong>：每个父节点的值 ≥ 其子节点的值（堆顶是整个堆的最大值）；</li>
+<li><strong>小顶堆</strong>：每个父节点的值 ≤ 其子节点的值（堆顶是整个堆的最小值）。</li>
+</ul>
+<p>堆排序依赖<strong>大顶堆</strong>实现升序排序（若要降序则用小顶堆），核心利用「堆顶是最大值」的特性，逐步提取最大值放到数组末尾。</p>
+<h4 id="堆的关键特性（数组存储）"><a href="#堆的关键特性（数组存储）" class="headerlink" title="堆的关键特性（数组存储）"></a>堆的关键特性（数组存储）</h4><p>堆通常用<strong>数组</strong>存储（无需额外树结构），假设数组索引从 0 开始，对于索引为 <code>i</code> 的节点：</p>
+<ul>
+<li>左子节点索引：<code>2 * i + 1</code>；</li>
+<li>右子节点索引：<code>2 * i + 2</code>；</li>
+<li>父节点索引：<code>(i - 1) // 2</code>；</li>
+<li>最后一个非叶子节点索引：<code>len(arr) // 2 - 1</code>（堆的核心计算点）。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#堆排序</span><br><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sortArray</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        <span class="hljs-comment"># 堆排序主函数</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">heap_sort</span>(<span class="hljs-params">arr</span>):<br>            n = <span class="hljs-built_in">len</span>(arr)<br>            <span class="hljs-comment"># 1. 构建大顶堆（从最后一个非叶子节点开始调整）</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n // <span class="hljs-number">2</span> - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>                adjust_heap(arr, i, n)<br>            <span class="hljs-comment"># 2. 依次将堆顶元素交换到末尾，调整剩余堆</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>):<br>                arr[<span class="hljs-number">0</span>], arr[i] = arr[i], arr[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 堆顶（最大值）交换到末尾</span><br>                adjust_heap(arr, <span class="hljs-number">0</span>, i)  <span class="hljs-comment"># 调整剩余0~i-1的元素为大顶堆</span><br>        <br>        <span class="hljs-comment"># 调整堆：将以i为根的子树调整为大顶堆</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">adjust_heap</span>(<span class="hljs-params">arr, i, length</span>):<br>            temp = arr[i]  <span class="hljs-comment"># 保存当前节点值</span><br>            <span class="hljs-comment"># 左子节点索引</span><br>            k = <span class="hljs-number">2</span> * i + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">while</span> k &lt; length:<br>                <span class="hljs-comment"># 找到左右子节点中较大的那个</span><br>                <span class="hljs-keyword">if</span> k + <span class="hljs-number">1</span> &lt; length <span class="hljs-keyword">and</span> arr[k] &lt; arr[k + <span class="hljs-number">1</span>]:<br>                    k += <span class="hljs-number">1</span><br>                <span class="hljs-comment"># 如果子节点大于父节点，将子节点值赋给父节点</span><br>                <span class="hljs-keyword">if</span> arr[k] &gt; temp:<br>                    arr[i] = arr[k]<br>                    i = k  <span class="hljs-comment"># 继续向下调整</span><br>                    k = <span class="hljs-number">2</span> * i + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">break</span><br>            <span class="hljs-comment"># 将临时值赋给最终位置</span><br>            arr[i] = temp<br>        <br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> nums:<br>            <span class="hljs-keyword">return</span> []<br>        heap_sort(nums)<br>        <span class="hljs-keyword">return</span> nums<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="215-数组中的第K个最大元素"><a href="#215-数组中的第K个最大元素" class="headerlink" title="215. 数组中的第K个最大元素"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-largest-element-in-an-array/description/">215. 数组中的第K个最大元素</a></h3><p>给定整数数组 <code>nums</code> 和整数 <code>k</code>，请返回数组中第 <code>**k**</code> 个最大的元素。</p>
+<p>请注意，你需要找的是数组排序后的第 <code>k</code> 个最大的元素，而不是第 <code>k</code> 个不同的元素。</p>
+<p>你必须设计并实现时间复杂度为 <code>O(n)</code> 的算法解决此问题。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">输入: [3,2,1,5,6,4], k = 2</span><br><span class="hljs-section">输出: 5</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="快速选择算法（快速排序进阶，不必完整排序数组）："><a href="#快速选择算法（快速排序进阶，不必完整排序数组）：" class="headerlink" title="快速选择算法（快速排序进阶，不必完整排序数组）："></a>快速选择算法（快速排序进阶，不必完整排序数组）：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random  <br><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-comment"># 分区函数：核心作用是选基准值，将数组[left..right]分区，返回基准值的最终位置j</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">partition</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], left: <span class="hljs-built_in">int</span>, right: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># 步骤1：随机选取基准值索引（避免有序数组导致的最坏情况）</span><br>        i = random.randint(left, right) <br>        nums[i], nums[left] = nums[left], nums[i]  <span class="hljs-comment"># 把基准值交换到区间左端点，方便后续处理</span><br>        <br>        pivot = nums[left]  <span class="hljs-comment"># 确定基准值（此时左端点是随机选的基准值）</span><br>        i, j = left + <span class="hljs-number">1</span>, right  <span class="hljs-comment"># 双指针初始化：i从左+1开始，j从右边界开始</span><br>        <br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:  <span class="hljs-comment"># 循环分区，直到i &gt;= j</span><br>            <span class="hljs-comment"># 子步骤1：左指针i向右走，找第一个 &gt;= 基准值的元素（注意条件是nums[i] &lt; pivot时继续走）</span><br>            <span class="hljs-keyword">while</span> i &lt;= j <span class="hljs-keyword">and</span> nums[i] &lt; pivot:<br>                i += <span class="hljs-number">1</span><br>            <span class="hljs-comment"># 子步骤2：右指针j向左走，找第一个 &lt;= 基准值的元素（注意条件是nums[j] &gt; pivot时继续走）</span><br>            <span class="hljs-keyword">while</span> i &lt;= j <span class="hljs-keyword">and</span> nums[j] &gt; pivot:<br>                j -= <span class="hljs-number">1</span><br>            <br>            <span class="hljs-comment"># 子步骤3：如果i &gt;= j，说明分区完成，退出循环</span><br>            <span class="hljs-keyword">if</span> i &gt;= j: <br>                <span class="hljs-keyword">break</span><br>            <br>            <span class="hljs-comment"># 子步骤4：交换i和j位置的元素（把左指针找到的大值和右指针找到的小值交换）</span><br>            nums[i], nums[j] = nums[j], nums[i]<br>            i += <span class="hljs-number">1</span>  <span class="hljs-comment"># i右移，继续找下一个不符合条件的元素</span><br>            j -= <span class="hljs-number">1</span>  <span class="hljs-comment"># j左移，继续找下一个不符合条件的元素</span><br>        <br>        <span class="hljs-comment"># 步骤2：将基准值（left位置）交换到j的位置（j是最后一个&lt;=基准值的位置）</span><br>        nums[left], nums[j] = nums[j], nums[left]<br>        <span class="hljs-keyword">return</span> j  <span class="hljs-comment"># 返回基准值的最终位置j（关键：后续用j判断目标位置）</span><br><br>    <span class="hljs-comment"># 主函数：找第k大的元素</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">findKthLargest</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># 定义递归的快速选择函数：在[left..right]区间内找第k大的元素</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">quick_select</span>(<span class="hljs-params">left: <span class="hljs-built_in">int</span>, right: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            <span class="hljs-comment"># 步骤1：调用分区函数，得到基准值的位置j</span><br>            j = <span class="hljs-variable language_">self</span>.partition(nums, left, right)<br>            <br>            <span class="hljs-comment"># 步骤2：计算基准值nums[j]是数组中「第rank大」的元素</span><br>            <span class="hljs-comment"># 核心逻辑：len(nums)-j 表示升序排序后j位置的元素是第几个最大的</span><br>            <span class="hljs-comment"># 例：数组[3,2,1,5,6,4]，j=4（nums[j]=5），len(nums)-j=6-4=2 → 第2大，正好是示例1的答案</span><br>            rank = <span class="hljs-built_in">len</span>(nums) - j  <br>            <br>            <span class="hljs-comment"># 步骤3：根据rank和k的关系，缩小查找范围</span><br>            <span class="hljs-keyword">if</span> rank == k:<br>                <span class="hljs-comment"># 找到目标：当前基准值就是第k大的元素，直接返回</span><br>                <span class="hljs-keyword">return</span> nums[j]<br>            <span class="hljs-keyword">elif</span> rank &gt; k:  <br>                <span class="hljs-comment"># 说明目标在右半区（j+1..right）：rank更大，要找更小的rank，需往右找</span><br>                <span class="hljs-comment"># 例：rank=5，k=2 → 第5大的元素在j位置，第2大的在j右边</span><br>                <span class="hljs-keyword">return</span> quick_select(j + <span class="hljs-number">1</span>, right)<br>            <span class="hljs-keyword">else</span>:  <br>                <span class="hljs-comment"># 说明目标在左半区（left..j-1）：rank更小，要找更大的rank，需往左找</span><br>                <span class="hljs-comment"># 例：rank=1，k=2 → 第1大的元素在j位置，第2大的在j左边</span><br>                <span class="hljs-keyword">return</span> quick_select(left, j - <span class="hljs-number">1</span>)<br>        <br>        <span class="hljs-comment"># 初始调用：查找区间是整个数组[0..len(nums)-1]</span><br>        <span class="hljs-keyword">return</span> quick_select(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="53-最大子数组和"><a href="#53-最大子数组和" class="headerlink" title="53. 最大子数组和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-subarray/solutions/2361770/53-zui-da-zi-shu-zu-he-dong-tai-gui-hua-bvkq9/">53. 最大子数组和</a></h3><p>给你一个整数数组 <code>nums</code> ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p><strong>子数组</strong>是数组中的一个连续部分。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs subunit">输入：nums = [<span class="hljs-string">-2</span>,1,<span class="hljs-string">-3</span>,4,<span class="hljs-string">-1</span>,2,1,<span class="hljs-string">-5</span>,4]<br>输出：6<br>解释：连续子数组 [4,<span class="hljs-string">-1</span>,2,1] 的和最大，为 6 。<br></code></pre></td></tr></table></figure>
+
+<h4 id="动态规划思路"><a href="#动态规划思路" class="headerlink" title="动态规划思路"></a><strong>动态规划思路</strong></h4><p>动态规划是本题的最优解法，以下按照标准流程解题。</p>
+<p>常见解法	时间复杂度	空间复杂度<br>暴力搜索	O(N^2)	O(1)<br>分治思想	O(NlogN)	O(logN)<br>动态规划	O(N)	O(1)<br><strong>动态规划解析：</strong><br>状态定义： 设动态规划列表 dp ，dp[i] 代表以元素 nums[i] 为结尾的连续子数组最大和。</p>
+<p>为何定义最大和 dp[i] 中必须包含元素 nums[i] ：保证 dp[i] 递推到 dp[i+1] 的正确性；如果不包含 nums[i] ，递推时则不满足题目的 连续子数组 要求。<br>转移方程： 若 dp[i−1]≤0 ，说明 dp[i−1] 对 dp[i] 产生负贡献，即 dp[i−1]+nums[i] 还不如 nums[i] 本身大。</p>
+<p>dp[i]&#x3D;{<br>dp[i−1]+nums[i]<br>nums[i]</p>
+<p>,dp[i−1]&gt;0<br>,dp[i−1]≤0</p>
+<p>初始状态： dp[0]&#x3D;nums[0]，即以 nums[0] 结尾的连续子数组最大和为 nums[0] 。</p>
+<p>返回值： 返回 dp 列表中的最大值，代表全局最大值。</p>
+<p>状态压缩：<br>由于 dp[i] 只与 dp[i−1] 和 nums[i] 有关系，因此可以将原数组 nums 用作 dp 列表，即直接在 nums 上修改即可。<br>由于省去 dp 列表使用的额外空间，因此空间复杂度从 O(N) 降至 O(1) 。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxSubArray</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(nums)):<br>            nums[i] += <span class="hljs-built_in">max</span>(nums[i-<span class="hljs-number">1</span>] ,<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(nums)<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%9F%BA%E7%A1%80/" class="print-no-link">#代码/学习记录/基础</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>每日五题记录</div>
+      <div>http://example.com/2026/03/16/代码题笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/17/C%E5%90%91C++%E7%9A%84%E8%BF%87%E5%BA%A6/" title="C向C++过渡笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C向C++过渡笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/10/python%E9%97%AD%E5%8C%85%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E7%AC%94%E8%AE%B0/" title="python闭包学习笔记">
+                        <span class="hidden-mobile">python闭包学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,1059 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="作为一位有基础 Python 经验的学习者，理解闭包（Closure）是迈向更高级 Python 编程的重要一步。闭包是 Python 中一个强大而优雅的特性，它允许函数记住并访问其定义时的外部环境，即使这个环境在函数执行时已经不存在了。让我通过几个精心设计的例子，从原理到实践全面解析闭包的概念和应用。 一、闭包的原理详解1.1 函数嵌套与作用域链要理解闭包，首先需要了解 Python 的函数嵌套">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python闭包学习笔记">
+<meta property="og:url" content="http://example.com/2026/03/10/python%E9%97%AD%E5%8C%85%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="作为一位有基础 Python 经验的学习者，理解闭包（Closure）是迈向更高级 Python 编程的重要一步。闭包是 Python 中一个强大而优雅的特性，它允许函数记住并访问其定义时的外部环境，即使这个环境在函数执行时已经不存在了。让我通过几个精心设计的例子，从原理到实践全面解析闭包的概念和应用。 一、闭包的原理详解1.1 函数嵌套与作用域链要理解闭包，首先需要了解 Python 的函数嵌套">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-10T03:59:34.000Z">
+<meta property="article:modified_time" content="2026-03-17T10:08:52.954Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码&#x2F;python&#x2F;学习记录&#x2F;基础">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>python闭包学习笔记 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="python闭包学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-10 11:59" pubdate>
+          2026年3月10日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          77 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">python闭包学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>作为一位有基础 Python 经验的学习者，理解闭包（Closure）是迈向更高级 Python 编程的重要一步。闭包是 Python 中一个强大而优雅的特性，它允许函数记住并访问其定义时的外部环境，即使这个环境在函数执行时已经不存在了。让我通过几个精心设计的例子，从原理到实践全面解析闭包的概念和应用。</p>
+<h2 id="一、闭包的原理详解"><a href="#一、闭包的原理详解" class="headerlink" title="一、闭包的原理详解"></a>一、闭包的原理详解</h2><h3 id="1-1-函数嵌套与作用域链"><a href="#1-1-函数嵌套与作用域链" class="headerlink" title="1.1 函数嵌套与作用域链"></a>1.1 函数嵌套与作用域链</h3><p>要理解闭包，首先需要了解 Python 的<strong>函数嵌套</strong>机制和<strong>作用域链</strong>。在 Python 中，我们可以在一个函数内部定义另一个函数，这就是函数嵌套。内部函数可以访问外部函数的变量，但外部函数无法访问内部函数的变量。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs clean">def outer():<br><br>&amp;#x20;   x = <span class="hljs-number">10</span>  # 外部函数的变量<br><br>&amp;#x20;   def inner():<br><br>&amp;#x20;       print(x)  # 内部函数访问外部函数的变量<br><br>&amp;#x20;   inner()  # 调用内部函数<br><br>outer()  # 输出: <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>inner</code>函数定义在<code>outer</code>函数内部，并且能够访问<code>outer</code>函数的变量<code>x</code>。这是因为 Python 采用了<strong>LEGB 规则</strong>（Local → Enclosing → Global → Built-in）来查找变量<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_17029845/14362043">(3)</a>：</p>
+<ul>
+<li><p><strong>Local（局部作用域）</strong>：函数内部的作用域</p>
+</li>
+<li><p><strong>Enclosing（嵌套作用域）</strong>：外部嵌套函数的作用域</p>
+</li>
+<li><p><strong>Global（全局作用域）</strong>：模块顶层的作用域</p>
+</li>
+<li><p><strong>Built-in（内置作用域）</strong>：Python 内置函数和变量的作用域</p>
+</li>
+</ul>
+<p>当<code>inner</code>函数要访问变量<code>x</code>时，它会按照 LEGB 规则依次查找：首先在自己的局部作用域中查找，如果找不到，就到外层的嵌套作用域（这里是<code>outer</code>函数的作用域）中查找，依此类推。</p>
+<h3 id="1-2-闭包的形成条件"><a href="#1-2-闭包的形成条件" class="headerlink" title="1.2 闭包的形成条件"></a>1.2 闭包的形成条件</h3><p><strong>闭包的本质是一个函数对象，它能够记住并访问其定义时所在作用域的变量，即使该作用域已经不存在了</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/windowshht/article/details/158005484">(17)</a>。要形成闭包，必须同时满足以下三个条件：</p>
+<ol>
+<li><p><strong>存在函数嵌套</strong>：内部函数必须定义在外部函数内部</p>
+</li>
+<li><p><strong>内部函数引用外部函数的局部变量</strong>：这些变量称为<strong>自由变量</strong>（free variable）</p>
+</li>
+<li><p><strong>外部函数返回内部函数对象</strong>：而不是直接调用内部函数</p>
+</li>
+</ol>
+<p>让我们通过一个例子来理解这三个条件：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs axapta">def <span class="hljs-keyword">outer</span>(x):<br><br>&amp;<span class="hljs-meta">#x20;   def inner(y):</span><br><br>&amp;<span class="hljs-meta">#x20;       return x + y  # 内部函数引用了外部函数的变量x</span><br><br>&amp;<span class="hljs-meta">#x20;   return inner  # 外部函数返回内部函数对象</span><br><br>closure = <span class="hljs-keyword">outer</span>(<span class="hljs-number">10</span>)  <span class="hljs-meta"># outer函数执行完毕，但返回了inner函数</span><br><br><span class="hljs-keyword">print</span>(closure(<span class="hljs-number">5</span>))  <span class="hljs-meta"># 输出: 15</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，当我们调用<code>outer(10)</code>时，<code>outer</code>函数执行完毕并返回<code>inner</code>函数对象。此时<code>outer</code>函数的作用域已经结束，但当我们调用返回的<code>closure</code>函数时，它仍然能够正确计算<code>10 + 5 = 15</code>。这就是闭包的神奇之处 ——<strong>内部函数</strong><code>inner</code><strong>记住了它定义时</strong><code>x</code><strong>的值是 10</strong>。</p>
+<h3 id="1-3-自由变量与变量捕获机制"><a href="#1-3-自由变量与变量捕获机制" class="headerlink" title="1.3 自由变量与变量捕获机制"></a>1.3 自由变量与变量捕获机制</h3><p>在闭包中，被内部函数引用但不是在其内部定义的变量称为<strong>自由变量</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/KE17RS/article/details/152512005">(13)</a>。闭包的核心机制就是<strong>自由变量的捕获</strong>：内部函数会捕获并保存对这些自由变量的引用，即使外部函数已经执行完毕。</p>
+<p>我们可以通过<code>__closure__</code>属性来验证闭包的形成。这个属性会返回一个元组，包含了闭包捕获的所有自由变量的信息：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs maxima">def outer(x):<br><br>&amp;#x20;   def inner(y):<br><br>&amp;#x20;       <span class="hljs-built_in">return</span> x + y<br><br>&amp;#x20;   <span class="hljs-built_in">return</span> inner<br><br>closure = outer(<span class="hljs-number">10</span>)<br><br><span class="hljs-built_in">print</span>(closure.\<span class="hljs-symbol">_</span>\_closure\<span class="hljs-symbol">_</span>\<span class="hljs-symbol">_</span>)  # 输出: (\&lt;cell <span class="hljs-built_in">at</span> <span class="hljs-number">0x</span>...: int object <span class="hljs-built_in">at</span> <span class="hljs-number">0x</span>...&gt;,)<br><br><span class="hljs-built_in">print</span>(closure.\<span class="hljs-symbol">_</span>\_closure\<span class="hljs-symbol">_</span>\<span class="hljs-symbol">_</span>\[<span class="hljs-number">0</span>].cell\_contents)  # 输出: <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>从输出可以看出，<code>closure</code>确实是一个闭包，它捕获了一个自由变量<code>x</code>，其值为 10。</p>
+<h3 id="1-4-闭包的内存管理机制"><a href="#1-4-闭包的内存管理机制" class="headerlink" title="1.4 闭包的内存管理机制"></a>1.4 闭包的内存管理机制</h3><p>理解闭包的内存管理机制对于掌握其原理至关重要。在 Python 中，每个对象都有一个<strong>引用计数</strong>（reference count），当引用计数为零时，对象就会被垃圾回收<a target="_blank" rel="noopener" href="https://blog.csdn.net/woo_test/article/details/158467936">(27)</a>。</p>
+<p>闭包的一个关键特性是它能够<strong>延长变量的生命周期</strong>，使其脱离调用栈（stack），进入堆（heap）语义。当外部函数执行完毕后，其局部变量通常应该被销毁，但由于闭包的存在，这些变量的引用计数会增加，因此不会被立即回收。</p>
+<p>举个例子，考虑以下代码：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs axapta">def <span class="hljs-keyword">outer</span>():<br><br>&amp;<span class="hljs-meta">#x20;   x = 10  # 外部函数的变量</span><br><br>&amp;<span class="hljs-meta">#x20;   def inner():</span><br><br>&amp;<span class="hljs-meta">#x20;       return x</span><br><br>&amp;<span class="hljs-meta">#x20;   return inner</span><br><br>closure = <span class="hljs-keyword">outer</span>()<br><br><span class="hljs-keyword">print</span>(closure())  <span class="hljs-meta"># 输出: 10</span><br></code></pre></td></tr></table></figure>
+
+<p>当<code>outer</code>函数执行完毕后，变量<code>x</code>的正常生命周期应该结束。但由于<code>inner</code>函数（现在赋值给了<code>closure</code>）引用了<code>x</code>，<code>x</code>的引用计数变为 1，因此不会被垃圾回收。这使得<code>closure</code>函数在任何时候被调用时，都能返回正确的值 10。</p>
+<p>需要注意的是，闭包可能导致<strong>内存泄漏</strong>问题，因为被捕获的变量会一直存在于内存中，直到闭包对象被销毁<a target="_blank" rel="noopener" href="http://m.blog.itpub.net/70040412/viewspace-3081302/">(30)</a>。因此，在使用闭包时需要谨慎考虑内存管理问题。</p>
+<h3 id="1-5-闭包与一般函数嵌套的区别"><a href="#1-5-闭包与一般函数嵌套的区别" class="headerlink" title="1.5 闭包与一般函数嵌套的区别"></a>1.5 闭包与一般函数嵌套的区别</h3><p>理解闭包与一般函数嵌套的区别很重要。所有闭包都是内部函数，但<strong>不是所有内部函数都是闭包</strong>。关键区别在于：</p>
+<ul>
+<li><p><strong>一般函数嵌套</strong>：内部函数只能在外部函数执行期间访问外部变量，外部函数执行完毕后，内部函数也无法访问这些变量</p>
+</li>
+<li><p><strong>闭包</strong>：内部函数在外部函数执行完毕后，仍然能够访问并操作外部函数的变量</p>
+</li>
+</ul>
+<p>以下例子展示了这种区别：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python">\<span class="hljs-comment"># 一般函数嵌套</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">outer</span>():<br><br>&amp;<span class="hljs-comment">#x20;   x = 10</span><br><br>&amp;<span class="hljs-comment">#x20;   def inner():</span><br><br>&amp;<span class="hljs-comment">#x20;       print(x)</span><br><br>&amp;<span class="hljs-comment">#x20;   inner()  # 只能在outer内部调用</span><br><br>outer()  <span class="hljs-comment"># 输出: 10</span><br><br>\<span class="hljs-comment"># inner()  # 报错：name &#x27;inner&#x27; is not defined</span><br><br>\<span class="hljs-comment"># 闭包</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">outer</span>():<br><br>&amp;<span class="hljs-comment">#x20;   x = 10</span><br><br>&amp;<span class="hljs-comment">#x20;   def inner():</span><br><br>&amp;<span class="hljs-comment">#x20;       print(x)</span><br><br>&amp;<span class="hljs-comment">#x20;   return inner  # 返回内部函数对象</span><br><br>closure = outer()  <span class="hljs-comment"># outer执行完毕</span><br><br>closure()  <span class="hljs-comment"># 输出: 10 - 仍然可以访问x的值</span><br></code></pre></td></tr></table></figure>
+
+<p>在第一个例子中，<code>inner</code>函数只能在<code>outer</code>函数内部被调用，<code>outer</code>执行完毕后就无法访问了。而在第二个例子中，通过返回<code>inner</code>函数对象，我们创建了一个闭包，使得<code>closure</code>变量在<code>outer</code>执行完毕后仍然能够访问<code>x</code>的值。</p>
+<h3 id="1-6-闭包的本质：函数与环境的绑定"><a href="#1-6-闭包的本质：函数与环境的绑定" class="headerlink" title="1.6 闭包的本质：函数与环境的绑定"></a>1.6 闭包的本质：函数与环境的绑定</h3><p>从本质上讲，<strong>闭包是函数与其执行环境的组合</strong><a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7518585790704700681/?region=&mid=7518585862670584630&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&share_version=280700&ts=1773237386&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D">(67)</a>。更准确地说，闭包是内部函数与外部函数执行环境（包括其变量）绑定在一起的对象。</p>
+<p>这种绑定机制通过 Python 的<code>__closure__</code>属性实现。当内部函数捕获自由变量时，Python 会创建特殊的<strong>cell 对象</strong>来保存这些变量的值。这些 cell 对象被存储在<code>__closure__</code>属性中，形成了一个持久的引用链。</p>
+<p>让我们通过一个更复杂的例子来理解这种机制：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs livescript">def make<span class="hljs-string">\_multiplier(factor):</span><br><br>&amp;<span class="hljs-comment">#x20;   def multiplier(number):</span><br><br>&amp;<span class="hljs-comment">#x20;       return number \* factor</span><br><br>&amp;<span class="hljs-comment">#x20;   return multiplier</span><br><br>double = make<span class="hljs-string">\_multiplier(2)</span><br><br>triple = make<span class="hljs-string">\_multiplier(3)</span><br><br><span class="hljs-built_in">print</span>(double(<span class="hljs-number">5</span>))  <span class="hljs-comment"># 输出: 10</span><br><br><span class="hljs-built_in">print</span>(triple(<span class="hljs-number">5</span>))  <span class="hljs-comment"># 输出: 15</span><br><br><span class="hljs-built_in">print</span>(double.<span class="hljs-string">\_\_closure\_\_)</span>  <span class="hljs-comment"># 输出: (\&lt;cell at 0x...: int object at 0x...&gt;,)</span><br><br><span class="hljs-built_in">print</span>(double.<span class="hljs-string">\_\_closure\_\_\[0].cell\_contents)</span>  <span class="hljs-comment"># 输出: 2</span><br><br><span class="hljs-built_in">print</span>(triple.<span class="hljs-string">\_\_closure\_\_\[0].cell\_contents)</span>  <span class="hljs-comment"># 输出: 3</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>make_multiplier</code>函数返回了一个闭包。当我们创建<code>double</code>和<code>triple</code>两个闭包时，它们各自捕获了不同的<code>factor</code>值（2 和 3）。每个闭包都有自己独立的<code>__closure__</code>属性，保存着被捕获的变量值。</p>
+<h2 id="二、闭包的典型使用场景"><a href="#二、闭包的典型使用场景" class="headerlink" title="二、闭包的典型使用场景"></a>二、闭包的典型使用场景</h2><h3 id="2-1-函数工厂（Function-Factory）"><a href="#2-1-函数工厂（Function-Factory）" class="headerlink" title="2.1 函数工厂（Function Factory）"></a>2.1 函数工厂（Function Factory）</h3><p>闭包最常见的应用之一是创建<strong>函数工厂</strong>，即动态生成具有特定行为的函数。这种模式在需要创建多个相似但参数不同的函数时特别有用。</p>
+<p><strong>场景描述</strong>：假设你需要创建多个不同基数的幂函数（如平方、立方、四次方等），传统方法需要为每个幂函数单独定义，而使用闭包可以优雅地解决这个问题。</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs gauss">def <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_power</span>(exponent):<br><br>&amp;<span class="hljs-meta">#x20;   &quot;&quot;&quot;创建一个计算指定幂次的函数&quot;&quot;&quot;</span><br><br>&amp;<span class="hljs-meta">#x20;   def power(base):</span><br><br>&amp;<span class="hljs-meta">#x20;       return base \*\* exponent</span><br><br>&amp;<span class="hljs-meta">#x20;   return power</span><br><br>\<span class="hljs-meta"># 创建不同的幂函数</span><br><br>square = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_power</span>(<span class="hljs-number">2</span>)  <span class="hljs-meta"># 平方函数</span><br><br>cube = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_power</span>(<span class="hljs-number">3</span>)    <span class="hljs-meta"># 立方函数</span><br><br>quadruple = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_power</span>(<span class="hljs-number">4</span>)  <span class="hljs-meta"># 四次方函数</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">square</span>(<span class="hljs-number">5</span>))   <span class="hljs-meta"># 输出: 25</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">cube</span>(<span class="hljs-number">3</span>))     <span class="hljs-meta"># 输出: 27</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">quadruple</span>(<span class="hljs-number">2</span>)) <span class="hljs-meta"># 输出: 16</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>make_power</code>是一个函数工厂，它接受一个参数<code>exponent</code>（指数），并返回一个闭包<code>power</code>。每个通过<code>make_power</code>创建的函数都 “记住” 了自己的指数值，因此可以正确计算相应的幂。</p>
+<p><strong>优势分析</strong>：</p>
+<ul>
+<li><p>代码复用度高：只需要定义一次<code>power</code>函数</p>
+</li>
+<li><p>参数定制化：可以根据需要创建任意指数的幂函数</p>
+</li>
+<li><p>代码简洁：避免了为每个幂函数单独编写代码</p>
+</li>
+</ul>
+<p>另一个实用的例子是创建不同的折扣计算函数：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs gauss">def <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_discount</span>(percent):<br><br>&amp;<span class="hljs-meta">#x20;   &quot;&quot;&quot;创建一个计算指定折扣的函数&quot;&quot;&quot;</span><br><br>&amp;<span class="hljs-meta">#x20;   def discount(price):</span><br><br>&amp;<span class="hljs-meta">#x20;       return price \* (1 - percent/100)</span><br><br>&amp;<span class="hljs-meta">#x20;   return discount</span><br><br>\<span class="hljs-meta"># 创建不同的折扣函数</span><br><br>discount10 = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_discount</span>(<span class="hljs-number">10</span>)  <span class="hljs-meta"># 10%折扣</span><br><br>discount20 = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_discount</span>(<span class="hljs-number">20</span>)  <span class="hljs-meta"># 20%折扣</span><br><br>discount30 = <span class="hljs-built_in">make</span>\<span class="hljs-built_in">_discount</span>(<span class="hljs-number">30</span>)  <span class="hljs-meta"># 30%折扣</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">discount10</span>(<span class="hljs-number">100</span>))  <span class="hljs-meta"># 输出: 90.0</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">discount20</span>(<span class="hljs-number">100</span>))  <span class="hljs-meta"># 输出: 80.0</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">discount30</span>(<span class="hljs-number">100</span>))  <span class="hljs-meta"># 输出: 70.0</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2-状态保持与计数器"><a href="#2-2-状态保持与计数器" class="headerlink" title="2.2 状态保持与计数器"></a>2.2 状态保持与计数器</h3><p>闭包的另一个强大应用是实现<strong>状态保持</strong>，即在函数调用之间保存数据。这在创建计数器、累加器或需要记忆之前状态的函数时非常有用。</p>
+<p><strong>场景描述</strong>：创建一个简单的计数器，每次调用时返回递增的整数。传统方法可能需要使用全局变量，但全局变量容易被意外修改，而闭包提供了更好的解决方案。</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs gauss">def <span class="hljs-keyword">create</span>\<span class="hljs-built_in">_counter</span>(initial\_value=<span class="hljs-number">0</span>):<br><br>&amp;<span class="hljs-meta">#x20;   &quot;&quot;&quot;创建一个计数器函数&quot;&quot;&quot;</span><br><br>&amp;<span class="hljs-meta">#x20;   count = initial\_value</span><br><br>&amp;<span class="hljs-meta">#x20;   def counter():</span><br><br>&amp;<span class="hljs-meta">#x20;       nonlocal count  # 声明count不是局部变量</span><br><br>&amp;<span class="hljs-meta">#x20;       count += 1</span><br><br>&amp;<span class="hljs-meta">#x20;       return count</span><br><br>&amp;<span class="hljs-meta">#x20;   return counter</span><br><br>\<span class="hljs-meta"># 创建两个独立的计数器</span><br><br>counter1 = <span class="hljs-keyword">create</span>\<span class="hljs-built_in">_counter</span>()<br><br>counter2 = <span class="hljs-keyword">create</span>\<span class="hljs-built_in">_counter</span>(<span class="hljs-number">10</span>)  <span class="hljs-meta"># 从10开始计数</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter1</span>())  <span class="hljs-meta"># 输出: 1</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter1</span>())  <span class="hljs-meta"># 输出: 2</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter1</span>())  <span class="hljs-meta"># 输出: 3</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter2</span>())  <span class="hljs-meta"># 输出: 11</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter2</span>())  <span class="hljs-meta"># 输出: 12</span><br><br><span class="hljs-keyword">print</span>(<span class="hljs-built_in">counter2</span>())  <span class="hljs-meta"># 输出: 13</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>create_counter</code>函数返回的<code>counter</code>函数形成了一个闭包。每次调用<code>counter</code>时，它都会增加<code>count</code>变量的值并返回。由于闭包的特性，<code>count</code>变量的值在多次调用之间得以保持。</p>
+<p><strong>关键特性</strong>：</p>
+<ul>
+<li><p><strong>数据封装</strong>：<code>count</code>变量被封装在闭包内部，外部无法直接访问或修改</p>
+</li>
+<li><p><strong>独立性</strong>：通过<code>create_counter</code>创建的多个计数器之间完全独立，互不影响</p>
+</li>
+<li><p><strong>可配置性</strong>：可以通过<code>initial_value</code>参数设置计数器的初始值</p>
+</li>
+</ul>
+<p>另一个有趣的例子是创建一个<strong>累加器</strong>，它可以记住所有之前的输入并计算总和：</p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs hsp">def create\_accumulator():<br><br>&amp;<span class="hljs-meta">#x20;   <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;创建一个累加器函数&quot;</span><span class="hljs-string">&quot;&quot;</span></span><br><br>&amp;<span class="hljs-meta">#x20;   values = \[]</span><br><br>&amp;<span class="hljs-meta">#x20;   def accumulator(x):</span><br><br>&amp;<span class="hljs-meta">#x20;       values.append(x)</span><br><br>&amp;<span class="hljs-meta">#x20;       return sum(values)</span><br><br>&amp;<span class="hljs-meta">#x20;   return accumulator</span><br><br>\<span class="hljs-meta"># 创建累加器</span><br><br>acc = create\_accumulator()<br><br><span class="hljs-keyword">print</span>(acc(<span class="hljs-number">5</span>))   <span class="hljs-meta"># 输出: <span class="hljs-number">5</span></span><br><br><span class="hljs-keyword">print</span>(acc(<span class="hljs-number">3</span>))   <span class="hljs-meta"># 输出: <span class="hljs-number">8</span> (<span class="hljs-number">5</span>+<span class="hljs-number">3</span>)</span><br><br><span class="hljs-keyword">print</span>(acc(<span class="hljs-number">7</span>))   <span class="hljs-meta"># 输出: <span class="hljs-number">15</span> (<span class="hljs-number">5</span>+<span class="hljs-number">3</span>+<span class="hljs-number">7</span>)</span><br><br><span class="hljs-keyword">print</span>(acc(<span class="hljs-number">2</span>))   <span class="hljs-meta"># 输出: <span class="hljs-number">17</span> (<span class="hljs-number">5</span>+<span class="hljs-number">3</span>+<span class="hljs-number">7</span>+<span class="hljs-number">2</span>)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-数据封装与私有变量"><a href="#2-3-数据封装与私有变量" class="headerlink" title="2.3 数据封装与私有变量"></a>2.3 数据封装与私有变量</h3><p>闭包提供了一种优雅的方式来实现<strong>数据封装</strong>，类似于面向对象编程中的私有属性。通过闭包，可以将数据隐藏在函数内部，只暴露必要的接口。</p>
+<p><strong>场景描述</strong>：创建一个银行账户类，其中余额是私有变量，只能通过存款（deposit）和取款（withdraw）方法来操作。虽然 Python 有类机制，但闭包提供了一种更轻量级的选择。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs clean">def create\_bank\_account(initial\_balance=<span class="hljs-number">0</span>):<br><br>&amp;#x20;   <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;使用闭包创建银行账户&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;   balance = initial\_balance  # 私有变量，外部无法直接访问<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def deposit(amount):<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;存款方法&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;       nonlocal balance<br><br>&amp;#x20;       <span class="hljs-keyword">if</span> amount &gt; <span class="hljs-number">0</span>:<br><br>&amp;#x20;           balance += amount<br><br>&amp;#x20;           return f<span class="hljs-string">&quot;存款 &#123;amount&#125; 元成功，当前余额：&#123;balance&#125; 元&quot;</span><br><br>&amp;#x20;       else:<br><br>&amp;#x20;           return <span class="hljs-string">&quot;存款金额必须大于0&quot;</span><br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def withdraw(amount):<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;取款方法&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;       nonlocal balance<br><br>&amp;#x20;       <span class="hljs-keyword">if</span> amount &gt; <span class="hljs-number">0</span> and amount &lt;= balance:<br><br>&amp;#x20;           balance -= amount<br><br>&amp;#x20;           return f<span class="hljs-string">&quot;取款 &#123;amount&#125; 元成功，当前余额：&#123;balance&#125; 元&quot;</span><br><br>&amp;#x20;       elif amount &lt;= <span class="hljs-number">0</span>:<br><br>&amp;#x20;           return <span class="hljs-string">&quot;取款金额必须大于0&quot;</span><br><br>&amp;#x20;       else:<br><br>&amp;#x20;           return <span class="hljs-string">&quot;余额不足&quot;</span><br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def get\_balance():<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;查询余额方法&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;       return f<span class="hljs-string">&quot;当前余额：&#123;balance&#125; 元&quot;</span><br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   # 返回操作接口<br><br>&amp;#x20;   return &#123;<br><br>&amp;#x20;       <span class="hljs-string">&quot;deposit&quot;</span>: deposit,<br><br>&amp;#x20;       <span class="hljs-string">&quot;withdraw&quot;</span>: withdraw,<br><br>&amp;#x20;       <span class="hljs-string">&quot;get\_balance&quot;</span>: get\_balance<br><br>&amp;#x20;   &#125;<br><br>\# 创建账户实例<br><br>account = create\_bank\_account(<span class="hljs-number">1000</span>)<br><br>print(account\[<span class="hljs-string">&quot;deposit&quot;</span>]\(<span class="hljs-number">500</span>))  # 存款<span class="hljs-number">500</span>元<br><br>print(account\[<span class="hljs-string">&quot;withdraw&quot;</span>]\(<span class="hljs-number">200</span>)) # 取款<span class="hljs-number">200</span>元<br><br>print(account\[<span class="hljs-string">&quot;get\_balance&quot;</span>]\()) # 查询余额<br><br>\# print(account\[<span class="hljs-string">&quot;balance&quot;</span>])      # 报错：<span class="hljs-string">&#x27;dict&#x27;</span> object has no attribute <span class="hljs-string">&#x27;balance&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>balance</code>变量被封装在<code>create_bank_account</code>函数内部，外部代码无法直接访问或修改。只能通过返回的<code>deposit</code>、<code>withdraw</code>和<code>get_balance</code>函数来操作余额。</p>
+<p><strong>封装特性分析</strong>：</p>
+<ul>
+<li><p><strong>数据隐藏</strong>：<code>balance</code>变量对外部完全不可见</p>
+</li>
+<li><p><strong>接口控制</strong>：只暴露必要的操作方法</p>
+</li>
+<li><p><strong>业务逻辑封装</strong>：存款和取款的业务规则（如金额验证、余额检查）都封装在闭包内部</p>
+</li>
+</ul>
+<h3 id="2-4-延迟计算与惰性求值"><a href="#2-4-延迟计算与惰性求值" class="headerlink" title="2.4 延迟计算与惰性求值"></a>2.4 延迟计算与惰性求值</h3><p>闭包在实现<strong>延迟计算</strong>（lazy evaluation）方面特别有用。这种技术允许我们先保存计算所需的参数，在真正需要结果时才进行计算。</p>
+<p><strong>场景描述</strong>：假设你需要进行一些耗时的计算，但希望只在真正需要结果时才执行。例如，计算一个复杂的数学表达式，或者执行一个需要访问数据库的查询。</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs pony">def lazy\_operation(x, y):<br><br>&amp;#x20;   <span class="hljs-string">&quot;&quot;&quot;创建一个延迟执行的计算操作&quot;&quot;&quot;</span><br><br>&amp;#x20;   def add():<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;&quot;加法操作（延迟执行）&quot;&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">return</span> x + y<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def subtract():<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;&quot;减法操作（延迟执行）&quot;&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">return</span> x - y<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def multiply():<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;&quot;乘法操作（延迟执行）&quot;&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">return</span> x \* y<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def divide():<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;&quot;除法操作（延迟执行）&quot;&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">if</span> y != <span class="hljs-number">0</span>:<br><br>&amp;#x20;           <span class="hljs-keyword">return</span> x / y<br><br>&amp;#x20;       <span class="hljs-keyword">else</span>:<br><br>&amp;#x20;           <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：除数不能为零&quot;</span><br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   # 返回可执行的操作<br><br>&amp;#x20;   <span class="hljs-keyword">return</span> &#123;<br><br>&amp;#x20;       <span class="hljs-string">&quot;add&quot;</span>: add,<br><br>&amp;#x20;       <span class="hljs-string">&quot;subtract&quot;</span>: subtract,<br><br>&amp;#x20;       <span class="hljs-string">&quot;multiply&quot;</span>: multiply,<br><br>&amp;#x20;       <span class="hljs-string">&quot;divide&quot;</span>: divide<br><br>&amp;#x20;   &#125;<br><br>\# 创建延迟操作对象<br><br>operations = lazy\_operation(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>)<br><br>\# 需要时才执行计算<br><br>print(operations\[<span class="hljs-string">&quot;add&quot;</span>]\())   # 输出: <span class="hljs-number">15</span><br><br>print(operations\[<span class="hljs-string">&quot;subtract&quot;</span>]\()) # 输出: <span class="hljs-number">5</span><br><br>print(operations\[<span class="hljs-string">&quot;multiply&quot;</span>]\()) # 输出: <span class="hljs-number">50</span><br><br>print(operations\[<span class="hljs-string">&quot;divide&quot;</span>]\())   # 输出: <span class="hljs-number">2.0</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>lazy_operation</code>函数接受两个参数<code>x</code>和<code>y</code>，并返回四个计算函数。这些函数在被调用时才会执行实际的计算，而不是在创建时就计算结果。</p>
+<p><strong>延迟计算的优势</strong>：</p>
+<ul>
+<li><p><strong>性能优化</strong>：避免不必要的计算</p>
+</li>
+<li><p><strong>灵活性</strong>：可以根据需要选择执行哪种计算</p>
+</li>
+<li><p><strong>资源节约</strong>：特别是对于耗时的操作（如数据库查询、文件读取等）</p>
+</li>
+</ul>
+<h3 id="2-5-回调函数与事件处理"><a href="#2-5-回调函数与事件处理" class="headerlink" title="2.5 回调函数与事件处理"></a>2.5 回调函数与事件处理</h3><p>在事件驱动编程中，闭包常用于创建<strong>回调函数</strong>，这些函数需要携带额外的上下文信息。图形用户界面（GUI）编程是一个典型的应用场景。</p>
+<p><strong>场景描述</strong>：创建一个简单的 GUI 应用，其中包含多个按钮，每个按钮点击后显示不同的消息。使用闭包可以优雅地为每个按钮绑定特定的消息。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs clean">\# 模拟一个简单的GUI系统<br><br><span class="hljs-keyword">class</span> SimpleGUI:<br><br>&amp;#x20;   def \_\_init\_\_(self):<br><br>&amp;#x20;       self.buttons = \[]<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def add\_button(self, text, callback):<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;添加按钮&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;       self.buttons.append(&#123;<br><br>&amp;#x20;           <span class="hljs-string">&quot;text&quot;</span>: text,<br><br>&amp;#x20;           <span class="hljs-string">&quot;callback&quot;</span>: callback<br><br>&amp;#x20;       &#125;)<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def simulate\_click(self, index):<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;模拟按钮点击&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt;= index &lt; len(self.buttons):<br><br>&amp;#x20;           self.buttons\[index]\[<span class="hljs-string">&quot;callback&quot;</span>]\()<br><br>\# 创建GUI实例<br><br>gui = SimpleGUI()<br><br>\# 创建按钮点击处理函数（使用闭包携带消息）<br><br>def create\_click\_handler(message):<br><br>&amp;#x20;   <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;创建按钮点击处理函数&quot;</span><span class="hljs-string">&quot;&quot;</span><br><br>&amp;#x20;   def handler():<br><br>&amp;#x20;       print(f<span class="hljs-string">&quot;按钮被点击！消息：&#123;message&#125;&quot;</span>)<br><br>&amp;#x20;   return handler<br><br>\# 添加不同的按钮<br><br>gui.add\_button(<span class="hljs-string">&quot;按钮1&quot;</span>, create\_click\_handler(<span class="hljs-string">&quot;Hello, World!&quot;</span>))<br><br>gui.add\_button(<span class="hljs-string">&quot;按钮2&quot;</span>, create\_click\_handler(<span class="hljs-string">&quot;欢迎使用闭包！&quot;</span>))<br><br>gui.add\_button(<span class="hljs-string">&quot;按钮3&quot;</span>, create\_click\_handler(<span class="hljs-string">&quot;Python真强大！&quot;</span>))<br><br>\# 模拟按钮点击<br><br>gui.simulate\_click(<span class="hljs-number">0</span>)  # 输出: 按钮被点击！消息：Hello, World!<br><br>gui.simulate\_click(<span class="hljs-number">1</span>)  # 输出: 按钮被点击！消息：欢迎使用闭包！<br><br>gui.simulate\_click(<span class="hljs-number">2</span>)  # 输出: 按钮被点击！消息：Python真强大！<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>create_click_handler</code>函数使用闭包为每个按钮创建了一个处理函数，每个处理函数都 “记住” 了自己的消息内容。</p>
+<h3 id="2-6-缓存与记忆化（Memoization）"><a href="#2-6-缓存与记忆化（Memoization）" class="headerlink" title="2.6 缓存与记忆化（Memoization）"></a>2.6 缓存与记忆化（Memoization）</h3><p>闭包还可以用于实现<strong>记忆化</strong>（memoization），这是一种优化技术，通过缓存函数的计算结果来避免重复计算，提高程序性能。</p>
+<p><strong>场景描述</strong>：计算斐波那契数列是一个经典的递归问题，但直接递归实现效率很低。使用闭包可以创建一个记忆化版本，缓存已经计算过的结果。</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs pony">def memoize(func):<br><br>&amp;#x20;   <span class="hljs-string">&quot;&quot;&quot;记忆化装饰器（使用闭包实现）&quot;&quot;&quot;</span><br><br>&amp;#x20;   cache = &#123;&#125;  # 用于存储计算结果的缓存<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   def wrapper(n):<br><br>&amp;#x20;       <span class="hljs-string">&quot;&quot;&quot;包装函数，检查缓存&quot;&quot;&quot;</span><br><br>&amp;#x20;       <span class="hljs-keyword">if</span> n <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> cache:<br><br>&amp;#x20;           cache\[n] = func(n)  # 如果不在缓存中，计算并存储<br><br>&amp;#x20;       <span class="hljs-keyword">return</span> cache\[n]  # 返回缓存的结果<br><br>&amp;#x20;  &amp;#x20;<br><br>&amp;#x20;   <span class="hljs-keyword">return</span> wrapper<br><br>\# 定义斐波那契函数<br><br>def fibonacci(n):<br><br>&amp;#x20;   <span class="hljs-string">&quot;&quot;&quot;计算第n个斐波那契数&quot;&quot;&quot;</span><br><br>&amp;#x20;   <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span>:<br><br>&amp;#x20;       <span class="hljs-keyword">return</span> n<br><br>&amp;#x20;   <span class="hljs-keyword">return</span> fibonacci(n<span class="hljs-number">-1</span>) + fibonacci(n<span class="hljs-number">-2</span>)<br><br>\# 创建记忆化版本的斐波那契函数<br><br>memoized\_fib = memoize(fibonacci)<br><br>print(memoized\_fib(<span class="hljs-number">10</span>))  # 输出: <span class="hljs-number">55</span><br><br>print(memoized\_fib(<span class="hljs-number">20</span>))  # 输出: <span class="hljs-number">6765</span><br><br>print(memoized\_fib(<span class="hljs-number">30</span>))  # 输出: <span class="hljs-number">832040</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>memoize</code>函数是一个高阶函数，它接受一个函数作为参数，并返回一个新的函数<code>wrapper</code>。<code>wrapper</code>函数使用闭包捕获了<code>cache</code>字典，用于存储已经计算过的斐波那契数。</p>
+<p><strong>记忆化的优势</strong>：</p>
+<ul>
+<li><p><strong>显著提升性能</strong>：避免了重复计算</p>
+</li>
+<li><p><strong>空间换时间</strong>：使用额外的内存来存储结果，换取计算时间的减少</p>
+</li>
+<li><p><strong>透明性</strong>：使用记忆化版本的函数与原始函数接口完全一致</p>
+</li>
+</ul>
+<h2 id="三、闭包使用的注意事项与最佳实践"><a href="#三、闭包使用的注意事项与最佳实践" class="headerlink" title="三、闭包使用的注意事项与最佳实践"></a>三、闭包使用的注意事项与最佳实践</h2><h3 id="3-1-循环中的闭包陷阱"><a href="#3-1-循环中的闭包陷阱" class="headerlink" title="3.1 循环中的闭包陷阱"></a>3.1 循环中的闭包陷阱</h3><p>在使用闭包时，有一个常见的陷阱需要特别注意：<strong>循环变量的作用域问题</strong>。</p>
+<p><strong>问题描述</strong>：当在循环中创建多个闭包时，这些闭包可能会共享同一个循环变量，导致意外的结果。</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs llvm">\# 错误示例：循环中的闭包陷阱<br><br>def create\_multipliers():<br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   multipliers = \[]</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   for i in range(5):</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       multipliers.append(lambda x: x \* i)  # 错误：所有闭包共享同一个i</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   return multipliers</span><br><br>\# 测试<br><br>multipliers <span class="hljs-operator">=</span> create\_multipliers()<br><br>for multiplier in multipliers:<br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   print(multiplier(2))  # 预期输出: 0, 2, 4, 6, 8</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;                         # 实际输出: 8, 8, 8, 8, 8</span><br></code></pre></td></tr></table></figure>
+
+<p>这个例子的输出可能会让你感到意外。我们预期的输出是 0, 2, 4, 6, 8，但实际输出的是五个 8。这是因为在 Python 中，<strong>lambda 函数在运行时才会查找变量 i 的值</strong>，而不是在定义时捕获它。当循环结束后，i 的值是 4，因此所有闭包都乘以 4。</p>
+<p><strong>解决方案</strong>：要解决这个问题，可以通过将循环变量的值绑定到函数参数的默认值来确保每个闭包捕获的是当前值：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs llvm">\# 正确示例：使用默认参数绑定当前值<br><br>def create\_multipliers\_fixed():<br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   multipliers = \[]</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   for i in range(5):</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       # 使用默认参数来捕获当前的i值</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       multipliers.append(lambda x, i=i: x \* i)</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   return multipliers</span><br><br>\# 测试<br><br>multipliers <span class="hljs-operator">=</span> create\_multipliers\_fixed()<br><br>for multiplier in multipliers:<br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   print(multiplier(2))  # 输出: 0, 2, 4, 6, 8（正确）</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个修正版本中，我们使用了<code>lambda x, i=i:</code>的语法，将当前的<code>i</code>值绑定到参数<code>i</code>的默认值上。这样，每个闭包都会捕获自己的<code>i</code>值，而不是共享同一个变量。</p>
+<h3 id="3-2-内存管理考虑"><a href="#3-2-内存管理考虑" class="headerlink" title="3.2 内存管理考虑"></a>3.2 内存管理考虑</h3><p>使用闭包时需要注意<strong>内存管理问题</strong>。由于闭包会延长变量的生命周期，可能导致内存泄漏<a target="_blank" rel="noopener" href="http://m.blog.itpub.net/70040412/viewspace-3081302/">(30)</a>。</p>
+<p><strong>内存泄漏的原因</strong>：</p>
+<ul>
+<li><p>闭包会隐式捕获外部作用域的变量，形成一个引用链</p>
+</li>
+<li><p>如果闭包被长期持有，被捕获的变量也会一直存在于内存中</p>
+</li>
+<li><p>特别是当闭包捕获了大对象（如大型数据结构、文件句柄等）时，内存问题会更加严重</p>
+</li>
+</ul>
+<p><strong>最佳实践</strong>：</p>
+<ol>
+<li><p><strong>谨慎使用闭包</strong>：只在必要时使用闭包，避免过度使用</p>
+</li>
+<li><p><strong>及时释放引用</strong>：当不再需要闭包时，显式地将其设置为<code>None</code></p>
+</li>
+<li><p><strong>避免捕获大对象</strong>：尽量避免在闭包中捕获大型数据结构</p>
+</li>
+<li><p><strong>使用弱引用</strong>：在某些情况下，可以考虑使用<code>weakref</code>模块来避免强引用</p>
+</li>
+</ol>
+<h3 id="3-3-调试闭包"><a href="#3-3-调试闭包" class="headerlink" title="3.3 调试闭包"></a>3.3 调试闭包</h3><p>调试闭包可能比调试普通函数更复杂，因为闭包涉及多个作用域和隐藏的状态。以下是一些调试闭包的技巧：</p>
+<p><strong>查看闭包信息</strong>：</p>
+<p>可以使用<code>__closure__</code>属性来查看闭包捕获的变量：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs haxe">def outer(x):<span class="hljs-type"></span><br><br>&amp;<span class="hljs-meta">#x20;   def inner(y):</span><br><br>&amp;<span class="hljs-meta">#x20;       return x + y</span><br><br>&amp;<span class="hljs-meta">#x20;   return inner</span><br><br>closure = outer(<span class="hljs-number">10</span>)<br><br>print(closure.\<span class="hljs-literal">_</span>\_closure\<span class="hljs-literal">_</span>\<span class="hljs-literal">_</span>)  <span class="hljs-meta"># 输出闭包对象信息</span><br><br>print(closure.\<span class="hljs-literal">_</span>\_closure\<span class="hljs-literal">_</span>\<span class="hljs-literal">_</span>\[<span class="hljs-number">0</span>].cell\_contents)  <span class="hljs-meta"># 输出被捕获的x值</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>使用</strong><code>nonlocal</code><strong>关键字</strong>：</p>
+<p>当需要在内部函数中修改外部函数的变量时，必须使用<code>nonlocal</code>关键字声明：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs llvm">def counter():<br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   count = 0</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   def increment():</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       nonlocal count  # 声明count不是局部变量</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       count += 1</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;       return count</span><br><br>&amp;#<span class="hljs-keyword">x</span><span class="hljs-number">20</span><span class="hljs-comment">;   return increment</span><br><br><span class="hljs-keyword">c</span> <span class="hljs-operator">=</span> counter()<br><br>print(<span class="hljs-keyword">c</span>())  # 输出: <span class="hljs-number">1</span><br><br>print(<span class="hljs-keyword">c</span>())  # 输出: <span class="hljs-number">2</span><br><br>print(<span class="hljs-keyword">c</span>())  # 输出: <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>如果不使用<code>nonlocal</code>关键字，试图在内部函数中修改外部变量会导致错误。</p>
+<h3 id="3-4-闭包与类的选择"><a href="#3-4-闭包与类的选择" class="headerlink" title="3.4 闭包与类的选择"></a>3.4 闭包与类的选择</h3><p>在某些情况下，闭包可以作为类的轻量级替代品，但两者各有优劣：</p>
+<p><strong>使用闭包的场景</strong>：</p>
+<ul>
+<li><p>需要简单的数据封装和状态保持</p>
+</li>
+<li><p>不需要继承和多态等面向对象特性</p>
+</li>
+<li><p>需要函数式编程风格</p>
+</li>
+<li><p>代码简洁性优先</p>
+</li>
+</ul>
+<p><strong>使用类的场景</strong>：</p>
+<ul>
+<li><p>需要复杂的对象层次结构</p>
+</li>
+<li><p>需要继承、多态等面向对象特性</p>
+</li>
+<li><p>需要多个实例方法和属性</p>
+</li>
+<li><p>需要更好的类型提示和 IDE 支持</p>
+</li>
+</ul>
+<p>举个例子，前面的银行账户例子既可以用闭包实现，也可以用类实现。使用类的版本可能更适合大型项目，因为它提供了更好的结构和扩展性：</p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk">\# 银行账户的类实现<br><br>class <span class="hljs-type">BankAccount</span>:<br><br>&amp;<span class="hljs-symbol">#x20</span>;   def \_\_init\_\_(<span class="hljs-keyword">self</span>, initial\_balance=<span class="hljs-number">0</span>):<br><br>&amp;<span class="hljs-symbol">#x20</span>;       <span class="hljs-keyword">self</span>.\_balance = initial\_balance  # 受保护的属性<br><br>&amp;<span class="hljs-symbol">#x20</span>;  &amp;<span class="hljs-symbol">#x20</span>;<br><br>&amp;<span class="hljs-symbol">#x20</span>;   def deposit(<span class="hljs-keyword">self</span>, amount):<br><br>&amp;<span class="hljs-symbol">#x20</span>;       <span class="hljs-comment">&quot;&quot;</span><span class="hljs-comment">&quot;存款方法&quot;</span><span class="hljs-comment">&quot;&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       if amount &gt; <span class="hljs-number">0</span>:<br><br>&amp;<span class="hljs-symbol">#x20</span>;           <span class="hljs-keyword">self</span>.\_balance += amount<br><br>&amp;<span class="hljs-symbol">#x20</span>;           return f<span class="hljs-comment">&quot;存款 &#123;amount&#125; 元成功，当前余额：&#123;self.\_balance&#125; 元&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       else:<br><br>&amp;<span class="hljs-symbol">#x20</span>;           return <span class="hljs-comment">&quot;存款金额必须大于0&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;  &amp;<span class="hljs-symbol">#x20</span>;<br><br>&amp;<span class="hljs-symbol">#x20</span>;   def withdraw(<span class="hljs-keyword">self</span>, amount):<br><br>&amp;<span class="hljs-symbol">#x20</span>;       <span class="hljs-comment">&quot;&quot;</span><span class="hljs-comment">&quot;取款方法&quot;</span><span class="hljs-comment">&quot;&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       if amount &gt; <span class="hljs-number">0</span> and amount &lt;= <span class="hljs-keyword">self</span>.\_balance:<br><br>&amp;<span class="hljs-symbol">#x20</span>;           <span class="hljs-keyword">self</span>.\_balance -= amount<br><br>&amp;<span class="hljs-symbol">#x20</span>;           return f<span class="hljs-comment">&quot;取款 &#123;amount&#125; 元成功，当前余额：&#123;self.\_balance&#125; 元&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       elif amount &lt;= <span class="hljs-number">0</span>:<br><br>&amp;<span class="hljs-symbol">#x20</span>;           return <span class="hljs-comment">&quot;取款金额必须大于0&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       else:<br><br>&amp;<span class="hljs-symbol">#x20</span>;           return <span class="hljs-comment">&quot;余额不足&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;  &amp;<span class="hljs-symbol">#x20</span>;<br><br>&amp;<span class="hljs-symbol">#x20</span>;   def get\_balance(<span class="hljs-keyword">self</span>):<br><br>&amp;<span class="hljs-symbol">#x20</span>;       <span class="hljs-comment">&quot;&quot;</span><span class="hljs-comment">&quot;查询余额方法&quot;</span><span class="hljs-comment">&quot;&quot;</span><br><br>&amp;<span class="hljs-symbol">#x20</span>;       return f<span class="hljs-comment">&quot;当前余额：&#123;self.\_balance&#125; 元&quot;</span><br><br>\# 使用示例<br><br>account = <span class="hljs-type">BankAccount</span>(<span class="hljs-number">1000</span>)<br><br>print(account.deposit(<span class="hljs-number">500</span>))<br><br>print(account.withdraw(<span class="hljs-number">200</span>))<br><br>print(account.get\_balance())<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-5-性能考虑"><a href="#3-5-性能考虑" class="headerlink" title="3.5 性能考虑"></a>3.5 性能考虑</h3><p>虽然闭包提供了优雅的解决方案，但在性能敏感的应用中，需要考虑其开销：</p>
+<p><strong>闭包的性能开销</strong>：</p>
+<ol>
+<li><p><strong>函数调用开销</strong>：闭包的函数调用比普通函数略慢</p>
+</li>
+<li><p><strong>内存开销</strong>：闭包会创建额外的函数对象和 cell 对象</p>
+</li>
+<li><p><strong>查找开销</strong>：需要在闭包的作用域链中查找变量</p>
+</li>
+</ol>
+<p><strong>优化建议</strong>：</p>
+<ol>
+<li><p>在性能关键的代码中，优先使用普通函数或类</p>
+</li>
+<li><p>避免在循环中频繁创建闭包</p>
+</li>
+<li><p>使用<code>lru_cache</code>等装饰器优化频繁调用的闭包</p>
+</li>
+</ol>
+<h2 id="四、总结与思考"><a href="#四、总结与思考" class="headerlink" title="四、总结与思考"></a>四、总结与思考</h2><p>通过这篇文章的详细讲解，相信你已经对 Python 中的闭包有了深入的理解。让我们回顾一下闭包的核心概念和应用：</p>
+<p><strong>闭包的本质</strong>：闭包是一个函数对象，它能够记住并访问其定义时所在作用域的变量，即使该作用域已经不存在了。闭包的形成需要满足三个条件：函数嵌套、内部函数引用外部变量、外部函数返回内部函数。</p>
+<p><strong>核心机制</strong>：闭包通过 LEGB 规则和<code>__closure__</code>属性实现变量捕获。内部函数捕获的自由变量被存储在特殊的 cell 对象中，形成持久的引用。</p>
+<p><strong>主要应用场景</strong>：</p>
+<ol>
+<li><p><strong>函数工厂</strong>：动态创建具有特定行为的函数</p>
+</li>
+<li><p><strong>状态保持</strong>：实现计数器、累加器等需要记忆状态的函数</p>
+</li>
+<li><p><strong>数据封装</strong>：创建私有变量和受控访问接口</p>
+</li>
+<li><p><strong>延迟计算</strong>：在需要时才执行计算</p>
+</li>
+<li><p><strong>回调函数</strong>：在事件驱动编程中携带上下文信息</p>
+</li>
+<li><p><strong>记忆化</strong>：缓存计算结果以提高性能</p>
+</li>
+</ol>
+<p><strong>最佳实践</strong>：</p>
+<ol>
+<li><p>注意循环中的闭包陷阱，使用默认参数绑定当前值</p>
+</li>
+<li><p>合理管理内存，避免闭包导致的内存泄漏</p>
+</li>
+<li><p>使用<code>nonlocal</code>关键字正确处理变量作用域</p>
+</li>
+<li><p>根据具体场景选择闭包或类</p>
+</li>
+<li><p>在性能敏感的代码中谨慎使用闭包</p>
+</li>
+</ol>
+<p>闭包是 Python 函数式编程的重要特性之一，它为我们提供了一种优雅的方式来处理状态、封装数据和创建灵活的函数。虽然在学习初期可能会感到困惑，但随着实践的深入，你会发现闭包是一个非常强大和实用的工具。</p>
+<p>记住，<strong>理解闭包的关键在于理解函数与作用域的关系</strong>。当你能够熟练运用闭包时，你的 Python 编程能力将达到一个新的高度。建议你通过更多的实践来巩固所学知识，特别是在实际项目中尝试使用闭包来解决问题。</p>
+<p><strong>参考资料&#x20;</strong></p>
+<p>[1] Python 闭包(Closure)详解_python closure-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64881179/article/details/144149814"> https://blog.csdn.net/m0_64881179&#x2F;article&#x2F;details&#x2F;144149814</a></p>
+<p>[2] Python闭包原理详解_变量绑定机制说明-Python教程-PHP中文网<a target="_blank" rel="noopener" href="https://m.php.cn/faq/2175563.html"> https://m.php.cn/faq/2175563.html</a></p>
+<p>[3] 深入浅出:Python中的闭包与作用域机制_wx66ee1fc25fd35的技术博客_51CTO博客<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_17029845/14362043"> https://blog.51cto.com/u_17029845&#x2F;14362043</a></p>
+<p>[4] Python闭包的定义、形成条件与应用场景解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7518585790704700681/?region=&mid=7518585862670584630&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&share_version=280700&ts=1773237318&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/video/7518585790704700681/?region=&amp;mid&#x3D;7518585862670584630&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;share_sign&#x3D;lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237318&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[5] Python闭包内变量访问详解:从原理到高级实践-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/KE17RS/article/details/152512005"> https://blog.csdn.net/KE17RS/article/details/152512005</a></p>
+<p>[6] Python入门08:函数作用域，局部变量，全局变量，闭包与nonlocal_局部变量 vs 外层变量 vs nonlocal 的关系-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/karlso/article/details/148764260"> https://blog.csdn.net/karlso/article/details/148764260</a></p>
+<p>[7] Python Closures: Common Use Cases and Examples<a target="_blank" rel="noopener" href="https://realpython.com/python-closure/"> https://realpython.com/python-closure/</a></p>
+<p>[8] Python Closures<a target="_blank" rel="noopener" href="https://pythoncourses.azurewebsites.net/CODE/PY350/Closures/Closures.pdf"> https://pythoncourses.azurewebsites.net/CODE/PY350/Closures/Closures.pdf</a></p>
+<p>[9] First-Class Functions, Higher-Order Functions, and Closures in Python – Explained with Code Examples<a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/first-class-functions-and-closures-in-python"> https://www.freecodecamp.org/news/first-class-functions-and-closures-in-python</a></p>
+<p>[10] Python - Closures<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/python/python_closures.htm"> https://www.tutorialspoint.com/python/python_closures.htm</a></p>
+<p>[11] Python - Closures: Una guida per principianti<a target="_blank" rel="noopener" href="https://w3schools.tech/it/tutorial/python/python_closures"> https://w3schools.tech/it/tutorial/python/python_closures</a></p>
+<p>[12] Python Closure<a target="_blank" rel="noopener" href="https://takeuforward.org/python/python-closure/?amp=1"> https://takeuforward.org/python/python-closure/?amp=1</a></p>
+<p>[13] Python闭包内变量访问详解:从原理到高级实践-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/KE17RS/article/details/152512005"> https://blog.csdn.net/KE17RS/article/details/152512005</a></p>
+<p>[14] Python 闭包(Closure)详解_python closure-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64881179/article/details/144149814"> https://blog.csdn.net/m0_64881179&#x2F;article&#x2F;details&#x2F;144149814</a></p>
+<p>[15] Python函数进阶技巧_闭包与嵌套函数解析-Python教程-PHP中文网<a target="_blank" rel="noopener" href="https://m.php.cn/faq/2172612.html"> https://m.php.cn/faq/2172612.html</a></p>
+<p>[16] Python闭包的定义、形成条件与应用场景解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7518585790704700681/?region=&mid=7518585862670584630&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&share_version=280700&ts=1773237337&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/video/7518585790704700681/?region=&amp;mid&#x3D;7518585862670584630&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;share_sign&#x3D;lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237337&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[17] Python 闭包深度解密:当变量捕获遇见 `nonlocal` 的优雅与陷阱-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/windowshht/article/details/158005484"> https://blog.csdn.net/windowshht/article/details/158005484</a></p>
+<p>[18] Python Scope and the LEGB Rule: Resolving Names in Your Code<a target="_blank" rel="noopener" href="https://realpython.com/python-scope-legb-rule/"> https://realpython.com/python-scope-legb-rule/</a></p>
+<p>[19] P3D-Python局部变量和全局变量-什么是作用域?为什么90%初学者踩坑global关键字?怎么快速掌握LEGB规则? - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7570902473433677824"> https://juejin.cn/post/7570902473433677824</a></p>
+<p>[20] PEP 3104 – Access to Names in Outer Scopes<a target="_blank" rel="noopener" href="https://peps.python.org/pep-3104/"> https://peps.python.org/pep-3104/</a></p>
+<p>[21] PEP 227 – Statically Nested Scopes<a target="_blank" rel="noopener" href="https://peps.python.org/pep-0227/"> https://peps.python.org/pep-0227/</a></p>
+<p>[22] Python Closure: Syntax, Usage, and Examples<a target="_blank" rel="noopener" href="https://mimo.org/glossary/python/closure"> https://mimo.org/glossary/python/closure</a></p>
+<p>[23] Understanding Closures and Free Variables in Python<a target="_blank" rel="noopener" href="https://syskool.com/understanding-closures-and-free-variables-in-python/"> https://syskool.com/understanding-closures-and-free-variables-in-python/</a></p>
+<p>[24] Python Closure<a target="_blank" rel="noopener" href="https://www.scaler.com/topics/python/python-closure/"> https://www.scaler.com/topics/python/python-closure/</a></p>
+<p>[25] Mastering Closures and Decorators in Python: From Basics to Advanced<a target="_blank" rel="noopener" href="https://dev.to/usooldatascience/mastering-closures-and-decorators-in-python-from-basics-to-advanced-16o"> https://dev.to/usooldatascience/mastering-closures-and-decorators-in-python-from-basics-to-advanced-16o</a></p>
+<p>[26] Python Closure<a target="_blank" rel="noopener" href="https://velog.io/@dev-smile/Python-Closure"> https:&#x2F;&#x2F;velog.io&#x2F;@dev-smile&#x2F;Python-Closure</a></p>
+<p>[27] python复习–对象相关–对象生命周期-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/woo_test/article/details/158467936"> https://blog.csdn.net/woo_test&#x2F;article&#x2F;details&#x2F;158467936</a></p>
+<p>[28] 典型的Python内存泄漏场景-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46322965/article/details/157695674"> https://blog.csdn.net/m0_46322965&#x2F;article&#x2F;details&#x2F;157695674</a></p>
+<p>[29] Python标记清除机制与循环引用处理解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7530600171241278780/?region=&mid=7530600140231510836&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=8ZXfDYQ8IQLDtf7cn.pZU8.s8OzxOn3RKlFbGeXImLk-&share_version=280700&ts=1773237349&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/video/7530600171241278780/?region=&amp;mid&#x3D;7530600140231510836&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;share_sign&#x3D;8ZXfDYQ8IQLDtf7cn.pZU8.s8OzxOn3RKlFbGeXImLk-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237349&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[30] 如何避免Python中闭包导致的内存泄漏问题?<a target="_blank" rel="noopener" href="http://m.blog.itpub.net/70040412/viewspace-3081302/"> http://m.blog.itpub.net/70040412/viewspace-3081302/</a></p>
+<p>[31] Python内存管理系统学习路线第33讲_核心原理与实战案例详解【指导】-Python教程-PHP中文网<a target="_blank" rel="noopener" href="https://m.php.cn/faq/1893138.html"> https://m.php.cn/faq/1893138.html</a></p>
+<p>[32] Python内存管理机制:垃圾回收与引用计数​ 在Python编程中，内存管理就像一个隐形的管家，默默处理着对象创建与销 - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7570579125154611210"> https://juejin.cn/post/7570579125154611210</a></p>
+<p>[33] Python Closure<a target="_blank" rel="noopener" href="https://velog.io/@dev-smile/Python-Closure"> https:&#x2F;&#x2F;velog.io&#x2F;@dev-smile&#x2F;Python-Closure</a></p>
+<p>[34] How to ensure file closure in Python<a target="_blank" rel="noopener" href="https://labex.io/tutorials/python-how-to-ensure-file-closure-in-python-495769"> https://labex.io/tutorials/python-how-to-ensure-file-closure-in-python-495769</a></p>
+<p>[35] Understanding Python’s Memory Management and Garbage Collection<a target="_blank" rel="noopener" href="https://chadura.com/blogs/understanding-pythons-memory-management-and-garbage-collection/"> https://chadura.com/blogs/understanding-pythons-memory-management-and-garbage-collection/</a></p>
+<p>[36] Understanding Python’s Memory Management: Reference Counting, Garbage Collection, and Optimization<a target="_blank" rel="noopener" href="https://dev.to/nkpydev/understanding-pythons-memory-management-reference-counting-garbage-collection-and-optimization-4gn7"> https://dev.to/nkpydev/understanding-pythons-memory-management-reference-counting-garbage-collection-and-optimization-4gn7</a></p>
+<p>[37] Memory Management in Python: A Deep Dive into Efficient Resource Handling<a target="_blank" rel="noopener" href="https://www.sparkcodehub.com/python/advanced/memory-management-deep-dive"> https://www.sparkcodehub.com/python/advanced/memory-management-deep-dive</a></p>
+<p>[38] Memory management<a target="_blank" rel="noopener" href="https://pyo3.rs/v0.18.1/memory"> https://pyo3.rs/v0.18.1/memory</a></p>
+<p>[39] 解锁Python技能:深入理解内部函数与闭包_python类内部函数-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/2401_89793006/article/details/151589452"> https://blog.csdn.net/2401_89793006&#x2F;article&#x2F;details&#x2F;151589452</a></p>
+<p>[40] Python闭包与作用域核心要点及应用场景解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/note/7523444804726967593/?region=&mid=0&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&schema_type=37&share_sign=bZ9GsnIMNmcOiRjbYZz3of32FSE24Rr7EOe2zOJEKpg-&share_version=280700&ts=1773237355&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/note/7523444804726967593/?region=&amp;mid&#x3D;0&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;schema_type&#x3D;37&amp;share_sign&#x3D;bZ9GsnIMNmcOiRjbYZz3of32FSE24Rr7EOe2zOJEKpg-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237355&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[41] Python 闭包(Closure)详解_python closure-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64881179/article/details/144149814"> https://blog.csdn.net/m0_64881179&#x2F;article&#x2F;details&#x2F;144149814</a></p>
+<p>[42] 深入理解 Python 中的闭包(Closure):封装状态的函数式编程利器引言: 闭包是 Python 函数式编程中极 - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7589940210831491115"> https://juejin.cn/post/7589940210831491115</a></p>
+<p>[43] 10. Python闭包:优雅的状态封装与实用技巧一、什么是闭包? 闭包(Closure)是函数式编程中的重要概念，在P - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7489038517404680192"> https://juejin.cn/post/7489038517404680192</a></p>
+<p>[44] Python闭包是什么_闭包作用域与应用场景-Python教程-PHP中文网<a target="_blank" rel="noopener" href="https://m.php.cn/faq/2158512.html"> https://m.php.cn/faq/2158512.html</a></p>
+<p>[45] Python 闭包_以下python代码的输出是什么 def make adder-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/slowsnowscar/article/details/136907497"> https://blog.csdn.net/slowsnowscar/article/details/136907497</a></p>
+<p>[46] Python Closures: Common Use Cases and Examples<a target="_blank" rel="noopener" href="https://realpython.com/python-closure/"> https://realpython.com/python-closure/</a></p>
+<p>[47] python_basics&#x2F;01_creating_new_functions&#x2F;EX_closure_based_function.ipynb at master · michellealzola&#x2F;python_basics · GitHub<a target="_blank" rel="noopener" href="https://github.com/michellealzola/python_basics/blob/master/01_creating_new_functions/EX_closure_based_function.ipynb"> https://github.com/michellealzola/python_basics&#x2F;blob&#x2F;master&#x2F;01_creating_new_functions&#x2F;EX_closure_based_function.ipynb</a></p>
+<p>[48] Python Closure: Syntax, Usage, and Examples<a target="_blank" rel="noopener" href="https://mimo.org/glossary/python/closure"> https://mimo.org/glossary/python/closure</a></p>
+<p>[49] 📘   Closures: Function Factories<a target="_blank" rel="noopener" href="https://www.krython.com/tutorial/python/closures-function-factories"> https://www.krython.com/tutorial/python/closures-function-factories</a></p>
+<p>[50] Mastering Closures in Python: A Comprehensive Guide to Function Scope and Dynamic Behavior<a target="_blank" rel="noopener" href="https://www.sparkcodehub.com/python/advanced/closures-explained"> https://www.sparkcodehub.com/python/advanced/closures-explained</a></p>
+<p>[51] How to use closures for data encapsulation<a target="_blank" rel="noopener" href="https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730"> https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730</a></p>
+<p>[52] Python进阶教程丨闭包与装饰器_python教程闭包-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/w646645452/article/details/146307423"> https://blog.csdn.net/w646645452/article/details/146307423</a></p>
+<p>[53] python闭包详解-Python教程_棉花糖的技术博客_51CTO博客<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_12218/14476851"> https://blog.51cto.com/u_12218&#x2F;14476851</a></p>
+<p>[54] Python闭包与作用域核心要点及应用场景解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/note/7523444804726967593/?region=&mid=0&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&schema_type=37&share_sign=bZ9GsnIMNmcOiRjbYZz3of32FSE24Rr7EOe2zOJEKpg-&share_version=280700&ts=1773237381&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/note/7523444804726967593/?region=&amp;mid&#x3D;0&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;schema_type&#x3D;37&amp;share_sign&#x3D;bZ9GsnIMNmcOiRjbYZz3of32FSE24Rr7EOe2zOJEKpg-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237381&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[55] Python 闭包是啥? 读懂此文，远离“闭包”烦恼!!_python闭包-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44705554/article/details/145411248"> https://blog.csdn.net/weixin_44705554&#x2F;article&#x2F;details&#x2F;145411248</a></p>
+<p>[56] 深入解析Python闭包:原理、应用与安全防护在Python编程中，闭包是一个非常强大且实用的特性。它不仅可以帮助我们 - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7545111319431626771"> https://juejin.cn/post/7545111319431626771</a></p>
+<p>[57] 10. Python闭包:优雅的状态封装与实用技巧一、什么是闭包? 闭包(Closure)是函数式编程中的重要概念，在P - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7489038517404680192"> https://juejin.cn/post/7489038517404680192</a></p>
+<p>[58] python_basics&#x2F;01_creating_new_functions&#x2F;EX_closure_based_function.ipynb at master · michellealzola&#x2F;python_basics · GitHub<a target="_blank" rel="noopener" href="https://github.com/michellealzola/python_basics/blob/master/01_creating_new_functions/EX_closure_based_function.ipynb"> https://github.com/michellealzola/python_basics&#x2F;blob&#x2F;master&#x2F;01_creating_new_functions&#x2F;EX_closure_based_function.ipynb</a></p>
+<p>[59] Python Closures<a target="_blank" rel="noopener" href="https://python.code-maven.com/python-closures/print"> https://python.code-maven.com/python-closures/print</a></p>
+<p>[60] 関数に状態を持たせるクロージャ<a target="_blank" rel="noopener" href="https://qiita.com/embermaverick05/items/e67ad1b198f919d9ff51"> https://qiita.com/embermaverick05/items/e67ad1b198f919d9ff51</a></p>
+<p>[61] Variable as counter<a target="_blank" rel="noopener" href="https://discuss.python.org/t/variable-as-counter/55705"> https://discuss.python.org/t/variable-as-counter/55705</a></p>
+<p>[62] Use closures for quick mini classes in Python<a target="_blank" rel="noopener" href="https://www.programmerpulse.com/articles/closures-in-python/"> https://www.programmerpulse.com/articles/closures-in-python/</a></p>
+<p>[63] Closures in Python<a target="_blank" rel="noopener" href="https://tutorpython.com/closures-in-python/"> https://tutorpython.com/closures-in-python/</a></p>
+<p>[64] Python: Closures<a target="_blank" rel="noopener" href="https://coderscratchpad.com/python-closures/"> https://coderscratchpad.com/python-closures/</a></p>
+<p>[65] Python 面向对象编程中的封装特性详解_python 面向对象编程的封装特性有哪些-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16242613/article/details/148807567"> https://blog.csdn.net/qq_16242613&#x2F;article&#x2F;details&#x2F;148807567</a></p>
+<p>[66] Python进阶教程丨闭包与装饰器_python教程闭包-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/w646645452/article/details/146307423"> https://blog.csdn.net/w646645452/article/details/146307423</a></p>
+<p>[67] Python闭包的定义、形成条件与应用场景解析<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7518585790704700681/?region=&mid=7518585862670584630&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&share_version=280700&ts=1773237386&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/video/7518585790704700681/?region=&amp;mid&#x3D;7518585862670584630&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;share_sign&#x3D;lvPgTgUaW4qtVSaBtE0jikitkCxJdfxI36BMJJJOk9M-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237386&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[68] 第7章 面向对象编程面向对象编程(Object-Oriented Programming, OOP)是现代软件开发的核心 - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7557311069631610907"> https://juejin.cn/post/7557311069631610907</a></p>
+<p>[69] 深入Python封装:从基础到实战的全面解析!!-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44705554/article/details/145529223"> https://blog.csdn.net/weixin_44705554&#x2F;article&#x2F;details&#x2F;145529223</a></p>
+<p>[70] Python编程实战 - 面向对象与进阶语法 - 封装与私有属性一、什么是封装 封装的核心思想是: 举个例子，假设我们要 - 掘金<a target="_blank" rel="noopener" href="https://juejin.cn/post/7567350088617721908"> https://juejin.cn/post/7567350088617721908</a></p>
+<p>[71] python基础-类与对象-私有变量及私有方法的作用_python 类的私有变量,-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_65623142/article/details/145622478"> https://blog.csdn.net/m0_65623142&#x2F;article&#x2F;details&#x2F;145622478</a></p>
+<p>[72] Python闭包深度解析:掌握数据封装的高级技巧_不秃头程序员<a target="_blank" rel="noopener" href="http://m.toutiao.com/group/7508976744536293899/?upstream_biz=doubao"> http://m.toutiao.com/group/7508976744536293899/?upstream_biz&#x3D;doubao</a></p>
+<p>[73] Python - Encapsulation: A Beginner’s Guide<a target="_blank" rel="noopener" href="https://w3schools.tech/tutorial/python/python_encapsulation"> https://w3schools.tech/tutorial/python/python_encapsulation</a></p>
+<p>[74] 📘   Closures: Function Factories<a target="_blank" rel="noopener" href="https://www.krython.com/tutorial/python/closures-function-factories"> https://www.krython.com/tutorial/python/closures-function-factories</a></p>
+<p>[75] How to use closures for data encapsulation<a target="_blank" rel="noopener" href="https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730"> https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730</a></p>
+<p>[76] Understanding Encapsulation in Python<a target="_blank" rel="noopener" href="https://bytegoblin.io/blog/understanding-encapsulation-in-python.mdx"> https://bytegoblin.io/blog/understanding-encapsulation-in-python.mdx</a></p>
+<p>[77] Understanding Python Closures: Concepts and Practical Examples<a target="_blank" rel="noopener" href="https://www.w3resource.com/python/python-closures-with-examples.php"> https://www.w3resource.com/python/python-closures-with-examples.php</a></p>
+<p>[78] Encapsulation<a target="_blank" rel="noopener" href="https://programming-24.mooc.fi/part-9/3-encapsulation/"> https://programming-24.mooc.fi/part-9/3-encapsulation/</a></p>
+<p>[79] 【Python基础】Python闭包:如何让你的代码拥有‘读心术’?_读心术python-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/Trb201012/article/details/137903818"> https://blog.csdn.net/Trb201012/article/details/137903818</a></p>
+<p>[80] 闭包在Python中的魔法-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/shippingxing/article/details/139543733"> https://blog.csdn.net/shippingxing/article/details/139543733</a></p>
+<p>[81] Python闭包机制解析与应用场景探讨<a target="_blank" rel="noopener" href="https://www.iesdouyin.com/share/video/7586481516318903603/?region=&mid=7586482059460266795&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&video_share_track_ver=&titleType=title&share_sign=loS0UBZlNvyg5zcKcBF1y1P5SOSJvcg5m4tKW6Psafk-&share_version=280700&ts=1773237392&from_aid=1128&from_ssr=1&share_track_info=%7B%22link_description_type%22:%22%22%7D"> https://www.iesdouyin.com/share/video/7586481516318903603/?region=&amp;mid&#x3D;7586482059460266795&amp;u_code&#x3D;0&amp;did&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;iid&#x3D;MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&amp;with_sec_did&#x3D;1&amp;video_share_track_ver&#x3D;&amp;titleType&#x3D;title&amp;share_sign&#x3D;loS0UBZlNvyg5zcKcBF1y1P5SOSJvcg5m4tKW6Psafk-&amp;share_version&#x3D;280700&amp;ts&#x3D;1773237392&amp;from_aid&#x3D;1128&amp;from_ssr&#x3D;1&amp;share_track_info&#x3D;%7B%22link_description_type%22%3A%22%22%7D</a></p>
+<p>[82] 闭包(包含nonlocal、global关键字介绍)(Python高阶)-CSDN博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/Prayer41/article/details/151682399"> https://blog.csdn.net/Prayer41/article/details/151682399</a></p>
+<p>[83] 返回函数 - Python教程 - 廖雪峰的官方网站<a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/python/functional/return-function/index.html"> https://liaoxuefeng.com/books/python/functional/return-function/index.html</a></p>
+<p>[84] 10.python闭包:优雅的状态封装与实用技巧一、什么是闭包?闭包(closure)是函数式编程中的重要概念，在p<a target="_blank" rel="noopener" href="https://juejin.cn/post/7489038517404680192"> https://juejin.cn/post/7489038517404680192</a></p>
+<p>[85] Python Closures: Common Use Cases and Examples<a target="_blank" rel="noopener" href="https://realpython.com/python-closure/"> https://realpython.com/python-closure/</a></p>
+<p>[86] 🤠<a target="_blank" rel="noopener" href="https://python-codelivly.gitbook.io/python-mastery-from-beginner-to-expert/advance-python/closures"> https://python-codelivly.gitbook.io/python-mastery-from-beginner-to-expert/advance-python/closures</a></p>
+<p>[87] What is Closure in Python &amp; its Use Cases?<a target="_blank" rel="noopener" href="https://www.c-sharpcorner.com/article/what-is-closure-in-python-its-use-cases/"> https://www.c-sharpcorner.com/article/what-is-closure-in-python-its-use-cases/</a></p>
+<p>[88] evalcache 1.15.0<a target="_blank" rel="noopener" href="https://pypi.org/project/evalcache/"> https://pypi.org/project/evalcache/</a></p>
+<p>[89] How to use closures for data encapsulation<a target="_blank" rel="noopener" href="https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730"> https://labex.io/tutorials/python-how-to-use-closures-for-data-encapsulation-418730</a></p>
+<p>[90] Closures in Python<a target="_blank" rel="noopener" href="https://tutorpython.com/closures-in-python/"> https://tutorpython.com/closures-in-python/</a></p>
+<blockquote>
+<p>（注：文档部分内容可能由 AI 生成）</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81-python-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%9F%BA%E7%A1%80/" class="print-no-link">#代码/python/学习记录/基础</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>python闭包学习笔记</div>
+      <div>http://example.com/2026/03/10/python闭包的系统性笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/16/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%94%E8%AE%B0/" title="每日五题记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">每日五题记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/02/09/c#%E5%AD%A6%E4%B9%A0/" title="C#学习笔记">
+                        <span class="hidden-mobile">C#学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
