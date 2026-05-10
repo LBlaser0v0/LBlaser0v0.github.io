@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Java学习记录跟着黑马程序员学的java 第十一章——**面向对象高级**的细节记录：一、多态1.什么是多态顾名思义，多态就是事物多种形态。多态是为了服务相似但有微小区别的接口的。 子类对象在传参时可以赋值给父类类型实现多态，换种说法，方法的形参写父类类型，则就可以接收所有子类参数。 如：一个给学校人员程序注册的场景 1&#x2F;&#x2F;建立一个注册器方法，传入参数为Person类的对象，那么Person的子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习记录之二————未完">
+<meta property="og:url" content="http://example.com/2026/04/23/Java%E5%AD%A6%E4%B9%A0%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95%E4%B9%8B%E4%BA%8C/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Java学习记录跟着黑马程序员学的java 第十一章——**面向对象高级**的细节记录：一、多态1.什么是多态顾名思义，多态就是事物多种形态。多态是为了服务相似但有微小区别的接口的。 子类对象在传参时可以赋值给父类类型实现多态，换种说法，方法的形参写父类类型，则就可以接收所有子类参数。 如：一个给学校人员程序注册的场景 1&#x2F;&#x2F;建立一个注册器方法，传入参数为Person类的对象，那么Person的子">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260425153212350.png">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260429171828850.png">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260429222000056.png">
+<meta property="article:published_time" content="2026-04-23T01:53:14.000Z">
+<meta property="article:modified_time" content="2026-05-10T08:37:46.834Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码&#x2F;java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260425153212350.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Java学习记录之二————未完 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java学习记录之二————未完"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-23 09:53" pubdate>
+          2026年4月23日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          48 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java学习记录之二————未完</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Java学习记录"><a href="#Java学习记录" class="headerlink" title="Java学习记录"></a>Java学习记录</h1><p>跟着黑马程序员学的java</p>
+<h2 id="第十一章——-面向对象高级-的细节记录："><a href="#第十一章——-面向对象高级-的细节记录：" class="headerlink" title="第十一章——**面向对象高级**的细节记录："></a>第十一章——**<u>面向对象高级</u>**的细节记录：</h2><h3 id="一、多态"><a href="#一、多态" class="headerlink" title="一、多态"></a>一、多态</h3><h4 id="1-什么是多态"><a href="#1-什么是多态" class="headerlink" title="1.什么是多态"></a>1.什么是多态</h4><p>顾名思义，多态就是事物多种形态。多态是为了服务相似但有微小区别的接口的。</p>
+<p>子类对象在传参时可以赋值给父类类型实现多态，换种说法，方法的形参写父类类型，则就可以接收所有子类参数。</p>
+<p>如：一个给学校人员程序注册的场景</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//建立一个注册器方法，传入参数为Person类的对象，那么Person的子类也可以被传入这个方法并可以使用子类的成员和方法。</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260425153212350.png" srcset="/img/loading.gif" lazyload alt="image-20260425153212350"></p>
+<p>使用多态可以将多个子类的同一个要利用的方法整合起来，利用传递父类形参进行子类的方法实现，节省代码，易于复用。</p>
+<h4 id="2-多态的表现形式"><a href="#2-多态的表现形式" class="headerlink" title="2.多态的表现形式"></a>2.多态的表现形式</h4><p>父类类型  对象名称 &#x3D; 子类对象，这种形式也可以扩展为上面说的函数传参。</p>
+<h4 id="3-多态的前提（记住）"><a href="#3-多态的前提（记住）" class="headerlink" title="3.多态的前提（记住）"></a>3.多态的前提（记住）</h4><p><strong>多态的前提：</strong></p>
+<ol>
+<li>有继承&#x2F;实现关系必须的</li>
+<li>有父类引用指向子类对象必须的</li>
+<li>有方法重写可选的</li>
+</ol>
+<h4 id="4-多态的好处："><a href="#4-多态的好处：" class="headerlink" title="4.多态的好处："></a>4.多态的好处：</h4><ul>
+<li>方法中使用父类型作为参数，可接收父类对象+所有子类对象</li>
+<li>如果进行方法重写，利用多态调用方法，可以调用不同子类中重写的方法</li>
+</ul>
+<h4 id="5-多态调用成员的特点（重点）："><a href="#5-多态调用成员的特点（重点）：" class="headerlink" title="5.多态调用成员的特点（重点）："></a>5.多态调用成员的特点（重点）：</h4><p>成员包括成员变量和成员方法。 </p>
+<p>当我们进行类似以下的多态定义对象时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Fu</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">zi</span>(); <span class="hljs-comment">//这里Fu类是Zi类的父类</span><br></code></pre></td></tr></table></figure>
+
+<p>调用满足以下特点：</p>
+<ul>
+<li>变量调用：编译看左边，运行也看左边。</li>
+<li>方法调用：编译看左边，运行看右边。</li>
+</ul>
+<p>解释：假设Fu和Zi类的定义如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Fu</span> &#123;<br>	<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Fu&quot;</span>;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fuShow</span><span class="hljs-params">()</span>&#123;<br>		System.out.println（<span class="hljs-string">&quot;父类的fushow方法被调用了～&quot;</span>）;<br>	&#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">how</span><span class="hljs-params">()</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;父类的show方法被调用了～&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Zi</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Fu</span>&#123;<br>	<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span><span class="hljs-string">&quot;Zi&quot;</span>;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">18</span>;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">ziShow</span><span class="hljs-params">()</span>&#123;<br>		System.out.println（<span class="hljs-string">&quot;子类的zishow方法被调用了～&quot;</span>）;<br>	&#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;子类重写的show方法被调用了～&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>成员变量：</p>
+<ul>
+<li>编译看左边：在把java文件编译成class文件的时候，会先看父类当中有没有这个变量，如果有编译成功，否则运行前就报错。<br>例如调用f.age时，即使子类中有，父类没有也会报错。</li>
+<li>运行也看左边：如果调用子类父类同名的一个成员变量时，会调用父类的那个。如调用f.name时其使用的是”Fu“。</li>
+</ul>
+<p>但成员方法与成员变量不同。</p>
+<p>成员方法：</p>
+<ul>
+<li>运行看右边：在代码真正运行的时候，运行的时子类里面的方法。如果子类没有重写父类里面的方法，使用的还是父类</li>
+</ul>
+<p><strong>总结一下，在这种情况下写代码时，父类中没有的都不能直接写，不然直接报错。运行时变量优先父类；方法优先子类，子类没有再找父类。</strong></p>
+<h4 id="6-多态的弊端与解决（重点）"><a href="#6-多态的弊端与解决（重点）" class="headerlink" title="6.多态的弊端与解决（重点）"></a>6.多态的弊端与解决（重点）</h4><p><strong>从上面的分析可以看出，成员方法是实现多态的关键。</strong></p>
+<p>但多态的弊端就在于其不能调用子类特有的方法，而一般用于调用重写的方法。</p>
+<p><strong>多态弊端的解决：</strong></p>
+<p>类的类型转换：</p>
+<ul>
+<li>自动类型转换(从子到父)：子类对象赋值给父类类型的变量</li>
+<li>强制类型转换(从父到子)：子类 对象变量 &#x3D; (子类)父类类型的变量</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>();<br><span class="hljs-type">Student</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> (Student)p;  <span class="hljs-comment">//强制转换</span><br></code></pre></td></tr></table></figure>
+
+<p>利用类型转换解决多态的弊端。，把对象再转回子类类型即可。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//即</span><br><span class="hljs-type">zi</span> <span class="hljs-variable">z</span> <span class="hljs-operator">=</span>(zi)f;<br>z.zishow();  <span class="hljs-comment">//编译通过</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>这样既可以用f实现多态，也可以用z实现子类自己的方法。</strong></p>
+<p><strong>注意点：</strong><br>如果有爷爷、爸爸、儿子三连继承。<br>创建了爸爸的对象，赋值给了爷爷类型<br>在进行强制类型转换的时候，只能转到爸爸类型，不能转成儿子类型。</p>
+<p>即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Ye</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Fu</span>();<br><span class="hljs-type">zi</span> <span class="hljs-variable">ff</span> <span class="hljs-operator">=</span> (zi)y;  <span class="hljs-comment">//报错不通过</span><br></code></pre></td></tr></table></figure>
+
+<p>很好理解，创建时new的时Fu类，不可以将他强转成Zi类，只能强转成Fu类。</p>
+<p><strong><u>转换类型与真实对象类型不一致会报错。</u></strong></p>
+<p>所以我们写一个规范代码时，可以先判断强转的类型是否正确：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(y <span class="hljs-keyword">instanceof</span> Fu)&#123;  <span class="hljs-comment">//是Fu类则True，否则False</span><br>	<span class="hljs-type">Fu</span> <span class="hljs-variable">ff</span> <span class="hljs-operator">=</span> (Fu)y;<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>	System.out.println(<span class="hljs-string">&quot;请确定好类型，再进行转换&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>instanceof</strong>是Java中的一个二元操作符，用于检测左侧的对象是否为右侧类或接口的实例。它返回一个布尔值。</p>
+<h3 id="二、抽象类和抽象方法"><a href="#二、抽象类和抽象方法" class="headerlink" title="二、抽象类和抽象方法"></a>二、抽象类和抽象方法</h3><h4 id="1-什么是抽象类和抽象方法"><a href="#1-什么是抽象类和抽象方法" class="headerlink" title="1.什么是抽象类和抽象方法"></a>1.什么是抽象类和抽象方法</h4><p>抽象类的实现，能够增强代码的规范性，使得父类称为抽象类，子类则必须重写父类的抽象方法，而父类不能创建对象。</p>
+<p><strong><u>抽象类和方法的前缀：abstract</u></strong></p>
+<p><strong>抽象方法：<strong>在父类中</strong><u>不能确定具体的方法体</u></strong>。该方法就可以定义为抽象方法。</p>
+<p>**抽象类：**如果一个类中存在抽象方法，那么该类就必须声明为抽象类。</p>
+<p>定义格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> 返回值类型 方法名(参数列表); <span class="hljs-comment">//抽象方法</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> class类名&#123;...&#125;;  <span class="hljs-comment">//抽象类</span><br></code></pre></td></tr></table></figure>
+
+<p>抽象类和抽象方法的关系：有抽象方法的类必须是抽象类。</p>
+<p><strong>作用：</strong></p>
+<ul>
+<li>抽象类声明一个通用的模板结构类，父类不用再纠结子类写了什么；</li>
+<li>让子类必须重写抽象方法，实现结构统一，也不用重复定义同样的方法。</li>
+</ul>
+<h4 id="2-注意事项"><a href="#2-注意事项" class="headerlink" title="2.注意事项"></a>2.注意事项</h4><p>注意点1：抽象类不能实例化<br>注意点2：抽象类中不一定有抽象方法，有抽象方法的类一定是抽象类<br>注意点3：抽象类中可以有构造方法，为了给子类继承的成员变量赋值。<br>注意点4：抽象类的子类，要么重写抽象类中的所有抽象方法，要么子类也是抽象类。</p>
+<p><u><strong>由点2可以引申出，抽象类可以不写抽象方法，如果单纯不想一个类被实例化创建，那么可以再前面加上abstract。</strong></u></p>
+<h4 id="3-意义"><a href="#3-意义" class="headerlink" title="3.意义"></a>3.意义</h4><p>在企业级的项目开发中，写抽象类是很有必要的，因为不同人写的同一种功能方法的模式很可能不同，导致在开发过程中增加了沟通成本和代码阅读难度。</p>
+<p>所以，抽象类的关键意义就是定义规范书写方法，强制同一功能的方法格式相同，方便协调管理。</p>
+<h3 id="三、接口"><a href="#三、接口" class="headerlink" title="三、接口"></a>三、接口</h3><h4 id="1-什么是接口"><a href="#1-什么是接口" class="headerlink" title="1.什么是接口"></a>1.什么是接口</h4><p>接口相当于人为额外定义的一个规则，如果某一个类想要实现这个规则，那么更这个接口关联即可。</p>
+<p>当某一种方法写到父类不合适，但是又有多个子类要重用时就可以定义方法给这些子类使用。</p>
+<p>简单说</p>
+<p><strong>接口：接口就是一个规则，而且是独立于继承体系以外的规则。（可以理解为干爹）</strong></p>
+<h4 id="2-接口的定义"><a href="#2-接口的定义" class="headerlink" title="2.接口的定义"></a>2.接口的定义</h4><p>格式：利用关键字<code>interface</code>定义。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> interface 接口名&#123;...&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用：接口与类之间称为实现关系，以关键字implements来表示。</p>
+<p>创建文件时记得不选class，要选择interface。</p>
+<p>类实现接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> class 类名 implements 接口名&#123;...&#125;<br></code></pre></td></tr></table></figure>
+
+<p>implements的使用类似extends实现类继承的方式。</p>
+<h4 id="3-注意事项："><a href="#3-注意事项：" class="headerlink" title="3.注意事项："></a>3.注意事项：</h4><ul>
+<li>注意点1：接口不能实例化</li>
+<li>注意点2：接口的子类（实现类），<strong>要么重写接口中所有的抽象方法，要么实现类是一个抽象类</strong></li>
+<li>注意点3：<strong>一个类可以实现多个接口</strong>，也可以在继承一个类的同时，实现多个接口（父亲只有一个，干爹可以有多个）</li>
+</ul>
+<p>接口中的方法都是抽象方法，也不能创建实例。</p>
+<p>类继承父类和多个接口演示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> class 类名 implements 接口<span class="hljs-number">1</span>，接口<span class="hljs-number">2</span>&#123;...&#125; <span class="hljs-comment">//只继承接口</span><br><br><span class="hljs-keyword">public</span> class 类名 extends 父类 implements 接口<span class="hljs-number">1</span>，接口<span class="hljs-number">2</span>&#123;．..&#125; <span class="hljs-comment">//一个父类多个接口</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>注意：多个接口中有同名方法时，继承的类只用重写一次即可（如果继承的抽象父类也有这个方法则也只用写一次）。</strong></p>
+<h4 id="4-接口中成员的特点："><a href="#4-接口中成员的特点：" class="headerlink" title="4.接口中成员的特点："></a>4.接口中成员的特点：</h4><p>**成员变量：**接口中成员变量只能是常量，不可改，默认修饰符是public static final。</p>
+<ul>
+<li>接口中成员变量必须手动赋值。</li>
+</ul>
+<p>构造方法：接口中不存在。</p>
+<p>**成员方法：**只能为抽象方法，默认修饰符是public abstract。JDK7及以前的版本不写abstract会直接报错，更新的版本不写也会默认加上abstract。</p>
+<p><u><strong>接口与接口之间的关系：</strong></u>可以多继承，也可以单继承</p>
+<p>注意点：<br>1．如果有一个接口A继承了多个接口，此时相当于是把多个接口中的抽象方法全部继承下来了<br>在以后，实现类实现接口A的时候，就要把所有的抽象方法进行重写</p>
+<h4 id="5-接口在新版本的特性"><a href="#5-接口在新版本的特性" class="headerlink" title="5.接口在新版本的特性"></a>5.接口在新版本的特性</h4><ul>
+<li><p>JDK7及以前：接口中只能定义抽象方法</p>
+</li>
+<li><p>JDK8新特性：为了接口升级时向下兼容，接口中可以定义有方法体的方法(默认、静态)</p>
+</li>
+<li><p>JDK9新特性：为了抽取重复代码，接口中可以定义私有方法(私有普通方法，私有静态方法)</p>
+</li>
+</ul>
+<h5 id="java加入新特性的目的："><a href="#java加入新特性的目的：" class="headerlink" title="java加入新特性的目的："></a><strong>java加入新特性的目的：</strong></h5><ul>
+<li>当一个接口在持续开发过程中需要增加功能时，先前版本不得不对继承这个接口的子类也进行相应的方法重写，否则会报错。</li>
+<li>为了解决这个问题，java后续就开放了在接口中可以写有方法体的私有方法，这个方法不强制要求子类马上重写，而是在要用到这个方法的时候再进行重写。</li>
+</ul>
+<h5 id="JDK8接口新增定义默认方法（default）："><a href="#JDK8接口新增定义默认方法（default）：" class="headerlink" title="JDK8接口新增定义默认方法（default）："></a><strong>JDK8接口新增定义默认方法（default）：</strong></h5><p>作用：接口升级代码不报错。</p>
+<p><strong>接口中默认方法的定义格式：</strong></p>
+<ul>
+<li>格式：public default 返回值类型方法名(参数列表){}</li>
+<li>范例： public default void show(){}</li>
+</ul>
+<p><strong>接口中默认方法的注意事项：</strong></p>
+<ul>
+<li><u><strong>默认方法不是抽象方法，所以不强制被重写。但是如果被重写，重写的时候去掉defaut关键字</strong></u></li>
+<li>public可以省略，default不能省略</li>
+<li>如果实现了多个接口，多个接口中存在相同名字的默认方法，子类就必须对该方法进行重写</li>
+</ul>
+<h5 id="JDK8接口新增定义静态方法（static）："><a href="#JDK8接口新增定义静态方法（static）：" class="headerlink" title="JDK8接口新增定义静态方法（static）："></a><strong>JDK8接口新增定义静态方法（static）：</strong></h5><p>作用也是为了升级接口</p>
+<p><strong>接口中静态方法的定义格式：</strong></p>
+<ul>
+<li>格式：public static 返回值类型方法名(参数列表){}</li>
+<li>范例： public static void show() { }</li>
+</ul>
+<p><strong>接口中静态方法的注意事项：</strong></p>
+<ul>
+<li><p>静态方法只能通过接口名调用，不能通过实现类名或者对象名调用（这里类似类中的静态方法，可以用类名+方法名直接调用，不用创建实例）<br><strong>但与之前也有不同，父类中的静态方法可以用子类的对象名+方法名调用，接口的静态方法则只能够用接口名调用。</strong><br><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260429171828850.png" srcset="/img/loading.gif" lazyload alt="image-20260429171828850"><br>上图aaa方法在父类中，创建子类调用不报错，而method方法在接口（干爹)中，子类调用会报错。</p>
+</li>
+<li><p>public可以省略，static不能省略</p>
+</li>
+<li><p>静态方法写到子类中时，不能加@Override这个注解，因为静态方法不能被写到虚方法表中。（private、static、final都不行，只有虚方法表里的方法才能被重写）。</p>
+</li>
+</ul>
+<h5 id="JDK9接口新增定义私有方法（private）："><a href="#JDK9接口新增定义私有方法（private）：" class="headerlink" title="JDK9接口新增定义私有方法（private）："></a><strong>JDK9接口新增定义私有方法（private）：</strong></h5><p>作用：私有方法是<strong>为了抽取默认方法和静态方法的相同方法体部分而出现的</strong>，它不需要被外界调用和重写。</p>
+<p>**相当于一个只为接口内部服务的功能模块，增加接口方法书写的结构强度。**不能被调用也保护了接口内部代码的安全性（JDK8时，使用default来实现这个功能，但default能直接被外界调用，不够安全）。</p>
+<p>格式：(一般私有和静态私有)</p>
+<ul>
+<li>格式1：private 返回值类型方法名（参数列表）{}</li>
+<li>范例1：private void show(){}</li>
+<li>格式2:private static 返回值类型方法名（参数列表）{}</li>
+<li>范例2:private static void method(){}</li>
+</ul>
+<p>格式1是当多个default方法有共同部分时来提取相同代码功能的；<br>格式2是当多个static方法有共同部分来提取相同代码功能的。</p>
+<h3 id="四、内部类"><a href="#四、内部类" class="headerlink" title="四、内部类"></a>四、内部类</h3><h4 id="1-什么是内部类"><a href="#1-什么是内部类" class="headerlink" title="1.什么是内部类"></a>1.什么是内部类</h4><p>内部类就是在一个类中在定义一个类，外层类叫外部类，内层的就叫内部类。</p>
+<p><strong>内部类的分类：</strong></p>
+<ol>
+<li>成员内部类：写在成员位置，是外部类的成员。</li>
+<li>静态内部类：</li>
+<li>局部内部类：</li>
+<li>匿名内部类：是Lambda表达式的前提，Lambda表达式又是方法引用的前提。</li>
+</ol>
+<p>前三种内部类混个眼熟即可，匿名内部类要重点掌握，比较重要。</p>
+<h4 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2.应用场景"></a>2.应用场景</h4><p>在我们用一个JavaBean类来表示一个大的整体时，可以在其中定义一个内部类来代表它更小的部分，使代码结构更清晰。</p>
+<p><strong>并且这个小部分最好依赖整体才能合理存在。</strong></p>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span>&#123;<br>    String name;<br>    String brand;<br>    String color;<br>    <span class="hljs-type">int</span> carAge;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Engine</span>&#123;  <span class="hljs-comment">//发动机属于汽车，但又是一个相对独立的个体</span><br>        String engineName;  <span class="hljs-comment">//但离开汽车，发动机的意义也就不大了</span><br>		<span class="hljs-type">int</span> engineAge;          	<span class="hljs-comment">//（要看具体代码场景）</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>内部类一般应用规则：</strong></p>
+<ul>
+<li>内部类表示的事物是外部类的一部分；</li>
+<li>内部类单独出现在代码场景中没有任何意义。</li>
+</ul>
+<h4 id="3-成员内部类："><a href="#3-成员内部类：" class="headerlink" title="3.成员内部类："></a>3.成员内部类：</h4><p>前面书写的发动机类就是成员内部类，与一般JavaBean类的定义方式相同。</p>
+<p><strong>成员内部类可以被一些修饰符所修饰</strong>，比如：private，默认，protected，public，static等</p>
+<p>在成员内部类里面，JDK16之前不能定义静态变量，JDK16开始才可以定义静态变量</p>
+<h5 id="（1）创建成员内部类的对象：："><a href="#（1）创建成员内部类的对象：：" class="headerlink" title="（1）创建成员内部类的对象：："></a><strong>（1）创建成员内部类的对象：：</strong></h5><p><strong>编写成员内部类的注意点：</strong></p>
+<ol>
+<li>成员内部类可以被一些修饰符所修饰，比如：private，默认，protected，public，static等</li>
+<li><strong>在成员内部类里面，JDK16之前不能定义静态变量，JDK16开始才可以定义静态变量。</strong>（可以在idea中动态调整编译器版本jdk8-&gt;jdk17）</li>
+</ol>
+<p><strong>获取成员内部类对象的两种方式：</strong></p>
+<ul>
+<li>方式一：外部类编写方法，对外提供内部类对象</li>
+<li>方式二：直接创建</li>
+</ul>
+<p>格式：外部类名.内部类名对象名&#x3D;外部类对象.内部类对象;<br><strong><u>范例： <code>Outer.Inner oi = new Outer().new Inner();</code></u></strong><br>简单理解就是，要先用外部类创建对象，然后找到内部类才能创建内部类的对象。<strong>因为内部类是外部类的一个成员，依附于外部类存在。</strong></p>
+<p><strong>同样，成员内部类加上private私有只有，外界也不能直接调用。此时可以写一个方法，提供给外界内部类的对象（就类似提供私有成员变量的getName）。</strong></p>
+<p>如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Outer外部类中书写：</span><br><span class="hljs-keyword">public</span> Inner <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>&#125;<br><br><span class="hljs-comment">//运行调用：</span><br><span class="hljs-comment">//第一种写法：不接受，返回直接调用</span><br><span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br>System.out.println(o.getInstance());<br><br><span class="hljs-comment">//第二种写法：用Object接收，不能直接用Outer.Inner定义接收，因为编译器不知道私有Inner的存在。</span><br><span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br><span class="hljs-type">Object</span> <span class="hljs-variable">inner</span> <span class="hljs-operator">=</span> o.getInstance(); <span class="hljs-comment">//形成多态</span><br><br><span class="hljs-comment">//第三种写法：如果外部类Outer有可被直接调用的父类，可以用该父类接收inner。同Object原理相同。</span><br><span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br><span class="hljs-type">OuterFu</span> <span class="hljs-variable">inner</span> <span class="hljs-operator">=</span> o.getInstance(); <span class="hljs-comment">//形成多态</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="（2）成员内部类获取外部类的成员变量："><a href="#（2）成员内部类获取外部类的成员变量：" class="headerlink" title="（2）成员内部类获取外部类的成员变量："></a>（2）成员内部类获取外部类的成员变量：</h5><p>用一个问题说明：??中要填什么才能输出注释中的内容。</p>
+<p>??表示待填写的变量名。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span>&#123;   <span class="hljs-comment">//定义三个a，怎么准确指定？</span><br>	<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&#123;<br>			<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;<br>			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>				<span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br>				System.out.println(??);;<span class="hljs-comment">//10，填Outer.this.a</span><br>				System.out.println(??);: <span class="hljs-comment">// 20，填this.a</span><br>				System.out.println(??);；<span class="hljs-comment">//30，填a</span><br>			&#125;<br>		&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>解：同样是遵从就近原则，方法内什么都不加，填<code>a</code>；内部类则为<code>this.a</code>；外部类则为<code>Outer.this.a</code>。</strong></p>
+<p><strong>所以我们能够得出下面的结论：</strong></p>
+<ul>
+<li>这里不能用super关键字，因为这里不涉及父类与子类的继承关系。</li>
+<li>当a也为Outer内的静态变量时，也可以写为<code>Outer.a</code>，否则不行。</li>
+<li><strong>这里能识别<code>Outer.this</code>是因为内部类在创建对象时会记录外部类对象的地址为<code>Outer.this</code>（举例），可以通过外部类名+this+外部类成员名来访问外部类成员。</strong></li>
+</ul>
+<h4 id="4-静态内部类："><a href="#4-静态内部类：" class="headerlink" title="4.静态内部类："></a>4.静态内部类：</h4><p><strong>静态内部类是成员内部类的一种。</strong></p>
+<p>静态内部类就是在成员内部类的结构基础上在前面加了个static修饰符而已。</p>
+<p><strong><u>性质：</u></strong></p>
+<ul>
+<li><p>静态内部类只能访问外部类中的静态变量和静态方法</p>
+</li>
+<li><p>如果在静态内部类中，想要访问外部类非静态的内容，需要创建外部类的对象（原因应该是静态变量和方法的静态区在堆内，可以直接访问，非静态时要创建对象，在堆中开辟空间才能访问到）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Engine</span> &#123;  <span class="hljs-comment">//静态内部类</span><br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>		<span class="hljs-comment">//可以访问外部类静态变量</span><br>		<span class="hljs-comment">//可以访问外部类静态方法</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这本质与之前学的类中默认规定**<u>静态只能访问静态</u>**是一致的。</p>
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260429222000056.png" srcset="/img/loading.gif" lazyload alt="image-20260429222000056"></p>
+<p>由图可见，静态内部类只能直接访问到外部类中静态的成员b。要访问非静态成员a需要创建外部类的对象。</p>
+</li>
+</ul>
+<h5 id="（1）创建静态内部类的对象："><a href="#（1）创建静态内部类的对象：" class="headerlink" title="（1）创建静态内部类的对象："></a>（1）创建静态内部类的对象：</h5><p>创建静态内部类对象时，不需要new内部类，直接new外部类后访问。</p>
+<p>格式：外部类名.内部类名 对象名 &#x3D; new 外部类名.内部类名();</p>
+<p>创建静态内部类的对象例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Outer.<span class="hljs-type">Inner</span> <span class="hljs-variable">oi</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>.inner();<br></code></pre></td></tr></table></figure>
+
+<p>调用静态内部类的静态和非静态方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//静态内部类</span><br>Outer.Inner.show2();<span class="hljs-comment">//show2是静态的，没有Outer和Inner对象也直接访问</span><br><br><span class="hljs-comment">//非静态内部类</span><br>Outer.<span class="hljs-type">Inner</span> <span class="hljs-variable">oi</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>().Inner();<br>oi.show1();<span class="hljs-comment">//show1是非静态的，要创建Inner对象。</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="（2）总结："><a href="#（2）总结：" class="headerlink" title="（2）总结："></a>（2）总结：</h5><ol>
+<li><p><strong>什么是静态内部类?</strong></p>
+<p>静态内部类是一种特殊的成员内部类。</p>
+</li>
+<li><p><strong>直接创建静态内部类对象的方式?</strong></p>
+<p><code>Outer.lnner oi = new Outer.lnner();</code></p>
+</li>
+<li><p><strong>如何调用静态内部类中的方法？</strong></p>
+<p>非静态方法：先创建对象，用对象调用</p>
+<p>静态方法：直接用外部类名.内部类名.方法名();</p>
+</li>
+</ol>
+<h4 id="5-局部内部类"><a href="#5-局部内部类" class="headerlink" title="5.局部内部类"></a>5.局部内部类</h4><h5 id="（1）什么是局部内部类："><a href="#（1）什么是局部内部类：" class="headerlink" title="（1）什么是局部内部类："></a>（1）什么是局部内部类：</h5><p><strong>即在方法中创建的内部类。</strong></p>
+<p>1．将内部类定义在方法里面就叫做局部内部类，类似于方法里面的局部变量。<br>2．<strong>外界是无法直接使用，需要在方法内部创建对象并使用。</strong><br>3．<strong>该类可以直接访问外部类的成员，也可以访问方法内的局部变量。</strong></p>
+<p>注意：局部内部类创建时，前面不能加public、static、private。</p>
+<h4 id="6-匿名内部类-重要知识"><a href="#6-匿名内部类-重要知识" class="headerlink" title="6.匿名内部类(重要知识)"></a>6.匿名内部类(重要知识)</h4><h5 id="（1）什么是匿名内部类"><a href="#（1）什么是匿名内部类" class="headerlink" title="（1）什么是匿名内部类"></a>（1）什么是匿名内部类</h5><p>顾名思义，就是一个没有名字的内部类</p>
+<p><strong>作用：继承一个类或者实现一个接口的时候少写一个java文件，也是lambda语句的前置知识点</strong></p>
+<p>定义格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">new</span> 类名或者接口名() &#123;  <span class="hljs-comment">//这里本质上创建了一个没名字的对象</span><br>	重写方法;<br>&#125;;<br><br><span class="hljs-comment">//具体</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Inter</span>()&#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;..&#125;;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong><u>匿名内部类的定义格式 &#x3D; 没有名字的java类 + 继承&#x2F;实现 + 重写方法 + 创建对象。</u></strong><br>最终格式可以理解为：是一个没有名字的java类的对象</p>
+<p><strong>匿名内部类可以解决这个问题：</strong></p>
+<blockquote>
+<p>如果某个类或接口我只要用到一次，为了调用它我要新建一个类的Java文件（实现抽象类和接口的方法要创建一个类来继承它，因为接口不能实例化创建）那么新建这个类的java文件有点浪费。<br>我是否可以不新建这个java文件，只要里面的代码呢？<br>匿名内部类的作用：少定义一个java文件</p>
+</blockquote>
+<p>很明显，这种内部类的好处就是即时的重写一个类或者接口中的方法，即使我们没继承它们，可以临时借用。</p>
+<h5 id="（2）匿名内部类的具体示例代码："><a href="#（2）匿名内部类的具体示例代码：" class="headerlink" title="（2）匿名内部类的具体示例代码："></a>（2）匿名内部类的具体示例代码：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Swim接口</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Swim</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">swimming</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//NoNameInnerClass 测试类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NoNameInnerClass</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//new并非创建了Swim这个接口，而是后面的大括号，也就是匿名内部类。</span><br>        <span class="hljs-type">Swim</span> <span class="hljs-variable">sw</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Swim</span>()&#123; <span class="hljs-comment">//这个大括号内部的代码就是一个没有名字的java内部类，Swim()只是意味着这个匿名内部类实现了Swim接口。改成某个类就是继承了这个类。</span><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">swimming</span><span class="hljs-params">()</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;这是匿名内部类&quot;</span>);<br>                System.out.println(<span class="hljs-string">&quot;学生们在游泳&quot;</span>);<br>            &#125;<br>        &#125;;   <span class="hljs-comment">//匿名内部类赋给一个接口变量（干爹），实际上是多态的实现。</span><br><br>        goSwimming(sw);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">goSwimming</span><span class="hljs-params">(Swim s)</span>&#123;  <span class="hljs-comment">//要加上静态，否则main调用不了。</span><br>        s.swimming();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong><u>加深理解，接口和抽象类一样，都可以通过创建“子类”的对象实现多态。</u></strong></p>
+<h5 id="（3）总结："><a href="#（3）总结：" class="headerlink" title="（3）总结："></a>（3）总结：</h5><p>1．什么是匿名内部类?<br>隐藏了名字的内部类，可以写在成员位置，也可以写在局部位置<br>2.匿名内部类的格式？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">new</span> 类名或者接口名（）&#123;<br>	重写方法;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3．匿名内部类等价于<br>没有名字的java类 + 实现接口&#x2F;继承类 + 重写方法 + 创建对象<br><strong>4．使用场景</strong><br><strong>如果实现类只要使用一次，就可以用匿名内部类简化代码</strong><br><strong>Lambda表达式的前置知识点</strong></p>
+<h2 id="第十二章——-java中的常见API-的细节记录："><a href="#第十二章——-java中的常见API-的细节记录：" class="headerlink" title="第十二章——**java中的常见API**的细节记录："></a>第十二章——**<u>java中的常见API</u>**的细节记录：</h2><p><strong>API</strong> 是 <strong>应用程序接口</strong>（Application Programming Interface）的缩写，是一组定义和协议，用于让不同的软件系统、应用程序或服务之间进行交互和通信。它提供了一种标准化的方式，使开发者能够通过调用 API 来访问某些功能或数据，而无需了解底层实现细节。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81-java/" class="print-no-link">#代码/java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java学习记录之二————未完</div>
+      <div>http://example.com/2026/04/23/Java学习细节记录之二/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/30/%E4%B8%80%E4%B8%AA%E9%B8%A3%E6%BD%AE%E7%8E%A9%E5%AE%B6%E5%AF%B9%E9%B8%A3%E6%BD%AE%E7%9A%84%E6%B5%85%E6%B5%85%E5%88%86%E6%9E%90/" title="一个鸣潮玩家对鸣潮的浅浅分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">一个鸣潮玩家对鸣潮的浅浅分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/22/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92&amp;%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%80%9D%E8%80%83%E8%AE%B0%E5%BD%95/" title="策划开发思考记录">
+                        <span class="hidden-mobile">策划开发思考记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

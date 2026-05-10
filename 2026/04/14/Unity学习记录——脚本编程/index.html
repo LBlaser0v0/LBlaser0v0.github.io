@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Unity学习记录——阿发跟学一、脚本基础1.什么是脚本：script脚本，用于驱动游戏逻辑。 Unity中创建的脚本文件名就是类名，不可写中文，按照类名的命名规范书写。 注意C#脚本一般不能离开一个项目运行，所以我们要把脚本挂载的一个物体上去测试它（可以是一个空物体）。 2.脚本编写基本流程： 创建脚本文件；  分类管理脚本文件；  撰写脚本功能；  保存脚本；  Unity自动编译脚本；  挂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity学习记录————脚本编程">
+<meta property="og:url" content="http://example.com/2026/04/14/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Unity学习记录——阿发跟学一、脚本基础1.什么是脚本：script脚本，用于驱动游戏逻辑。 Unity中创建的脚本文件名就是类名，不可写中文，按照类名的命名规范书写。 注意C#脚本一般不能离开一个项目运行，所以我们要把脚本挂载的一个物体上去测试它（可以是一个空物体）。 2.脚本编写基本流程： 创建脚本文件；  分类管理脚本文件；  撰写脚本功能；  保存脚本；  Unity自动编译脚本；  挂">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260506165506337.png">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509220641871.png">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509224340678.png">
+<meta property="og:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509225953281.png">
+<meta property="article:published_time" content="2026-04-14T06:59:48.000Z">
+<meta property="article:modified_time" content="2026-05-10T08:43:23.124Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="游戏&#x2F;Unity">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260506165506337.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Unity学习记录————脚本编程 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Unity学习记录————脚本编程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-14 14:59" pubdate>
+          2026年4月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          38 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Unity学习记录————脚本编程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Unity学习记录——阿发跟学"><a href="#Unity学习记录——阿发跟学" class="headerlink" title="Unity学习记录——阿发跟学"></a>Unity学习记录——阿发跟学</h1><h2 id="一、脚本基础"><a href="#一、脚本基础" class="headerlink" title="一、脚本基础"></a>一、脚本基础</h2><h3 id="1-什么是脚本："><a href="#1-什么是脚本：" class="headerlink" title="1.什么是脚本："></a>1.什么是脚本：</h3><p>script脚本，用于驱动游戏逻辑。</p>
+<p>Unity中创建的脚本文件名就是类名，不可写中文，按照类名的命名规范书写。</p>
+<p>注意C#脚本一般不能离开一个项目运行，所以我们要把脚本挂载的一个物体上去测试它（可以是一个空物体）。</p>
+<h3 id="2-脚本编写基本流程："><a href="#2-脚本编写基本流程：" class="headerlink" title="2.脚本编写基本流程："></a>2.脚本编写基本流程：</h3><ol>
+<li><p>创建脚本文件；</p>
+</li>
+<li><p>分类管理脚本文件；</p>
+</li>
+<li><p>撰写脚本功能；</p>
+</li>
+<li><p>保存脚本；</p>
+</li>
+<li><p>Unity自动编译脚本；</p>
+</li>
+<li><p>挂载脚本（到物体），有两种办法：</p>
+<p>~点Add Component，选 Scripts | Simple Logic；<br>~或者，直接将脚本拖到小Inspector窗口的最下方。</p>
+</li>
+<li><p>运行游戏测试脚本实现。</p>
+<p>~在 Console 窗口中，观察输出。<br>~若Console 窗口未显示，则Window丨General丨Console 调出此窗口。<br>~最后停止游戏即可</p>
+</li>
+</ol>
+<h3 id="3-第一个脚本演示："><a href="#3-第一个脚本演示：" class="headerlink" title="3.第一个脚本演示："></a>3.第一个脚本演示：</h3><p>创建了一个ObjectMove的C#脚本，挂载到了一个立方体上。</p>
+<p>第一句代码，用Debug类实现：</p>
+<p>Debug是UnityEngine的一个子类。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-comment">//在Start()方法里写</span><br>Debug.<span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;my first script&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span><br><span class="hljs-comment">//打印一行日志信息在Unity中。</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260506165506337.png" srcset="/img/loading.gif" lazyload alt="image-20260506165506337"></p>
+<h3 id="4-Unity上编写脚本的要点（重要）"><a href="#4-Unity上编写脚本的要点（重要）" class="headerlink" title="4.Unity上编写脚本的要点（重要）"></a>4.Unity上编写脚本的要点（重要）</h3><ol>
+<li><strong><u>C#文件名必须和类名一致，否则无法挂载</u></strong>（固定要求）</li>
+<li>若要修改类名，应在VS 中右键重命名</li>
+<li>脚本必须挂载到物体上，才会被调用（脚本要挂载才会被创建对象，被实例化）</li>
+<li>其他问题，参考《Unity编译环境配置》</li>
+</ol>
+<p>第1点可能是由于Unity是采用反射技术来实现脚本的，并且实时动态的从文件加载类，而不是编译进程序。</p>
+<p>总的来说，c#是面向对象的编程语言，脚本的编写大多在于对类和方法的创建以及调用</p>
+<h2 id="二、具体脚本编程情景："><a href="#二、具体脚本编程情景：" class="headerlink" title="二、具体脚本编程情景："></a>二、具体脚本编程情景：</h2><h3 id="1-编辑模式与播放模式"><a href="#1-编辑模式与播放模式" class="headerlink" title="1.编辑模式与播放模式"></a>1.编辑模式与播放模式</h3><p>EditMode，编辑模式<br>Play Mode，播放／运行模式</p>
+<p>在播放模式下：</p>
+<ul>
+<li>实时显示场景中的物体和属性</li>
+<li><strong>游戏中的状态不可保存</strong>，You must exit play mode to save the scene</li>
+</ul>
+<h3 id="2-事件函数"><a href="#2-事件函数" class="headerlink" title="2.事件函数"></a>2.事件函数</h3><h4 id="（1）帧更新（Frame）"><a href="#（1）帧更新（Frame）" class="headerlink" title="（1）帧更新（Frame）"></a>（1）帧更新（Frame）</h4><p>Frame，一个游戏帧<br>FrameRate，帧率／刷新率<br>FPS，Frames Per Sencond，每秒更新多少帧</p>
+<p>帧率观察：</p>
+<ul>
+<li>Time.time_，游戏时间（计算从play开始以及经过的世界）</li>
+<li>Time.deltaTime，距上次更新的时间差</li>
+</ul>
+<p>显然，帧率是不固定的，Unity 会尽量较快地更新</p>
+<p><strong>Unity 不支持固定帧率，但可以设定一个近似帧率</strong><br>Application.targetFrameRate &#x3D; 60;<br>其中，指示 Unity 尽量以 FPS &#x3D; 60 的帧率更新游戏</p>
+<p><u><strong>帧更新函数：</strong></u></p>
+<p><strong>Unity的C#编程中，我们利用Update()和LaterUpdate()进行与帧更新有关的操作。</strong></p>
+<p>其他的Awake()、Start()、等默认函数与帧更新无关。</p>
+<p><strong>Update：当MonoBehaviour启用时,其Update在每一帧被调用；</strong></p>
+<p><strong>LateUpdate：当Behaviour启用时，其LateUpdate在每一帧被调用</strong></p>
+<p><strong>FixedUpdate:这个函数会在每个固定的物理时间片被调用一次.这是放置游戏基本物理行为代码的地方。UPDATE之后调用。</strong></p>
+<h4 id="（2）启动函数"><a href="#（2）启动函数" class="headerlink" title="（2）启动函数"></a>（2）启动函数</h4><p><strong>①Awake()：</strong></p>
+<p>​		在MonoBehavior创建后就立刻调用，在脚本实例的整个生命周期中，Awake函数仅执行一次；如果游戏对象（即gameObject）的初始状态为关闭状态，那么运行程序，Awake函数不会执行；如果游戏对象的初始状态为开启状态，那么Awake函数会执行；</p>
+<p>​		值得注意的一点是，**Awake函数的执行与否与脚本实例的状态（启用或禁用）并没有关系，而是与脚本实例所绑定的游戏对象的开关状态有关。**如果重新加载场景，那么场景内Awake函数的执行情况重新遵循上述两点。</p>
+<p><strong>②Start()：</strong></p>
+<p>​		将在MonoBehavior创建后在该帧Update()第一次执行前被调用；Start()函数只在脚本实例被启用时才会执行；Start函数总是在Awake函数之后执行。如果游戏对象开启了，对象上绑定的脚本实例被禁用了，那么Start函数不会执行。</p>
+<p>​		这是Start函数的特点，只有在脚本实例被启用时它才会执行，<strong>并且Start函数只会在脚本实例首次被开启时才会执行。如果是已经开启过的脚本实例被关闭后再次开启，那么Start函数不会再次执行。</strong></p>
+<p>一般开发中都是在Awake函数中获取游戏对象或者脚本实例的信息，然后在Start函数中进行一些获取之后的初始化设置。</p>
+<p><strong>③一些调用顺序结论：</strong></p>
+<p><strong>Awake、OnEnable、Start,都是游戏开始运行前就调用的方法。</strong></p>
+<p><strong>GameObject的Activity为true，脚本的enable为true时，其先后顺序为：Awake、OnEnable、Start；</strong><br><strong>GameObject的Activity为true，脚本的enable为false时,只运行Awake；</strong></p>
+<p><strong>GameObject的Activity为false时，以上都不调用，OnDisable()被调用；</strong></p>
+<p><strong>OnDestory:物体被删除时调用。</strong></p>
+<h3 id="3-控制当前物体运动"><a href="#3-控制当前物体运动" class="headerlink" title="3.控制当前物体运动"></a>3.控制当前物体运动</h3><p>要点：物体的获取，transform组件，方向控制等</p>
+<h4 id="（1）物体的获取："><a href="#（1）物体的获取：" class="headerlink" title="（1）物体的获取："></a>（1）物体的获取：</h4><p>当一个脚本被挂载到一个物体上时：</p>
+<ol>
+<li><p>脚本中的this，指示当前脚本组件</p>
+</li>
+<li><p><code>this.gameObject</code>，指示当前物体</p>
+<p><code>this.gameObject.name</code>，指示当前物体的名字</p>
+</li>
+<li><p><code>this.gameObject.transform</code>，指示当前物体下的Transform 组件。为了简化书写，也可写作<code>this.transform</code>，效果相同</p>
+</li>
+</ol>
+<p>以下两种写法等效：<br>this.gameObject.transform.position<br>this.transform.position<br>其中，this.transform 指向的就是 this.gameObject.transform。</p>
+<p><u><strong>脚本挂载到那个物体，this就指向哪个物体。</strong></u></p>
+<p>代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TryMove</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> objName;<br>    <span class="hljs-keyword">public</span> GameObject obj;<br>    <span class="hljs-keyword">public</span> Transform Tr;<br>    <span class="hljs-keyword">public</span> Vector3 pos;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        objName = <span class="hljs-keyword">this</span>.gameObject.name;<br>        obj = <span class="hljs-keyword">this</span>.gameObject;<br>        Debug.Log(<span class="hljs-string">&quot;**测试开始**&quot;</span>);<br>        Debug.Log(<span class="hljs-string">&quot;对象名称: &quot;</span> + objName);<br>        Tr = obj.transform;<br>        pos = Tr.position;<br>        Debug.Log(<span class="hljs-string">&quot;物体的位置: &quot;</span> + pos.ToString(<span class="hljs-string">&quot;F4&quot;</span>) + <span class="hljs-string">&quot;x:&quot;</span> + pos.x + <span class="hljs-string">&quot; y:&quot;</span> + pos.y + <span class="hljs-string">&quot; z:&quot;</span> + pos.z);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="（2）物体的坐标"><a href="#（2）物体的坐标" class="headerlink" title="（2）物体的坐标"></a>（2）物体的坐标</h4><p>物体坐标在编程中也分为世界坐标和本地坐标：</p>
+<ul>
+<li>transform.position ， 世界坐标</li>
+<li>transform.localPosition ,本地坐标</li>
+</ul>
+<p><strong>对于一个物体操作，我们一般使用localPosition，他与检查器Inspector中的值一致。</strong></p>
+<p>本地坐标在对父子物体的操作时有用。</p>
+<p><strong>设置物体的坐标：</strong></p>
+<p><strong>Vector3 类型，即三维向量，含×y z 三个分量（float）</strong><br>设置物体的坐标：</p>
+<ul>
+<li>this.transform.localPosition &#x3D; new Vector3(1.5f, 0, 2.0f);</li>
+</ul>
+<p>其中，float 型的数值，在书写时应以f结尾。</p>
+<h4 id="（3）实现物体的简单运动"><a href="#（3）实现物体的简单运动" class="headerlink" title="（3）实现物体的简单运动"></a>（3）实现物体的简单运动</h4><p>在Update默认方法中不断更新物体的位置，后续可扩展为根据不同逻辑实现不同的运动方式。</p>
+<p>最简单的的物体运动，就是在Update中每次更新物体的localPosition，加上一个固定数值，<strong>但这样物体的运动并不是匀速的</strong>，每次帧更新运动 0.01 米，但是每帧间隔的 deltaTime 不固定。<br>比如,</p>
+<ul>
+<li>第1次，deltaTime &#x3D; 0.016 秒，运动 0.01 米</li>
+<li>第2次，deltaTime &#x3D; 0.030 秒，运动 0.01 米</li>
+</ul>
+<p>所以计算物体的速度最好用deltaTime参与计算。</p>
+<p>示例代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment">//已定义：obj = this.gameObject;</span><br><span class="hljs-comment">//Tr = obj.transform;</span><br><span class="hljs-comment">//pos = Tr.localPosition;</span><br>distance = moveSpeed*Time.deltaTime; <br>pos += <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, distance);  <span class="hljs-comment">//物体每帧向z轴移动distance单位</span><br>Tr.localPosition = pos;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="（4）实现相对运动（重要）"><a href="#（4）实现相对运动（重要）" class="headerlink" title="（4）实现相对运动（重要）"></a>（4）实现相对运动（重要）</h4><p>一般使用 <strong>transform.Translate()</strong>，实现相对运动<br>transform.Translate( dx, dy, dz , space)<br>其中，dx，dy,dz 是坐标增量<br>例如：</p>
+<ul>
+<li>transform.Translate(0, 0, distance);&#x2F; &#x2F;Z方向增加 distance</li>
+</ul>
+<p>利用Translate，就可以直接实现物体沿着指定方向运动，而不需要new向量再实现增减量。</p>
+<p>即：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c#">distance = moveSpeed*Time.deltaTime; <br>pos += <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, distance);  <span class="hljs-comment">//物体每帧向z轴移动distance单位</span><br>Tr.localPosition = pos;<br></code></pre></td></tr></table></figure>
+
+<p>与</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#">transform.Translate(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, distance);<span class="hljs-comment">//Z方向增加 distance</span><br></code></pre></td></tr></table></figure>
+
+<p>两者用处一致，后者更简短。</p>
+<p>相对运动：transform.Translate( dx, dy, dz , space)</p>
+<p>其中，第4个参数：</p>
+<ul>
+<li>Space.World，相对于世界坐标系</li>
+<li><strong>Space.Self，相当于自身坐标系（本地坐标系）</strong></li>
+</ul>
+<p>决定了你是沿着哪个坐标系进行运动。<strong>物体的运动一般是按照自身坐标系来运动的，尤其要设定好正方向。</strong></p>
+<h4 id="（5）物体的旋转调整运动方向"><a href="#（5）物体的旋转调整运动方向" class="headerlink" title="（5）物体的旋转调整运动方向"></a>（5）物体的旋转调整运动方向</h4><p>①简单更改物体朝向：</p>
+<p>1.获取目标物体<br>GameObject flag &#x3D; GameObject.Find(“物体名称”);<br>2.先转向目标<br><strong>this.transform.LookAt(flag.transform);</strong><br>3.再向‘前’运动，forward，+Z方向，Z为面朝方向。<br>this.transform.Translate(O, O, dz , Space.Self)</p>
+<p>LookAt函数，指示脚本挂载的物体方向朝向另一个物体flag。<strong>使用LookAt的时候，要随时注意到两个物体是否都在地面上，否则跟随物体移动时会原地起飞。</strong></p>
+<p><strong>GameObject.Find方法简介：</strong></p>
+<p>通过名字或路径查找游戏对象。</p>
+<ul>
+<li><p>GameObject.Find(“GameObject”);</p>
+</li>
+<li><p>GameObject.Find(“GameObject&#x2F;ChildGameObject);</p>
+</li>
+</ul>
+<p>使用规范: </p>
+<ol>
+<li><p>无法查找隐藏对象<br>隐藏对象包括查找路径的任何一个父节点隐藏(active&#x3D;false)</p>
+</li>
+<li><p>如果查找不在最上层，建议合理使用路径查找，路径查找是把双刃剑</p>
+<p>**优点1:**解决查找中可能出现的重名问题。<br>**优点2:**如果有完全的路径，减少查找范围，减少查找时间。</p>
+<p><strong>缺点:</strong> 路径或结构调整后，容易影响到程序中的查找，需要重新定位查找路径。</p>
+</li>
+<li><p>如果路径查找中的任何一个父节点active&#x3D;false，这个对象都将查找不到。</p>
+</li>
+</ol>
+<p>②持续调整物体朝向：</p>
+<h4 id="（6）向量测距："><a href="#（6）向量测距：" class="headerlink" title="（6）向量测距："></a>（6）向量测距：</h4><p>根据两个物体的position值进行一些判断和运算时，要使用到向量测距。所以我们要利用到一个API，magnitude。</p>
+<p>向量测距:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#">p1 = 火车.transform.position <span class="hljs-comment">//一个Vertor3变量。</span><br>p2 = 红旗.transform.position<br>p = p1 -p2<br>distance = p.magnitude<br></code></pre></td></tr></table></figure>
+
+<p>**magnitude接口，用于计算两个向量之间的距离，求向量的模长。**是Unity自带的方法。</p>
+<h4 id="（7）物体旋转的实现："><a href="#（7）物体旋转的实现：" class="headerlink" title="（7）物体旋转的实现："></a>（7）物体旋转的实现：</h4><p>给物体调转一个旋转角度有两种方式。<br>1.Quaternion 四元组（x, y, z, w）</p>
+<p>unity中的rotation的值是一个四元组，基于复数构成，不便理解和操作。</p>
+<p>可以直接更改物体的roration值。<br>transform.rotation &#x3D; …；&#x2F;&#x2F;但不便操作，官方不建议使用。<br><strong>2.欧拉角 Euler Angle</strong>（推荐）<br>transform.eulerAngles &#x3D; new Vector3(0, 45, 0) ;<br>transform.localEulerAngles &#x3D; new Vector3(0, 45, 0) ;</p>
+<p>一般是使用localEulerAngles基于自身的欧拉角，跟物体移动时差不多。</p>
+<p><u><strong>相对旋转：Rotate()方法。</strong></u></p>
+<p>Rotate()，旋转一个相对角度<br><strong>transform.Rotate(dx, dy, dz, space)</strong></p>
+<p>与**Translate()**相对于物体移动具有对物体旋转相同的意义。</p>
+<p>相当于，</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c#">Vector3 angles = transform.localEulerAngles;<br>angles += <span class="hljs-keyword">new</span> Vector3(dx, dy, dz);<br>transform.localEulerAngles = angles;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="（8）自转与公转："><a href="#（8）自转与公转：" class="headerlink" title="（8）自转与公转："></a>（8）自转与公转：</h4><p>自转，绕着自身轴旋转<br>公转，围绕另一个物体旋转。<br>当父物体转动时，带动子物体一并旋转。</p>
+<p>比如，父物体旋转时，会带动子物体一起旋转。<br>父物体旋转的是自转，子物体绕着父物体公转。</p>
+<p>另一种情况是，让一群物体，绕着它们的集合中心旋转，或者一个标定的空物体旋转。</p>
+<p>代码例子：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Rotation</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>	GameObject obj;<br>    GameObject Moon;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">float</span> rotaSpeed; <span class="hljs-comment">//旋转速度</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">float</span> MrotaSpeed; <span class="hljs-comment">//月球自转速度</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">float</span> rotaAngle; <span class="hljs-comment">//旋转角度</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">float</span> MrotaAngle; <span class="hljs-comment">//月球自转角度</span><br>    <br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        obj = <span class="hljs-keyword">this</span>.gameObject;<br>        Moon = GameObject.Find(<span class="hljs-string">&quot;Mid&quot;</span>);<br>        rotaSpeed = <span class="hljs-number">90f</span>; <span class="hljs-comment">//每秒旋转90度</span><br>        MrotaSpeed = <span class="hljs-number">10f</span>; <span class="hljs-comment">//月球自转速度，每秒旋转45度</span><br>    &#125;<br><br>    <span class="hljs-comment">// Update is called once per frame</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>()</span><br>    &#123;<br>        Application.targetFrameRate = <span class="hljs-number">60</span>; <span class="hljs-comment">//指导Unity以60帧每秒的速度更新帧</span><br>        rotaAngle = rotaSpeed * Time.deltaTime; <span class="hljs-comment">//每秒旋转rotaSpeed度，乘以deltaTime得到每帧旋转的角度，使得旋转速度均匀。 </span><br>        MrotaAngle = MrotaSpeed * Time.deltaTime; <span class="hljs-comment">//月球自转角度</span><br>        obj.transform.Rotate(<span class="hljs-number">0</span>, rotaAngle, <span class="hljs-number">0</span>);<span class="hljs-comment">//类似物体移动的平均逻辑。</span><br>        Moon.transform.Rotate(<span class="hljs-number">0</span>, MrotaAngle, <span class="hljs-number">0</span>); <span class="hljs-comment">//月球自转</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>物体的自转简单，直接rotation即可；</p>
+<p>物体绕一点公转也不难，创建一个新物体作为公转中心，把物体作为新物体的子物体，使新物体旋转带动物体旋转即可。</p>
+<p>两者结合，就可以有地月系统这个例子，地球自转，月球公转。</p>
+<p>unity中物体的继承关系如图：</p>
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509220641871.png" srcset="/img/loading.gif" lazyload alt="image-20260509220641871"></p>
+<h2 id="三、Unity脚本运行逻辑"><a href="#三、Unity脚本运行逻辑" class="headerlink" title="三、Unity脚本运行逻辑"></a>三、Unity脚本运行逻辑</h2><h3 id="1-脚本运行"><a href="#1-脚本运行" class="headerlink" title="1.脚本运行"></a>1.脚本运行</h3><p>点击play进行场景运行时，场景的加载过程示例：</p>
+<ol>
+<li><p>创建节点</p>
+<p>GameObject node &#x3D; new GameObject()</p>
+</li>
+<li><p>实例化组件</p>
+<p>MeshRenderer comp &#x3D; new MeshRenderer()</p>
+</li>
+<li><p>实例化脚本组件</p>
+<p>SimpleLogic script1 &#x3D; new 脚本类名()</p>
+</li>
+<li><p>调用事件函数</p>
+<ul>
+<li>初始化 script1.Start()</li>
+<li>帧更新 script1.Update()</li>
+</ul>
+</li>
+</ol>
+<p><strong>实际上Unity引擎，会创建所有已激活的物体的各组件的实例，方便程序调用。</strong></p>
+<p>注意，Unity 是一个纯面向对象的框架，对象由框架创建，我们只需要配置好脚本和物体关系等细节即可，</p>
+<h3 id="2-消息函数："><a href="#2-消息函数：" class="headerlink" title="2.消息函数："></a>2.消息函数：</h3><h4 id="（1）总体介绍"><a href="#（1）总体介绍" class="headerlink" title="（1）总体介绍"></a>（1）总体介绍</h4><p>也称事件函数，前面在二、2的事件函数中有讲到一些。</p>
+<p>消息函数有很多，这里记录一些常用的，其他的有待继续学习。</p>
+<p><strong>Start()：</strong></p>
+<ul>
+<li>Unity在运行开始时第一帧进行调用（第一次执行Update之前），比Awake()函数在MonoBehavior基类创建时就调用要更晚一些。</li>
+</ul>
+<p><strong>Update()：</strong></p>
+<ul>
+<li>MonoBehavior启用后，每帧都调用Update()。</li>
+</ul>
+<p><strong>已禁用的组件，其消息函数 Start／Update 不会被调用</strong>。<br><strong>Awake／Start，都只会执行一次。</strong></p>
+<p>常见物种消息函数的简单理解：</p>
+<ol>
+<li>Awake，初始化，仅执行一次，即使脚本组件被禁用。</li>
+<li>Start，初始化，仅执行一次。</li>
+<li>Update，帧更新，每帧调用一次。</li>
+<li>OnEnable，每当组件启用时调用。</li>
+<li>OnDisable，每当组件禁用时调用。</li>
+</ol>
+<h4 id="（2）脚本执行顺序："><a href="#（2）脚本执行顺序：" class="headerlink" title="（2）脚本执行顺序："></a>（2）脚本执行顺序：</h4><p>消息函数的调用顺序：</p>
+<ol>
+<li><p>第1阶段初始化，</p>
+<p>script1.Awake(), script2.Awake(), …</p>
+</li>
+<li><p>第2阶段初始化，</p>
+<p>script1.Start() , script2.Start(), …</p>
+</li>
+<li><p>帧更新,</p>
+<p>script1.Update(), script2.Update()，…</p>
+</li>
+</ol>
+<p>默认地，所有脚本的执行优先级为0。<br><strong>优先级的设定：</strong></p>
+<ol>
+<li>选中一个脚本，打开 Execution Order 对话框。</li>
+<li>点+按钮，添加一个脚本。</li>
+<li>指定优先级，值越小、优先级越高。或者，直接拖动调节顺序。</li>
+</ol>
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509224340678.png" srcset="/img/loading.gif" lazyload alt="image-20260509224340678"></p>
+<p>脚本的执行顺序，和Hierarchy 中的层级顺序无关。<strong><u>一般地，并不需要显式设置Execution Order，默认即可。</u></strong></p>
+<h3 id="3-主控脚本"><a href="#3-主控脚本" class="headerlink" title="3.主控脚本"></a>3.主控脚本</h3><p>即一个游戏的主控逻辑，类似于一个程序的main函数。但复杂游戏的主控脚本不一定只有一个。</p>
+<p>主控脚本中一般放着全局性的设计和逻辑，比如设置全局渲染帧率Application.targetFrameRate。</p>
+<p>我们可以把主控脚本挂载到一个空物体上，只要这个主控脚本不实现具体的游戏操作功能。</p>
+<h3 id="4-脚本的参数"><a href="#4-脚本的参数" class="headerlink" title="4.脚本的参数"></a>4.脚本的参数</h3><h4 id="（1）参数的用法："><a href="#（1）参数的用法：" class="headerlink" title="（1）参数的用法："></a>（1）<strong>参数的用法：</strong></h4><ol>
+<li>参数必须为 public，才可以在检查器中显示</li>
+<li>参数的名称即变量名：如rotateSpeed → Rotate Speed</li>
+<li>参数的默认值，即变量的默认值，可以 Reset 菜单重置</li>
+<li>参数的工具提示，即指针移到该变量上时可以设置出现的提示。可以用[Tooltip()]指定[Tooltip(“旋转角速度”)]</li>
+</ol>
+<p>第四点的示例：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c#">[<span class="hljs-meta">Tooltip(<span class="hljs-string">&quot;这个是Y轴向的角速度&quot;</span>)</span>] <span class="hljs-comment">//这种写法c#叫特性，java叫注解</span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> rotateSpeed = <span class="hljs-number">30f</span>;<br></code></pre></td></tr></table></figure>
+
+<h4 id="（2）参数在Unity脚本组件中的显示：（较为重要）"><a href="#（2）参数在Unity脚本组件中的显示：（较为重要）" class="headerlink" title="（2）参数在Unity脚本组件中的显示：（较为重要）"></a>（2）<strong><u>参数在Unity脚本组件中的显示：</u></strong>（较为重要）</h4><p>当一个变量在声明时被public修饰，那么他就可以在Unity的脚本组件中被看到并且允许修改。</p>
+<p>如图：</p>
+<p><img src="C:\Users\Fulaoba\AppData\Roaming\Typora\typora-user-images\image-20260509225953281.png" srcset="/img/loading.gif" lazyload alt="image-20260509225953281"></p>
+<p>这些都是在代码中被public修饰的变量。</p>
+<p><strong>创建一个好的脚本，设定好可以赋值的脚本参数，对于工具脚本的复用有重要的意义。这使得脚本复用时，可以通过在Unity里直接修改一些脚本参数，来适配不同物体复用一个工具脚本。</strong></p>
+<p><strong>我们对于哪个参数需要被设置为public，也是看他有没有在复用时被调整的必要。</strong></p>
+<h4 id="（3）参数的赋值：（理解记忆）"><a href="#（3）参数的赋值：（理解记忆）" class="headerlink" title="（3）参数的赋值：（理解记忆）"></a>（3）<strong>参数的赋值：（理解记忆）</strong></h4><p>参数的值，取决于最后那个对他赋值的。</p>
+<p>赋值的先后顺序分为：</p>
+<p><strong>类成员直接赋值（或默认值）—&gt;Unity组件中修改（如果可以）—&gt;Awake函数中赋值—&gt;Start()函数中赋值—&gt;Update()函数持续更新赋值。</strong></p>
+<p>这些赋值不一定都有，但谁是最后就用谁。</p>
+<h4 id="（4）参数的类型"><a href="#（4）参数的类型" class="headerlink" title="（4）参数的类型"></a>（4）参数的类型</h4><p><strong>参数的类型，分为值类型、引用类型</strong></p>
+<ul>
+<li>值类型：如 int，float，bool</li>
+<li>值类型（struct种类）：如Vector3，Color</li>
+<li>引用类型（class）：如String，GameObject，Transform，MeshRenderer</li>
+</ul>
+<p>不同类型初始值一般不同。</p>
+<p><strong>变量参数也可以是引用类型，包括：</strong></p>
+<ul>
+<li><strong>节点，GameObject</strong></li>
+<li><strong>组件，如 Transform、MeshRenderer、AudioSource</strong></li>
+<li><strong>资源，如 Material、Texture、AudioClip 、</strong></li>
+<li><strong>数组类型</strong></li>
+</ul>
+<p><strong><u>注意：引用类型在使用前一定要赋值，有所指向，否则会报错。</u></strong></p>
+<p>举例：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment">//值类型：</span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> intvalue<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> floatValue = <span class="hljs-number">0.5f</span>;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">bool</span> boolValue= <span class="hljs-literal">true</span>;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> stringValue=<span class="hljs-string">&quot;阿发你好&quot;</span>；<br><span class="hljs-keyword">public</span> Vector3 rotateSpeed = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">//struct类型赋值稍微特殊一点。</span><br><span class="hljs-keyword">public</span> Color color = <span class="hljs-keyword">new</span> Color(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>);<br><br><span class="hljs-comment">//引用类型：</span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> objName;<br><span class="hljs-keyword">public</span> GameObject obj;<br><span class="hljs-keyword">public</span> GameObject flag;<br><span class="hljs-keyword">public</span> Transform Tr;<br></code></pre></td></tr></table></figure>
+
+<p>我们在Unity的脚本组件中能够直接修改public修饰的变量，让这些值动态的变化，实现我们想要的功能，前提是我们在start()函数等之后的调用中不要覆盖我们的修改。</p>
+<p>一些细节：</p>
+<p><strong>其实，在C#里面，int,float 本质也是 struct 类型。string，原则上属于 class 类型</strong></p>
+<h4 id="（5）Unity运行的调试："><a href="#（5）Unity运行的调试：" class="headerlink" title="（5）Unity运行的调试："></a>（5）Unity运行的调试：</h4><p><strong>在unity运行游戏时，我们可以实时的修改游戏的运行状态：</strong></p>
+<ul>
+<li>我们可以在Scene3D界面拖动物体，实时修改。</li>
+<li>可以在Inspector检查器中实时修改每个物体实例的参数，或者调整脚本中的变量值**（无论是值类型还是引用类型都可以）**。</li>
+</ul>
+<p><strong><u>调试技巧：</u></strong></p>
+<p>这大大方便了我们对游戏的各项数值进行一个调试，测试最合适的数值。</p>
+<p>但游戏过程中是不能保存我们调试修改后数值的，想要将一个组件调试后的状态保持下来，我们利用以下方法：</p>
+<ul>
+<li>在 Play Mode （运行游戏模式）下，我们可以先暂停游戏，在目标组件<strong>右上角三个点中找到Copy Component</strong>，赋值当前组件状态信息。</li>
+<li>在 Edit Mode （编辑模式）下，目标组件右上角三个点中<strong>找到Paste Component Values</strong>，将先前的组件信息粘贴到可保存的状态下来。</li>
+</ul>
+<p>四、输入系统</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B8%B8%E6%88%8F-Unity/" class="print-no-link">#游戏/Unity</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Unity学习记录————脚本编程</div>
+      <div>http://example.com/2026/04/14/Unity学习记录——脚本编程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/15/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%94%E8%AE%B0/" title="leetcode代码题笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">leetcode代码题笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/11/java%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/" title="Java学习记录之一">
+                        <span class="hidden-mobile">Java学习记录之一</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

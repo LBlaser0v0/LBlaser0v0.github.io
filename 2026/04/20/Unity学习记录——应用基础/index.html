@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Unity学习记录——阿发跟学一、基础1.场景物体的移动：红色的x轴，绿色的y轴（向上），蓝色的z轴 物体GameObject的创建：Cube立方体，Sphere球体， gzimo导航器：在Scene3D界面的右上角，指示我们现在的视图状态和实际位置。 栅格Grid：表示XZ轴形成的坐标平面，position y的值为0。 天空盒Skybox：表示出游戏世界的背景。 视图相关操作：1.旋转视图：A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity学习记录————应用基础">
+<meta property="og:url" content="http://example.com/2026/04/20/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Unity学习记录——阿发跟学一、基础1.场景物体的移动：红色的x轴，绿色的y轴（向上），蓝色的z轴 物体GameObject的创建：Cube立方体，Sphere球体， gzimo导航器：在Scene3D界面的右上角，指示我们现在的视图状态和实际位置。 栅格Grid：表示XZ轴形成的坐标平面，position y的值为0。 天空盒Skybox：表示出游戏世界的背景。 视图相关操作：1.旋转视图：A">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-20T14:18:26.000Z">
+<meta property="article:modified_time" content="2026-05-10T08:44:00.507Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="游戏&#x2F;Unity">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Unity学习记录————应用基础 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Unity学习记录————应用基础"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-20 22:18" pubdate>
+          2026年4月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Unity学习记录————应用基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Unity学习记录——阿发跟学"><a href="#Unity学习记录——阿发跟学" class="headerlink" title="Unity学习记录——阿发跟学"></a>Unity学习记录——阿发跟学</h1><h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h4 id="1-场景"><a href="#1-场景" class="headerlink" title="1.场景"></a>1.场景</h4><p>物体的移动：红色的x轴，绿色的y轴（向上），蓝色的z轴</p>
+<p>物体GameObject的创建：Cube立方体，Sphere球体，</p>
+<p>gzimo导航器：在Scene3D界面的右上角，指示我们现在的视图状态和实际位置。</p>
+<p>栅格Grid：表示XZ轴形成的坐标平面，position y的值为0。</p>
+<p>天空盒Skybox：表示出游戏世界的背景。</p>
+<h5 id="视图相关操作："><a href="#视图相关操作：" class="headerlink" title="视图相关操作："></a><strong>视图相关操作：</strong></h5><p>1.旋转视图：Alt + 左键，在scene中旋转视角。<br>2.缩放视图:鼠标滚轮或ALT+RMB，精细缩放。<br>3.平移视图:MMB 鼠标中键。</p>
+<h5 id="导航器相关操作："><a href="#导航器相关操作：" class="headerlink" title="导航器相关操作："></a><strong>导航器相关操作：</strong></h5><p>1.按 Shift，点击中间的小方块，恢复方向<br>2.点Y轴，顶视图<br>3.点X轴，右视图<br>4.点Z轴，前视图</p>
+<h5 id="视图中心点："><a href="#视图中心点：" class="headerlink" title="视图中心点："></a><strong>视图中心点：</strong></h5><p>unity中视野的旋转是围绕着事业中心进行的，无法直接围绕着指定物体进行旋转视角。</p>
+<p>想要视野围绕着一个物体旋转，首先要将该物体放到视野中心。</p>
+<p>**方法：**1.框显所选，选中一个物体<br>2.按F键，置于视图中心（或者在层级管理器中双击这个事物）<br>3.此时旋转视图，似是绕着物体旋转，这里要使用Alt + 左键旋转。</p>
+<p><strong>出生点：添加一个新物体，物体位于视图中心</strong><br><strong>注意，出生点不是在(0,0,0)，而是在当前视图中心</strong></p>
+<p>透视与正交：</p>
+<p>unity中有两种视图：</p>
+<p>1.透视视图：Perspective，近大远小 ；<br>2.正交视图 Orthographic，又称等距视图 Isometric ；<br>透视图下，物体‘近大远小’。正交视图下，物体的显示与距离无关。</p>
+<p>点击导航器下的字体，就可以在透视视图和正交视图之间切换。</p>
+<p>正交视图主要用于对其物体，消除视觉误差。</p>
+<h4 id="2-3D原生物体"><a href="#2-3D原生物体" class="headerlink" title="2. 3D原生物体"></a>2. 3D原生物体</h4><p>Unity下自带的几种基本模型:<br>Cube，立方体； 边长1单位<br>Sphere，球体； 直径1单位<br>Capsule，胶囊体； 直径1单位，高2单位<br>Cylinder ，圆柱体；直径1单位，高2单位<br>Plane，平面。  边长10单位<br>Unity 尺寸单位，约定为1 米（但实际上是根据想创建的对象之间的相对大小来确定的）。</p>
+<p><strong>原生模型仅用于练习，真正的模型应在建模软件中制作</strong><br><strong>CG建模软件：3Dmax ／ Maya ／ Blender ／ Cinema4D&#x2F; ZBrush。</strong></p>
+<p><strong>物体的操作：</strong></p>
+<p>移动、旋转、缩放，使用Scene左侧的工具</p>
+<p>多选：</p>
+<p>先选中一个物体（Scene中，或者层级管理器中（推荐）），再按住ctrl或shift进行多选操作。</p>
+<p>复制duplicate：</p>
+<p>选中一个物体，快捷键Ctrl+D，复制出一个新物体。</p>
+<p>激活active：</p>
+<p>控制物体的显示&#x2F;隐藏，当暂时不需要这个事物，但又不想删除它时。</p>
+<p>可以在检查器中通过取消勾选隐藏他。</p>
+<p>对齐：</p>
+<p>通过进入正交视图，调整x，y，z轴方向上的各个物体的位置进行对齐。</p>
+<p><strong>Move Tool 移动工具</strong></p>
+<p>点击箭头可以仅朝对应的方向移动，点击平面可以仅在改平面上进行移动。</p>
+<p><strong>Rotate Tool，旋转工具</strong><br>演示：选中一个物体，绕Z轴旋转。<br>其中,可以在Transform中的rotation项里看到绕着各个轴方向的旋转角度。<br>Unity规定逆时为正，顺时针为负<br>可以在 Inspector 里精确指定<br>按住 CTRL 键后再去旋转时，角度增量为 15 度<br>Edit|Grid and Snap Settings 栅格吸附设置</p>
+<p><strong>Scale Tool ，缩放工具</strong></p>
+<p>可以选中一个物体缩放，分为轴向缩放，整体缩放。</p>
+<p>我们可以通过QWER来对工具进行切换。</p>
+<h4 id="3-模型："><a href="#3-模型：" class="headerlink" title="3.模型："></a>3.模型：</h4><p>模型都是由若干个面围成的，模型内部不需要被看见，所以一般什么也没有。</p>
+<h5 id="①网格Mesh："><a href="#①网格Mesh：" class="headerlink" title="①网格Mesh："></a>①网格Mesh：</h5><p>网格存储了模型的数据。</p>
+<ul>
+<li>模型的形状，由若干个小面围合而成</li>
+<li>模型是中空的</li>
+<li>Mesh中包含了<strong>面、顶点坐标、面的法向</strong>等数据</li>
+</ul>
+<p><strong>在 Unity 中观察模型的网格</strong></p>
+<ul>
+<li>Shaded 着色模式，显示表面材质</li>
+<li>Wireframe 线框模式，仅显示网格</li>
+<li>Shaded&amp;Wireframe线框着色模式</li>
+</ul>
+<p>显然，任何物体的表面都是由若干三角面围成（三角面可以被视为渲染面数的最小单位），面数越多，物体表面就越精细，GPU负担也越重。</p>
+<p>高模：指的是面数极多，精细度很高的模型。</p>
+<h5 id="②材质Material："><a href="#②材质Material：" class="headerlink" title="②材质Material："></a><strong>②材质Material：</strong></h5><p>定义了物体的表面细节，如：颜色，金属／非金属，光滑／粗糙，透明／半透明／不透明，凹陷／凸起。</p>
+<p>**给物体添加一个材质：**材质是一种资源，在assets目录下保存和管理，脚本等其他资源也在此管理。</p>
+<ul>
+<li>项目管理框中：在assets下创建一个资源管理文件夹Materials——&gt;在该文件夹下右击找到create，进入后点击material。</li>
+<li>在创建好的材质中可以修改它的参数，如：物体表面颜色（反照率albedo），透明度，金属度（metallic），光滑度（smoothness）等。</li>
+<li>最后将这个创建好的材质拖到这个物体，即可使用。</li>
+</ul>
+<h5 id="③纹理Texture："><a href="#③纹理Texture：" class="headerlink" title="③纹理Texture："></a>③纹理Texture：</h5><p>也称为贴图，用一张图片去表示物体表面颜色。比如往建好的模型上贴上设计好的图片。</p>
+<p>建模贴图属于建模师的工作，当我们拿到别人做好模型的时候，贴图已经被贴好了。</p>
+<h5 id="④网格、材质、纹理之间的关系："><a href="#④网格、材质、纹理之间的关系：" class="headerlink" title="④网格、材质、纹理之间的关系："></a>④网格、材质、纹理之间的关系：</h5><ul>
+<li>网格规定了一个物体的基本形状，点、线、面这种特殊特点；</li>
+<li>材质定义了物体的颜色，粗糙度，透明度等外表属性，定义光学特性；</li>
+<li>纹理为物体贴上了贴图，相当于给物体穿了一层衣服，更细节的定义了物体表面不同位置的颜色，定义表面像素颜色。</li>
+</ul>
+<h5 id="⑤外部模型的导入（FBX）："><a href="#⑤外部模型的导入（FBX）：" class="headerlink" title="⑤外部模型的导入（FBX）："></a><strong>⑤外部模型的导入（FBX）：</strong></h5><p>标准模型的文件格式是：FBX（也是Unity支持的格式）<br>fbx文件下一般包含了模型的网格和材质信息，贴图一般独立在外。</p>
+<p>可以通过各种CG建模软件：3Dmax&#x2F;Maya&#x2F;Blender&#x2F;Cinema4D&#x2F;ZBrush，<strong>在建模软件中，将模型导出为FBX格式即可</strong>。对于外部导入的模型，unity通常以亮蓝色显示。</p>
+<p><strong>FBX的使用方式：</strong></p>
+<p>导入Unity时，直接将fbx文件和贴图拖入到相应的文件夹中即可，可以在Unity中的项目文件夹下操作。</p>
+<p>对于一个FBX文件的贴图：</p>
+<ul>
+<li>有的模型需要贴图文件</li>
+<li>贴图文件的路径是约定好的</li>
+<li>放在与fbx相同目录，或者同级的Textures目录中</li>
+</ul>
+<p>同时一个物体也可能在不同表面有不同的材质，那么我们可以在检查器中找到Mesh网格中的Materials项，为这个物体设置多个材质。材质一般是放在这个物体下的，或者说挂载到这个物体上的。</p>
+<p><strong>材质替换（材质重映射Remap）：</strong></p>
+<p>对于已经给定好的物体材质，有时候是无法修改里面的参数的（只读文件）。<br>那么可以选中*.fbx资源文件，在 Inspector 中切到JMaterialss 属性，Use Embeded Materials，然后On Demand Remap：<strong>映射新的材质</strong>，点Apply应用设置。</p>
+<p><strong>使用外部材质：</strong></p>
+<ol>
+<li>选中 fbx 文件，在Materials的上方。</li>
+<li>选中Location：改为Use External Materials 使用外部材质</li>
+<li>点 Apply 应用，则将内嵌材质解压缩到 Materials 目录</li>
+<li>直接修改 Materials 目录下的材质文件</li>
+</ol>
+<p>这样操作之后，会在模型同目录下生成一个新的材质，原本嵌入fbx文件的不可修改材质，就可以用新材质替换。</p>
+<h4 id="4-物体细节："><a href="#4-物体细节：" class="headerlink" title="4.物体细节："></a>4.物体细节：</h4><p>平面：所有的平面都是没有厚度的，并且只渲染正面，背面透明。这样做是基于一般物体都是从外表面观察的，没有内表面观察的需要。</p>
+<h4 id="6-项目资源："><a href="#6-项目资源：" class="headerlink" title="6.项目资源："></a>6.项目资源：</h4><h5 id="6-1资源文件目录Assets。"><a href="#6-1资源文件目录Assets。" class="headerlink" title="6.1资源文件目录Assets。"></a>6.1资源文件目录Assets。</h5><p>常见类型：</p>
+<ol>
+<li>模型文件 Model*.fbx</li>
+<li>图片文件Texture（*jpg &#x2F; png &#x2F; psd &#x2F; tif )</li>
+<li>音频文件 AudioClip(*.mp3 &#x2F; wav &#x2F; aiff)</li>
+<li>脚本文件 Script (*.CS)</li>
+<li>材质文件 *.mat，场景文件 *.unity。</li>
+</ol>
+<p><strong>Assets采用目录式管理，和windows管理逻辑非常类似。</strong></p>
+<p>几个操作：</p>
+<ul>
+<li>在文件夹窗口查看，Show In Explorer</li>
+<li>添加、删除目录</li>
+<li>添加资源文件，文件会被拷贝到项目中</li>
+<li>复制资源，CTRL+D</li>
+<li>缩略图比例调节、列表模式</li>
+</ul>
+<h5 id="6-2场景文件夹Scenes："><a href="#6-2场景文件夹Scenes：" class="headerlink" title="6.2场景文件夹Scenes："></a>6.2场景文件夹Scenes：</h5><p>场景文件就是scenes文件夹下的.unity后缀的文件，它们储存了一个游戏场景的信息。</p>
+<p><strong>一个场景代表一个关卡，可以创建多个场景</strong><br>几个操作：</p>
+<ul>
+<li>添加场景，creat + scene即可</li>
+<li>打开场景</li>
+<li>编辑场景，保存 CTRL+,S</li>
+<li>在入门教程中，只使用一个场景。</li>
+</ul>
+<h5 id="6-3-资源包UnityPackage"><a href="#6-3-资源包UnityPackage" class="headerlink" title="6.3 资源包UnityPackage"></a>6.3 资源包UnityPackage</h5><p>资源包，即是对Assets资源文件夹进行打包。打包是为了更好的转移或者共享资源。</p>
+<p>导出资源包步骤：</p>
+<ul>
+<li>选择一个资源文件，或者一个目录</li>
+<li>右键，Export Package</li>
+<li>生成*.unitypackage资源包</li>
+</ul>
+<p>资源包的导出对象可以是一个单一资源、一个目录下的资源或者整个项目。</p>
+<p>导入资源包更为简单，直接将.unitypackage文件拖到项目管理窗口即可。</p>
+<p><strong>注意：实际项目开发中，如果导入的场景包包含Scenes文件夹，记得要改名字，不然导入的项目目录结构会乱。</strong></p>
+<h5 id="6-4-Unity官方资源商店："><a href="#6-4-Unity官方资源商店：" class="headerlink" title="6.4 Unity官方资源商店："></a>6.4 Unity官方资源商店：</h5><p><strong>资源商店 Asset Store ，<a target="_blank" rel="noopener" href="https://assetstore.unity.com/">https://assetstore.unity.com</a></strong><br>也可以在 Unity 打开，Window丨Asset Store<br>有一些免费或收费的资源，包含模型、材质纹理等。</p>
+<h4 id="7-物体操作和理论了解："><a href="#7-物体操作和理论了解：" class="headerlink" title="7.物体操作和理论了解："></a>7.物体操作和理论了解：</h4><h5 id="7-1轴心pivot："><a href="#7-1轴心pivot：" class="headerlink" title="7.1轴心pivot："></a>7.1轴心pivot：</h5><p>轴心是一个物体操作的基准点，对于一般物体，它的轴心就位于集合中心位置。</p>
+<p>移动，旋转等一些基础操作都是围绕着这个点（点上的轴）进行的。</p>
+<p><strong>但是对于自建模的物体，轴心可以定义在任何位置，比如一个圆环，其轴心并不在物体之上。</strong></p>
+<p>unity中改不了轴心点，只能在建模软件中修改。</p>
+<h5 id="7-2父子关系："><a href="#7-2父子关系：" class="headerlink" title="7.2父子关系："></a>7.2父子关系：</h5><p>父节点与子节点的关系，一些物体可以关联在一起形成一个整体功能，分为父子关系可以帮助管理。</p>
+<p>即如果两个物体模型有着从属关系，就可以将子物体挂到父物体之下，从而控制父物体时子物体也能一起管理。</p>
+<p>简单来说，父子级，指两个物体之间的关系</p>
+<ul>
+<li>在Hierarchy窗口中，</li>
+<li>拖动物体B，到 物体A下</li>
+<li>子物体会随着父物体一并移动</li>
+<li>删除父物体时，子物体一并删除</li>
+<li><strong>比较特殊的一点是，子物体的坐标是相对于父物体的轴心坐标系定义的，而非世界中心坐标系。</strong></li>
+</ul>
+<h5 id="7-3空物体Empty："><a href="#7-3空物体Empty：" class="headerlink" title="7.3空物体Empty："></a>7.3空物体Empty：</h5><p><strong>Creat Empty创建一个空物体。空物体是不可见的，没有网格参数。但有坐标，可以移动操作。空物体的作用类似于一个接口、节点或者说容器。</strong></p>
+<p>空物体其实作用很大：</p>
+<ol>
+<li>它可以作为一个父节点，用于节点的组织和管理</li>
+<li>可以用于标记一个位置</li>
+</ol>
+<p>比如，我们可以将两个相关物体一并挂载在一个空物体上，管理这个空物体就可以一起管理这两个物体。</p>
+<p>**同时如果我们向修改一个物体的轴心时，也可以设置一个空物体，将物体挂载在空物体上，那么物体可以通过这个空物体的轴心进行操作。**用父节点空物体轴心代替子物体的轴心，变相修改了一个物体的轴心。</p>
+<h5 id="7-4-Global与local坐标系："><a href="#7-4-Global与local坐标系：" class="headerlink" title="7.4 Global与local坐标系："></a>7.4 Global与local坐标系：</h5><p>1 Global，即世界坐标系</p>
+<ul>
+<li>以世界中心为轴</li>
+<li>6个方向代表：上下东西 南北</li>
+</ul>
+<p>2 Local，即本地坐标系</p>
+<ul>
+<li>以物体自身为轴</li>
+<li>6个方向代表：上下前后左右</li>
+</ul>
+<p>对物体的操作时，可以选择两个坐标轴其一。</p>
+<p>一般物体旋转时，**Local坐标系z轴始终朝物体最初设定的前方，而Global坐标系不会随着改变。**这是编写物理移动的脚本逻辑的重要理解前提，物体的移动一般是沿着Local来移动的。因为前后左右移动是在Local坐标系下才有的定义。</p>
+<p>**注意：有个模型通常方便于开发的设定，即y轴称为 up，z轴称为 forward，×轴称为 right，一般地，要求模型的正脸与Z轴方向一致。**所以forward z轴对写代码来说最重要。</p>
+<h5 id="7-5-pivot轴心和center几何中心模式："><a href="#7-5-pivot轴心和center几何中心模式：" class="headerlink" title="7.5 pivot轴心和center几何中心模式："></a>7.5 pivot轴心和center几何中心模式：</h5><p>可以在scene窗口控制栏进行轴心模式和几何中心模式的切换对物体的操作模式，<strong>通常情况下基本使用的是pivot轴心模式。</strong></p>
+<p>一般来说，物体的轴心和集合中心的位置不同。</p>
+<p><strong>简单理解，pivot轴心是物体建模时定义的物体支点，center几何中心是物体本身的中心。</strong></p>
+<p>有一个比较明显的区别就是，选中多个物体的情况下进行旋转，pivot模式下，各个物体绕着各自的轴旋转；center模式下，物体会绕着多个物体结合后的几何中心旋转。</p>
+<h4 id="8-组件component："><a href="#8-组件component：" class="headerlink" title="8.组件component："></a>8.组件component：</h4><h5 id="8-1什么是组件："><a href="#8-1什么是组件：" class="headerlink" title="8.1什么是组件："></a>8.1什么是组件：</h5><p>每个组件代表一个特定功能，需要什么功能，就添加什么组件。</p>
+<p><strong>在inspector检查器中带有各个物体上不同的组件。</strong></p>
+<p>组件例子：</p>
+<ul>
+<li>光源，Light；</li>
+<li>网格过滤器，Mesh Filter：<strong>用于加载物体的形状，包含着点线面、法向等集合数据。</strong><br>网格过滤器的内容可以通过FBX等建模文件给出，使网格过滤器的内容关联建模文件的网格信息。</li>
+<li>网格渲染器，Mesh Renderer：<strong>用于将网格过滤器中加载的形状渲染出来。</strong></li>
+</ul>
+<p>总结网格过滤器用于存储物体信息，网格渲染器用于渲染出物体的形状。</p>
+<p>想要物体实现什么功能，就要添加什么样的组件（Add Component）。</p>
+<p>Add Component在Inspector检查器中，可以进行组件添加。</p>
+<p>组件的删除也很简单。</p>
+<h5 id="8-2-AudioSource组件："><a href="#8-2-AudioSource组件：" class="headerlink" title="8.2 AudioSource组件："></a>8.2 AudioSource组件：</h5><p>这个组件用于播放音乐和音效。</p>
+<p>使用方式：</p>
+<ul>
+<li>准备一个音频文件，.mp3&#x2F;wav&#x2F;aiff等</li>
+<li>创建一个空物体</li>
+<li>Add Component ，在Audio列表项中找到Audio Source</li>
+<li>将音乐文件拖到 AudioSource.AudioClip 属性</li>
+<li>在3D窗口上方，选Toggle Audio On</li>
+</ul>
+<h5 id="8-3-transform组件："><a href="#8-3-transform组件：" class="headerlink" title="8.3 transform组件："></a>8.3 transform组件：</h5><p>transform组件被称为变换组件。</p>
+<p>包含着物体的基本参数：</p>
+<ul>
+<li>Position，物体位置（与父物体的相对坐标）</li>
+<li>Rotation，旋转(欧拉角)</li>
+<li>scale，大小缩放</li>
+</ul>
+<p>特点：所有物体都有transform组件，不可被删除。</p>
+<p>transform组件在脚本中经常被使用。</p>
+<h5 id="8-4-摄像机："><a href="#8-4-摄像机：" class="headerlink" title="8.4 摄像机："></a>8.4 摄像机：</h5><p>摄像机Camera，负责拍摄游戏画面。就像一个演出拍摄的摄影师。<br>解释：</p>
+<ol>
+<li>调整窗口布局，Scene／Game 并排显示</li>
+<li>选中摄像机，观察镜头范围</li>
+<li>摄像机的Z轴指向，即为拍摄方向</li>
+<li>拍到的画面，呈现在 Game 窗口中</li>
+<li>Game窗口中的画面，即为玩家最终所见画面</li>
+</ol>
+<p><strong>调整摄像机的角度，两种方法:</strong></p>
+<p>1.手工移动、旋转摄像机，对准目标</p>
+<p><strong>2.Align with View，与 3D视图对齐</strong></p>
+<ul>
+<li>先在 3D视图里摆好角度，此为观察者视角</li>
+<li>然后选中 Main Camera，执行 Align with View</li>
+<li>此时，摄像机视角与观察者视角完全相同</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B8%B8%E6%88%8F-Unity/" class="print-no-link">#游戏/Unity</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Unity学习记录————应用基础</div>
+      <div>http://example.com/2026/04/20/Unity学习记录——应用基础/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/22/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92&amp;%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%80%9D%E8%80%83%E8%AE%B0%E5%BD%95/" title="策划开发思考记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">策划开发思考记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/15/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%94%E8%AE%B0/" title="leetcode代码题笔记">
+                        <span class="hidden-mobile">leetcode代码题笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

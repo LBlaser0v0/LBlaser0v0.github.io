@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="每日几题 4.15[牛客网【2023】腾讯秋招技术岗编程合集](牛客网 - 找工作神器|笔试题库|面试经验|实习招聘内推，求职就业一站解决_牛客网)2.抽奖小A在玩一个网络游戏。这个游戏有个抽装备环节。装备池总共有n+m件装备，分别为n件普通装备和m件ssr装备。抽一次装备的费用按你抽中的装备决定。 抽中每一件装备的概率都为1&#x2F;(n+m)。如果你抽中了ssr装备。这次的抽装备费用为2金币">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode代码题笔记">
+<meta property="og:url" content="http://example.com/2026/04/15/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="每日几题 4.15[牛客网【2023】腾讯秋招技术岗编程合集](牛客网 - 找工作神器|笔试题库|面试经验|实习招聘内推，求职就业一站解决_牛客网)2.抽奖小A在玩一个网络游戏。这个游戏有个抽装备环节。装备池总共有n+m件装备，分别为n件普通装备和m件ssr装备。抽一次装备的费用按你抽中的装备决定。 抽中每一件装备的概率都为1&#x2F;(n+m)。如果你抽中了ssr装备。这次的抽装备费用为2金币">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=q_1,%20q_2,%20q_3&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=t_1,%20t_2,%20t_3&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=q_1,%20q_2,%20q_3&preview=true">
+<meta property="og:image" content="https://www.nowcoder.com/equation?tex=t_1,%20t_2,%20t_3&preview=true">
+<meta property="article:published_time" content="2026-04-15T15:05:34.000Z">
+<meta property="article:modified_time" content="2026-04-18T09:35:15.282Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码&#x2F;python&#x2F;leetcode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.nowcoder.com/equation?tex=q_1,%20q_2,%20q_3&preview=true">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>leetcode代码题笔记 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<script src="/live2d-widget/dist/autoload.js"></script>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Main_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="leetcode代码题笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-15 23:05" pubdate>
+          2026年4月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">leetcode代码题笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="每日几题"><a href="#每日几题" class="headerlink" title="每日几题"></a>每日几题</h1><hr>
+<h2 id="4-15"><a href="#4-15" class="headerlink" title="4.15"></a>4.15</h2><h3 id="牛客网【2023】腾讯秋招技术岗编程合集-牛客网-找工作神器-笔试题库-面试经验-实习招聘内推，求职就业一站解决-牛客网"><a href="#牛客网【2023】腾讯秋招技术岗编程合集-牛客网-找工作神器-笔试题库-面试经验-实习招聘内推，求职就业一站解决-牛客网" class="headerlink" title="[牛客网【2023】腾讯秋招技术岗编程合集](牛客网 - 找工作神器|笔试题库|面试经验|实习招聘内推，求职就业一站解决_牛客网)"></a>[牛客网【2023】腾讯秋招技术岗编程合集](<a target="_blank" rel="noopener" href="https://www.nowcoder.com/exam/test/96304732/detail?pid=38431372&examPageSource=Company&subTabName=written_page&testCallback=https://www.nowcoder.com/exam/company?currentTab=recommand&jobId=100&tagIds=138&testclass=%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91">牛客网 - 找工作神器|笔试题库|面试经验|实习招聘内推，求职就业一站解决_牛客网</a>)</h3><h4 id="2-抽奖"><a href="#2-抽奖" class="headerlink" title="2.抽奖"></a>2.抽奖</h4><p>小A在玩一个网络游戏。这个游戏有个抽装备环节。装备池总共有n+m件装备，分别为n件普通装备和m件ssr装备。抽一次装备的费用按你抽中的装备决定。</p>
+<p>抽中每一件装备的概率都为1&#x2F;(n+m)。如果你抽中了ssr装备。这次的抽装备费用为2金币，否则这次的费用为1金币。如果你抽中了ssr装备，得到奖励，并且装备不会放回。如果你抽中了普通装备。得到奖励，但是这件装备会放回装备池。现在小A希望抽中所有的ssr装备，请你计算一下：需要花费金币的期望值。</p>
+<p>时间限制：C&#x2F;C++ 1秒，其他语言2秒</p>
+<p>空间限制：C&#x2F;C++ 256M，其他语言512M</p>
+<p>输入描述：</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">输入一行：<span class="hljs-built_in">n</span>,m(<span class="hljs-number">1</span>&lt;=<span class="hljs-built_in">n</span>,m&lt;=<span class="hljs-number">106</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出描述：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">抽中所有的<span class="hljs-built_in">ssr</span>装备，需要花费金币的期望值。输出保留<span class="hljs-number">2</span>位有效小数。<br></code></pre></td></tr></table></figure>
+
+<p>示例1</p>
+<p>输入例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">6<br>010101<br></code></pre></td></tr></table></figure>
+
+<p>输出例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">7<br></code></pre></td></tr></table></figure>
+
+<p>例子说明：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns">删除后的串为<span class="hljs-number">0001或0111</span>时有最大价值 <br></code></pre></td></tr></table></figure>
+
+<h5 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h5><p>能看到题目中每抽中一次ssr，ssr的个数就-1，抽中sr则不变。我们将不同ssr个数的抽奖分为不同阶段，所以每个阶段的期望与上一个ssr的阶段有关。</p>
+<p>可以写出这个递推式E(m) &#x3D; [2+E(m-1)]m&#x2F;(n+m) + [1+E(m)]n&#x2F;(n+m)</p>
+<p>变形以下变成：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">E</span><span class="hljs-params">(m)</span></span> = <span class="hljs-number">2</span> + n/m + <span class="hljs-built_in">E</span>(m-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-comment">// 注意类名必须为 Main</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> in.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> in.nextInt();<br><br>        <span class="hljs-type">double</span> <span class="hljs-variable">wish</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> m; i &gt; <span class="hljs-number">0</span>; i--)&#123;  <span class="hljs-comment">//注意分析题目，每取走一个ssr都是一个概率事件，所以下一阶段的期望受到概率影响。</span><br>            wish += <span class="hljs-number">2</span> + (<span class="hljs-type">double</span>)n/i; <span class="hljs-comment">//概率转移方程：wish(m) = 2 + n/m + wish(m-1)</span><br>        &#125;<br>        System.out.printf(<span class="hljs-string">&quot;%.2f&quot;</span>,wish);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-有效序列的数量"><a href="#3-有效序列的数量" class="headerlink" title="3.有效序列的数量"></a>3.有效序列的数量</h4><p>我们定义一个有效序列为：该序列两端的数一个为最小值，另一个为次小值。（即序列两端以外的数一定<strong>大于等于</strong>最左边的数且<strong>大于等于</strong>最右边的数）</p>
+<p>现在给你一个序列 a ，想让你找到它的连续子序列中有多少个有效序列(比如 ，1 2 ，2 3，1 2 3 是序列 1 2 3 的连续子序列，但是 1 3 不是)</p>
+<p>注：长度为 2 的子序列，一定为有效序列，长度为 1 的子序列，一定不是有效序列</p>
+<p>时间限制：C&#x2F;C++ 1秒，其他语言2秒</p>
+<p>空间限制：C&#x2F;C++ 256M，其他语言512M</p>
+<p>输入描述：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs prolog">第一行输入一个整数 n 代表这个序列的长度<br>接下来输入 n 个整数，a[i] 代表系列中第 i 个元素<br><br><br>对于 <span class="hljs-number">20</span><span class="hljs-comment">% 的数据, 1 ≤ n ≤ 100</span><br>对于 <span class="hljs-number">70</span><span class="hljs-comment">% 的数据, 1 ≤ n ≤ 3,000</span><br>对于 <span class="hljs-number">100</span><span class="hljs-comment">% 的数据, 1 ≤ n ≤ 100,000</span><br><br><br>对于 <span class="hljs-number">100</span><span class="hljs-comment">% 的数据, 1 ≤ a[i] ≤ 1,000,000,000</span><br></code></pre></td></tr></table></figure>
+
+<p>输出描述：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">输出一个正整数表示有效序列的数量。<br></code></pre></td></tr></table></figure>
+
+<p>示例1</p>
+<p>输入例子：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">4</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">3</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<p>输出例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">4<br></code></pre></td></tr></table></figure>
+
+<p>例子说明：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">一共有 <span class="hljs-number">4</span> 组有效序列，分别为：<br>子序列<span class="hljs-selector-attr">[1,3]</span> 因为长度为 <span class="hljs-number">2</span>，一定为有效序列<br>子序列<span class="hljs-selector-attr">[1,3,1]</span> 因为第<span class="hljs-number">2</span>个数 “<span class="hljs-number">3</span>” 大于第 <span class="hljs-number">1</span> 个数和第 <span class="hljs-number">3</span> 个数<br>子序列<span class="hljs-selector-attr">[3,1]</span> 因为长度为 <span class="hljs-number">2</span>，一定为有效序列<br>子序列<span class="hljs-selector-attr">[1,2]</span> 因为长度为 <span class="hljs-number">2</span>，一定为有效序列<br></code></pre></td></tr></table></figure>
+
+<h5 id="解题思路：-1"><a href="#解题思路：-1" class="headerlink" title="解题思路："></a><strong>解题思路：</strong></h5><p>本质是</p>
+<blockquote>
+<p>枚举区间 <code>[i, j]</code>，判断<br> <code>min(中间) ≥ max(a[i], a[j])</code></p>
+</blockquote>
+<p>但是有些问题，导致复杂度过高了。</p>
+<h5 id="错误示例：算法复杂度过高"><a href="#错误示例：算法复杂度过高" class="headerlink" title="错误示例：算法复杂度过高"></a>错误示例：算法复杂度过高</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-comment">// 注意类名必须为 Main</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> in.nextInt();<br>        <span class="hljs-type">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            a[i] = in.nextInt();<br>        &#125;<br><br>        <span class="hljs-type">long</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-comment">// 长度为2的全部有效</span><br>        ans += n - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-comment">// 枚举左端点</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">currentMin</span> <span class="hljs-operator">=</span> Integer.MAX_VALUE;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i + <span class="hljs-number">2</span>; j &lt; n; j++) &#123;<br>                <span class="hljs-comment">// 更新区间最小值</span><br>                currentMin = Math.min(currentMin, a[j - <span class="hljs-number">1</span>]);<br><br>                <span class="hljs-comment">// 剪枝：已经不可能了</span><br>                <span class="hljs-keyword">if</span> (currentMin &lt; a[i]) <span class="hljs-keyword">break</span>;<br><br>                <span class="hljs-comment">// 判断是否满足</span><br>                <span class="hljs-keyword">if</span> (currentMin &gt;= Math.max(a[i], a[j])) &#123;<br>                    ans++;<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        System.out.println(ans);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>O(n^2)都过不了这题</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nix">运行超时<br>您的程序未能在规定时间内运行结束，请检查是否循环有错或算法复杂度过大。<br><span class="hljs-number">7</span><span class="hljs-symbol">/10</span> 组用例通过<br>运行时间<br><span class="hljs-number">2001</span>ms<br>占用内存<br><span class="hljs-number">21136</span>KB<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-18"><a href="#4-18" class="headerlink" title="4.18"></a>4.18</h2><h3 id="BISHI10-小红的字符串修改"><a href="#BISHI10-小红的字符串修改" class="headerlink" title="BISHI10 小红的字符串修改"></a><a href="%5B%E5%B0%8F%E7%BA%A2%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BF%AE%E6%94%B9_%E7%89%9B%E5%AE%A2%E9%A2%98%E9%9C%B8_%E7%89%9B%E5%AE%A2%E7%BD%91%5D(https://www.nowcoder.com/practice/66e0054ff6b345afa47bcd4e8ceb72d7?tpId=389&tqId=11183285&sourceUrl=/exam/oj?questionJobId=10&subTabName=online_coding_page)"><strong>BISHI10</strong> <strong>小红的字符串修改</strong></a></h3><p>描述<br>小红有一个由小写字母构成的字符串s，每次她可以把其中一个任意一个字母替换成其在字母表中相邻的字母，例如把’a’替换成’b’或者’z’。现在小红想知道，最少需要替换多少次，使得s成为t的子串。<br>如果字符串t可以通过从字符串s的开头删除若干(可能为零或全部)字符以及从结尾删除若干(可能为零或全部)字符得到，则字符串t是字符串s的子串。</p>
+<h4 id="解题思路：-2"><a href="#解题思路：-2" class="headerlink" title="解题思路："></a>解题思路：</h4><p>既然要变成字串，就用滑动窗口法，把s长度作为窗口长度，在t上从左往右轮流取窗口长度的字符串与s逐位进行字符相减，并考虑到26个字母可以环形取（z—&gt;a），加入新判断26-dif即可。</p>
+<p>这样将每位的字符差值最小绝对值相加，就可以得到总的最小变化次数less。</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-comment">// 注意类名必须为 Main, 不要有任何 package xxx 信息</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-comment">// 注意 hasNext 和 hasNextLine 的区别</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> in.nextLine().trim ();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">to</span> <span class="hljs-operator">=</span> in.nextLine().trim ();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">less</span> <span class="hljs-operator">=</span> Integer.MAX_VALUE, tmp = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">strlen</span> <span class="hljs-operator">=</span> str.length();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">tolen</span> <span class="hljs-operator">=</span> to.length();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;= tolen - strlen; i++) &#123;<br>            tmp = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; strlen; j++) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">dif</span> <span class="hljs-operator">=</span> Math.abs(to.charAt(i + j) - str.charAt(j));<br>                tmp += Math.min(dif,<span class="hljs-number">26</span> - dif);<br>            &#125;<br>            less = Math.min(tmp, less);<br>        &#125;<br>        System.out.println(less);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里把牛客网上通常有的while(hasNextInt())检查去掉了，因为这里输入的是字符串会导致程序无法运行。</p>
+<p>提示要注意nextInt和nextLine等一类的输入流的区别，不要导致代码出问题。</p>
+<h3 id="BISHI9-田忌赛马"><a href="#BISHI9-田忌赛马" class="headerlink" title="BISHI9 田忌赛马"></a><a href="%5B%E7%94%B0%E5%BF%8C%E8%B5%9B%E9%A9%AC_%E7%89%9B%E5%AE%A2%E9%A2%98%E9%9C%B8_%E7%89%9B%E5%AE%A2%E7%BD%91%5D(https://www.nowcoder.com/practice/49d799f65a0749588e9cd7e6135a4a9a?tpId=389&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=/exam/oj?questionJobId=10&subTabName=online_coding_page)"><strong>BISHI9</strong> <strong>田忌赛马</strong></a></h3><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>田忌与齐威王正在赛马，比赛一共三局，三局两胜，当一方马匹速度严格大于另一方时获胜，每匹马只能出场一次。 现在你已经知道了齐威王的马匹上场的顺序，将在第一、二、三场上场的马匹速度分别为 <img src="https://www.nowcoder.com/equation?tex=q_1,%20q_2,%20q_3&preview=true" srcset="/img/loading.gif" lazyload alt="img">。同时，你也已经知道了田忌所拥有的马匹速度，分别为 <img src="https://www.nowcoder.com/equation?tex=t_1,%20t_2,%20t_3&preview=true" srcset="/img/loading.gif" lazyload alt="img">。 你可以调整田忌的马匹出场顺序，你能否帮助田忌赢得这场比赛？</p>
+<p>输入:</p>
+<ul>
+<li>第一行输入三个整数 <img src="https://www.nowcoder.com/equation?tex=q_1,%20q_2,%20q_3&preview=true" srcset="/img/loading.gif" lazyload alt="img"> 代表齐威王按上场顺序的马匹速度。</li>
+<li>第二行输入三个整数 <img src="https://www.nowcoder.com/equation?tex=t_1,%20t_2,%20t_3&preview=true" srcset="/img/loading.gif" lazyload alt="img"> 代表田忌拥有的马匹速度。</li>
+</ul>
+<p>输出:</p>
+<ul>
+<li>如果田忌可以获胜（赢得至少两局），直接输出 <code>Yes</code>，否则输出 <code>No</code>。</li>
+</ul>
+<h4 id="解题思路：-3"><a href="#解题思路：-3" class="headerlink" title="解题思路："></a>解题思路：</h4><p>用循环先逐个接收齐威王和田忌的马数，只考虑一种临界情况：</p>
+<p>用田忌最小的马先跟周王的最大的比，再用剩下的两个比较一下，看看能不能都赢。</p>
+<p>如果能都应，那么其他能赢的情况也都满足了这个条件。</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-comment">// 注意类名必须为 Main, 不要有任何 package xxx 信息</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-comment">// 注意 hasNext 和 hasNextLine 的区别</span><br>        <span class="hljs-keyword">while</span> (in.hasNextInt()) &#123; <span class="hljs-comment">// 注意 while 处理多个 case</span><br>            <span class="hljs-type">int</span>[] King = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br>            <span class="hljs-type">int</span>[] Tian = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++)&#123;<br>                King[i] = in.nextInt();<br>            &#125;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">3</span>; j++)&#123;<br>                Tian[j] = in.nextInt();<br>            &#125;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">winCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, count = <span class="hljs-number">0</span>, tmp = <span class="hljs-number">0</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">Kmax</span> <span class="hljs-operator">=</span> Math.max(Math.max(King[<span class="hljs-number">0</span>],King[<span class="hljs-number">1</span>]),King[<span class="hljs-number">2</span>]);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">Tmin</span> <span class="hljs-operator">=</span> Math.min(Math.min(Tian[<span class="hljs-number">0</span>],Tian[<span class="hljs-number">1</span>]),Tian[<span class="hljs-number">2</span>]);<br>            Arrays.sort(King);<br>            Arrays.sort(Tian);<br>            <span class="hljs-keyword">if</span>(King[<span class="hljs-number">2</span>] &lt; Tian[<span class="hljs-number">0</span>])&#123;<br>                System.out.println(<span class="hljs-string">&quot;Yes&quot;</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">if</span>(Tian[<span class="hljs-number">2</span>] &gt; King[<span class="hljs-number">1</span>] &amp;&amp; Tian[<span class="hljs-number">1</span>] &gt; King[<span class="hljs-number">0</span>])&#123;<br>                    System.out.println(<span class="hljs-string">&quot;Yes&quot;</span>);<br>                &#125;<br>                <span class="hljs-keyword">else</span>&#123;<br>                    System.out.println(<span class="hljs-string">&quot;No&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>学到了利用import java.util.Arrays;中的sort方法对数组进行排序。</p>
+<p>方式：Arrays.sort(King);<br>            Arrays.sort(Tian);</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81-python-leetcode/" class="print-no-link">#代码/python/leetcode</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>leetcode代码题笔记</div>
+      <div>http://example.com/2026/04/15/代码题笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/20/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80/" title="Unity学习记录————应用基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Unity学习记录————应用基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/14/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/" title="Unity学习记录————脚本编程">
+                        <span class="hidden-mobile">Unity学习记录————脚本编程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qLmndcuCK2CgdNKbJtoCAs7J-MdYXbMMI","appKey":"lMh9xIhUodmWzuslGI8NDfsU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qlmndcuc.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},items:"(defaultItems)=>{\n return [\n   ...defaultItems,\n   {\n     id: 'github',\n     icon: 'github-fill',\n     title: '我的github',\n     onClick: ()=>window.open('https://github.com/LBlaser0v0')\n   }\n ]\n}\n",mobileDisplay:true,models:[{"path":"/live2d_models/hk416/normal/hk416.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,20],"scale":0.08,"stageStyle":{"width":275,"height":400}},{"path":"/live2d_models/cat-white/model.json","scale":0.1,"position":[40,40],"stageStyle":{"width":275,"height":300},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"/live2d_models/HK416-1-normal/model.json","scale":0.08,"position":[-15,10],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":350,"height":400}},{"path":"/live2d_models/potion-Maker-Pio/index.json","scale":0.4,"position":[-5,20],"stageStyle":{"width":300,"height":275},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:true,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:60000,message:function(){ return axios.get('https://v1.hitokoto.cn?c=i') .then(function (response) { return response.data.hitokoto ; }) .catch(function (error) { console.error(error); }); },wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}}});(oml2d)=>{
+   setTimeout(() => {
+  oml2d.tipsMessage('要一日三餐没烦恼哦', 3000, 10);
+}, 8000);
+}
+</script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
